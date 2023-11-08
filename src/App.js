@@ -6,6 +6,11 @@ function App() {
   return (
     <div className="App">
     
+      <BrowserRouter>
+        <Routes>
+         <Route path='/warehouse-details' element={<WarehouseDetails/>}/>
+        </Routes>
+      </BrowserRouter>
     </div>
   );
 }
