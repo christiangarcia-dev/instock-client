@@ -1,4 +1,4 @@
-import './Warehouse.scss';
+import './Warehouse-Details.scss';
 
 function WarehouseDetails() {
     return (
