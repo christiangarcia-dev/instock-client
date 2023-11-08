@@ -1,12 +1,17 @@
 @font-face {
     font-family: 'Titillium Web';
-    src: url("../../assets/fonts/Titillium_Web/TitilliumWeb-Regular.ttf") format('opentype');
+    src: url("../../assets/fonts/Titillium_Web/TitilliumWeb-Regular.ttf") format('truetype');
     font-weight: 400;
-    font-style: normal;
 }
 @font-face {
     font-family: 'Titillium Web';
-    src: url("../../assets/fonts/Titillium_Web/TitilliumWeb-Bold.ttf") format('opentype');
+    src: url("../../assets/fonts/Titillium_Web/TitilliumWeb-SemiBold.ttf") format('truetype');
     font-weight: 600;
-    font-style: bold;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Titillium Web', 'Sans-serif';
 }
