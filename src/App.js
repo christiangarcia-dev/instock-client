@@ -5,10 +5,11 @@ import WarehouseDetails from './components/Warehouse-Details/Warehouse-Details';
 function App() {
   return (
     <div className="App">
-        <BrowserRouter>
-      <Routes>
-        <Route path='/warehouse-details' element={<WarehouseDetails/>}/>
-      </Routes>
+    
+      <BrowserRouter>
+        <Routes>
+         <Route path='/warehouse-details' element={<WarehouseDetails/>}/>
+        </Routes>
       </BrowserRouter>
     </div>
   );
