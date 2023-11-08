@@ -2,15 +2,66 @@
 @use '../../styles/partials/mixins' as*;
 @use '../../styles/partials/variables' as*;
 
+
 .warehousedetails__containerOne{
     display: flex;
     border-bottom: 1px solid $color-cloud ;
     padding: 5vh;
     &-edit {
-        margin-left: 5vh;
+        margin-left: 20vh;
+        border-radius: 50%;
+    }
+}
+.warehousedetails__containerTwo {
+    padding:$mobile-main-padding;
+    border-bottom: 1px solid $color-cloud ;
+
+}
+
+.warehouse__contact {
+    display: flex;
+    justify-content: space-between;
+    &-contactName{
+        color: $color-slate;
+    }
+    &-contactInfo{
+        color: $color-slate;
+    }
+}
+.warehouse__address{
+    margin-bottom: 5vh;
+    &-sub {
+        color: $color-slate;
     }
 }
 
-.warehousedetails__containerOne-edit{
-    margin-left: 5vh;
+.warehousedetails__containerThree{
+    @extend .warehousedetails__containerTwo
+}
+
+.warehouse__inventory{
+    display: flex;
+    justify-content: space-between;
+
+    &-titleInve{
+        color: $color-slate;
+    }
+    &-titleCate {
+        color: $color-slate;
+
+    }
+    &-titleStatus{
+        color: $color-slate;
+
+    }
+    &-titleQTY {
+        color: $color-slate;
+
+    }
+}
+
+.warehouse__inventory-buttons{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 2vh;
 }
