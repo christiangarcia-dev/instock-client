@@ -8,8 +8,11 @@
     border-bottom: 1px solid $color-cloud ;
     padding: 5vh;
     &-edit {
-        margin-left: 20vh;
+        margin-left: 19vh;
         border-radius: 50%;
+    }
+    &-title {
+        margin-left: 1vh;
     }
 }
 .warehousedetails__containerTwo {
@@ -56,6 +59,10 @@
     }
     &-titleQTY {
         color: $color-slate;
+
+    }
+    &-stock{
+        border: 5px;
 
     }
 }

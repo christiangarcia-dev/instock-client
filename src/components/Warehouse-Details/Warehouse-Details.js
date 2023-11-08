@@ -40,7 +40,7 @@ function WarehouseDetails() {
                 </div>
                 <div className='warehouse__inventory-two'>
                     <h6 className='warehouse__inventory-titleStatus'>STATUS</h6>
-                    <p className='warehouse__inventory-stock?'>In stock</p>
+                    <p className='warehouse__inventory-stock'>In stock</p>
                     <h6 className='warehouse__inventory-titleQTY'>QTY</h6>
                     <p  className='warehouse__inventory-quantity'>Quantity</p>
                 </div>
