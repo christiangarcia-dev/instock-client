@@ -1,0 +1,74 @@
+@use '../../styles/partials/global' as*;
+@use '../../styles/partials/mixins' as*;
+@use '../../styles/partials/variables' as*;
+
+
+.warehouselist__containerOne{
+    display: flex;
+    flex-direction: column;
+    border-bottom: 1px solid $color-cloud ;
+    padding: 2vh;
+    &-search {
+        background-image: url('../../assets/icons/search-24px.svg');
+        height:30px;
+        background-repeat: no-repeat;
+        background-position: right 10px center;
+       padding: 2vh;
+       border: 1px solid $color-cloud;
+       border-radius: 20px;
+       margin-bottom: 2vh;
+       margin-top: 1vh;
+    }
+    &-add {
+        background-color: $color-isindigo;
+        border: none;
+        color: $color-white;
+        border-radius: 20px;
+        padding: 1vh;
+    }
+}
+.warehouselist__containerTwo {
+    padding:$mobile-main-padding;
+    border-bottom: 1px solid $color-cloud ;
+
+}
+
+.warehouselist__containerTwo{
+    @extend .warehouselist__containerTwo
+}
+
+.warehouse__allWarehouses{
+    display: flex;
+    justify-content: space-between;
+
+    &-titleWare{
+        color: $color-slate;
+    }
+    &-titleAddress {
+        color: $color-slate;
+
+    }
+    &-titleContact{
+        color: $color-slate;
+
+    }
+    &-titleInfo {
+        color: $color-slate;
+
+    }
+    &-stock{
+        border: 5px;
+
+    }
+    &-typeItem {
+        color: $color-isindigo;
+        font-weight: 600;
+    }
+}
+
+.warehouse__allWarehouses-buttons{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 2vh;
+}
+
