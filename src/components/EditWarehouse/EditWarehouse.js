@@ -3,11 +3,11 @@ import "../EditWarehouse/EditWarehouse.scss";
 function EditWarehouse() {
 
     return (
-        <div>
-            <div>
-                <h1> Edit EditWarehouse</h1>
+        <div className="form">
+            <div className="form__header-div">
+                <h1 className="form__header"> Edit EditWarehouse</h1>
             </div>
-            <form className="form">
+            <form className="form__form">
                 <div className="form__warehouse-div">
                     <h2>Warehouse Details</h2>
                     <label htmlFor="warehouseName" className="form__label">
@@ -54,6 +54,7 @@ function EditWarehouse() {
                 <div className="form__contact-div">
                     <h2>Contact Details</h2>
                     <label htmlFor="contactName" className="form__label">
+                        Contact Name
                         <input type="text"
                             name="contactName"
                             id="contactName"
@@ -63,6 +64,7 @@ function EditWarehouse() {
                         </input>
                     </label>
                     <label htmlFor="position" className="form__label">
+                        Position
                         <input type="text"
                             name="position"
                             id="position"
@@ -72,6 +74,7 @@ function EditWarehouse() {
                         </input>
                     </label>
                     <label htmlFor="phoneNumber" className="form__label">
+                        Phone Number
                         <input type="text"
                             name="phoneNumber"
                             id="phoneNumber"
@@ -81,6 +84,7 @@ function EditWarehouse() {
                         </input>
                     </label>
                     <label htmlFor="email" className="form__label">
+                        Email
                         <input type="email"
                             name="email"
                             id="email"
@@ -91,8 +95,8 @@ function EditWarehouse() {
                     </label>
                 </div>
                 <div className="form__buttons-div">
-                    <button type="button"> Cancel </button>
-                    <button type="submit"> Save </button>
+                    <button type="button" className="form__button"> Cancel </button>
+                    <button type="submit" className="form__button form__button--save"> Save </button>
                 </div>
 
             </form>
