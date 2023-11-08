@@ -1,8 +1,10 @@
 import './App.scss';
+import EditWarehouse from './components/EditWarehouse/EditWarehouse';
 
 function App() {
   return (
-    <div className="App">
+    <div>
+      <EditWarehouse/>
 
     </div>
   );
