@@ -7,6 +7,7 @@ function App() {
   return (
     <div className="App">
       <WarehouseInventoryPage />
+    
       <BrowserRouter>
         <Routes>
           {/* <Route path='/warehouse-details' element={<WarehouseDetails/>}/> */}

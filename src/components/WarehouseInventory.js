@@ -42,35 +42,39 @@ function WarehouseInventory({warehouseId}) {
     return (
         <section className="warehouse-inventory">
             <article className="warehouse-inventory__item">
-                <div>
-                    <h2>Inventory Item</h2>
-                    <div>
-                        <p>Television</p>
-                        <img
-                            className='warehouse-inventory__actions-details'
-                            src={rightArrowIcon}
-                            alt="Details"
-                        />
+
+                <section className='warehouse-inventory__details'>
+                    <div className='warehouse-inventory__text-group'>
+                        <div className='warehouse-inventory__subgroup'>
+                            <h2 className='warehouse-inventory__label'>Inventory Item</h2>
+                            <div className='warehouse-inventory__combo'>
+                                <p className='warehouse-inventory__item-value'>Television</p>
+                                <img
+                                    className='warehouse-inventory__item-details-icon'
+                                    src={rightArrowIcon}
+                                    alt="Details"
+                                />
+                            </div>
+                        </div>
+
+                        <div className='warehouse-inventory__subgroup'>
+                            <h2 className='warehouse-inventory__label'>Category</h2>
+                            <p className="warehouse-inventory__category-value">Electronics</p>
+                        </div>
                     </div>
-                </div>
-                <div className="warehouse-inventory__details">
-                    <div>
-                        <h2>Category</h2>
-                        <p className="warehouse-inventory__category">Electronics</p>
+
+                    <div className='warehouse-inventory__text-group'>
+                        <div className='warehouse-inventory__subgroup'>
+                            <h2 className='warehouse-inventory__label'>Status</h2>
+                            <p className="warehouse-inventory__status-value">In Stock</p>
+                        </div>
+                        <div className='warehouse-inventory__subgroup'>
+                            <h2 className='warehouse-inventory__label'>Qty</h2>
+                            <p className="warehouse-inventory__quantity-value">500</p>
+                        </div>
                     </div>
-                    <div>
-                        <h2>Status</h2>
-                        <p className="warehouse-inventory__status">In Stock</p>
-                    </div>
-                    <div>
-                        <h2>Qty</h2>
-                        <p className="warehouse-inventory__quantity">500</p>
-                    </div>
-                    <div>
-                        <h2>Warehouse</h2>
-                        <p>Manhattan</p>
-                    </div>
-                </div>
+                </section>
+
                 <div className="warehouse-inventory__actions">
                     <img
                         className='warehouse-inventory__actions-delete'

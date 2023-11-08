@@ -3,12 +3,99 @@
 @use '../styles//partials/variables' as *;
 
 .warehouse-inventory {
-    display: flex;
-    width: 100%;
     margin-top: 3rem;
 
     &__item {
         border-block: 1px solid $color-cloud;
         width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    &__details {
+        display: flex;
+        gap: 10vw;
+        padding-top: 0.5rem;
+    }
+
+    &__text-group {
+        display: flex;
+        flex-direction: column;
+        margin-left: $mobile-main-padding;
+        gap: 0.5rem;
+
+        &:nth-of-type(1) {
+            margin-left: 2rem;
+        }
+    }
+
+    &__subgroup {
+        display: flex;
+        flex-direction: column;
+        align-items: start;
+        margin: 1rem 0 0.5rem 0;
+    }
+
+    &__label {
+        font-size: 0.8rem;
+        color: $color-slate;
+        text-transform: uppercase;
+    }
+
+    &__combo {
+        display: flex;
+    }
+
+    &__item-value {
+        font-size: 0.95rem;
+        font-weight: 600;
+        color: $color-isindigo;
+        cursor: pointer;
+    }
+
+    &__item-details-icon {
+
+    }
+
+    &__category-value {
+        color: $color-isblack;
+        font-size: 1rem;
+    }
+
+    &__status-value {
+        font-size: 0.75rem;
+        font-weight: 600;
+        color: $color-green;
+        border: 1px solid transparent;
+        border-radius: 20px;
+        background: $green-opacity;
+        text-transform: uppercase;
+        padding-inline: 0.75rem;
+        padding-block: 0.3rem;
+        margin-bottom: -0.31rem;
+    }
+
+    &__quantity-value {
+        color: $color-isblack;
+        font-size: 1rem;
+    }
+
+    &__actions {
+        width: 100%;
+        display: flex;
+        margin-top: 0.5rem;
+        margin-bottom: 1.5rem;
+
+        &-delete {
+            margin-left: 1.9rem;
+            margin-right: auto;
+            cursor: pointer;
+        }
+
+        &-edit {
+            margin-right: 2rem;
+            cursor: pointer;
+        }
     }
 }
