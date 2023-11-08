@@ -1,10 +1,14 @@
 import "../EditWarehouse/EditWarehouse.scss";
+import backArrow from "../../assets/icons/arrow_back-24px.svg"
 
 function EditWarehouse() {
+
+
 
     return (
         <div className="form">
             <div className="form__header-div">
+                <img src={backArrow} alt="arrow pointing left"></img>
                 <h1 className="form__header"> Edit Warehouse</h1>
             </div>
             <form className="form__form">
