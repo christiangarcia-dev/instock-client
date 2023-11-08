@@ -1,9 +1,14 @@
+@use '../styles/partials/global' as *;
+@use '../styles//partials/mixins' as *;
+@use '../styles//partials/variables' as *;
+
 .warehouse-inventory {
     display: flex;
     width: 100%;
+    margin-top: 3rem;
 
     &__item {
-        border-block: 1px solid black;
+        border-block: 1px solid $color-cloud;
         width: 100%;
     }
 }
