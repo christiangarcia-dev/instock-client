@@ -5,15 +5,18 @@
 .header {
     padding: $mobile-main-padding;
     background-color: $color-graphite;
+    padding-bottom: 5rem;
 
     @include tablet {
         display: flex;
         justify-content: space-between;
         padding: 1rem $tablet-main-padding;
+        padding-bottom: 5rem;
     }
 
     @include desktop {
         padding: 1rem $desktop-main-padding;
+        padding-bottom: 5rem;
     }
 
     &__logo {
