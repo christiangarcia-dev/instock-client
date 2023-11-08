@@ -8,6 +8,10 @@
     flex-direction: column;
     border-bottom: 1px solid $color-cloud ;
     padding: 2vh;
+    @include tablet {
+        flex-direction: row;
+        justify-content: space-between;
+    }
     &-search {
         background-image: url('../../assets/icons/search-24px.svg');
         height:30px;
@@ -18,6 +22,9 @@
        border-radius: 20px;
        margin-bottom: 2vh;
        margin-top: 1vh;
+       @include tablet{
+        margin-right: 2vh;
+       }
     }
     &-add {
         background-color: $color-isindigo;
@@ -36,6 +43,7 @@
 .warehouselist__containerTwo{
     @extend .warehouselist__containerTwo
 }
+
 
 .warehouse__allWarehouses{
     display: flex;
@@ -63,6 +71,7 @@
     &-typeItem {
         color: $color-isindigo;
         font-weight: 600;
+        display: flex;
     }
 }
 
