@@ -1,7 +1,9 @@
-* {
-    background-color: aquamarine;
-}
-
 .warehouse-inventory {
-    // 
+    display: flex;
+    width: 100%;
+
+    &__item {
+        border-block: 1px solid black;
+        width: 100%;
+    }
 }
