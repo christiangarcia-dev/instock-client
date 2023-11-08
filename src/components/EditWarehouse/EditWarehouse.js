@@ -5,7 +5,7 @@ function EditWarehouse() {
     return (
         <div className="form">
             <div className="form__header-div">
-                <h1 className="form__header"> Edit EditWarehouse</h1>
+                <h1 className="form__header"> Edit Warehouse</h1>
             </div>
             <form className="form__form">
                 <div className="form__warehouse-div">
