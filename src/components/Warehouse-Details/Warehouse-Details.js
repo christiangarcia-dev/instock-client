@@ -2,13 +2,20 @@ import './Warehouse-Details.scss';
 import arrowBack from '../../assets/icons/arrow_back-24px.svg';
 import editIcon from '../../assets/icons/edit-24px.svg';
 import deleteIcon from '../../assets/icons/delete_outline-24px.svg'
+// import { Link } from 'react-router-dom';
 
 function WarehouseDetails() {
+    const goBack = () => {
+        return window.history.go(-1)
+    }
+
+    // const edit = () => {
+    //     <Link to={}
+    // }
     return (
     <section className='warehouse__details' >
-         {/* <button onClick= 'window.history("/")'></button> */}
          <section className='warehousedetails__containerOne'>
-            <img className='warehousedetails__containerOne-button' src={arrowBack}/>
+            <img onClick={goBack} className='warehousedetails__containerOne-button' src={arrowBack}/>
             <h2 className='warehousedetails__containerOne-title'>Washigton</h2>
             <img className='warehousedetails__containerOne-edit' src={editIcon}/>
          </section>
