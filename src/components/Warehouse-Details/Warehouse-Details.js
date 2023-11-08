@@ -4,7 +4,7 @@ function WarehouseDetails() {
     return (
     <section classname='warehouse__details' >
          {/* <button onClick= 'window.history("/")'></button> */}
-         <section classname='warehousedetails__containerOne'>
+         <section className='warehousedetails__containerOne'>
             <button classname='warehousedetails__containerOne-button'>flecha</button>
             <h1 classname='warehousedetails__containerOne-title'>Washigton</h1>
             <button classname='warehousedetails__containerOne-edit'>EDIT</button>
