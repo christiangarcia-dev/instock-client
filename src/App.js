@@ -1,8 +1,7 @@
 import './App.scss';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import WarehouseDetails from './components/Warehouse-Details/Warehouse-Details';
+import WarehouseList from './components/Warehouse-List/Warehouse-List';
 import Header from "./components/Header/Header";
-
 
 
 function App() {
@@ -11,7 +10,7 @@ function App() {
       <BrowserRouter>
       <Header />
         <Routes>
-         <Route path='/warehouse-details' element={<WarehouseDetails/>}/>
+         <Route path='/warehouse-list' element={<WarehouseList/>}/>
         </Routes>
       </BrowserRouter>
     </div>
