@@ -2,6 +2,8 @@ import './App.scss';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import WarehouseList from './components/Warehouse-List/Warehouse-List';
 import Header from "./components/Header/Header";
+import Footer from './components/Footer/Footer';
+
 
 
 function App() {
@@ -12,6 +14,7 @@ function App() {
         <Routes>
          <Route path='/warehouse-list' element={<WarehouseList/>}/>
         </Routes>
+        <Footer />
       </BrowserRouter>
     </div>
   );
