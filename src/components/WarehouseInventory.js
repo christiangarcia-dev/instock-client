@@ -15,6 +15,7 @@ function WarehouseInventory({warehouseId}) {
     useEffect(() => {
         const fetchInventory = async () => {
             try {
+            // make warehouse id dynamic with useParams once warehouse list is up 
             const response = await axios.get(`http://localhost:8080/api/warehouses/1/inventories`);
             console.log('LOOK HERE: ', response.data)
             setInventoryItems(response.data);
@@ -55,7 +56,13 @@ function WarehouseInventory({warehouseId}) {
                 <div className="warehouse-inventory__row" key={item.id}>
                     <div className="warehouse-inventory__row-item">{item.item_name}<img src={rightArrowIcon} className="warehouse-inventory__arrow-icon"></img></div>
                     <div className="warehouse-inventory__row-item">{item.category}</div>
-                    <div className="warehouse-inventory__row-item"><p className='warehouse-inventory__row-item--status'>{item.status}</p></div>
+                    <div className="warehouse-inventory__row-item"><p className={
+                            `warehouse-inventory__row-item--status ${
+                                item.status === 'In Stock' ? 'warehouse-inventory__row-item--status-instock' : 'warehouse-inventory__row-item--status-outofstock'
+                            }`
+                        }>
+                            {item.status}
+                        </p></div>
                     <div className="warehouse-inventory__row-item">{item.quantity}</div>
                     <div className="warehouse-inventory__row-item warehouse-inventory__row-item--actions">
                         <img src={editIcon} alt="Edit" onClick={() => alert('Edit item id ' + item.id)}/>

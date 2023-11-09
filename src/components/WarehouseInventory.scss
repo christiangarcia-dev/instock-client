@@ -18,6 +18,10 @@
 
     &__row {
         cursor: pointer;
+
+        &:hover {
+            background: $blue-opacity;
+        }
     }
 
     &__header {
@@ -43,6 +47,10 @@
 
         &:nth-of-type(4) {
             margin-left: 5rem;
+
+            @include desktop {
+                margin-left: 13rem;
+            }
         }
 
         // last column 
@@ -50,6 +58,10 @@
             width: min-content;
             margin-left: -8rem;
             margin-right: 1rem;
+
+            @include desktop {
+                margin-left: -20rem;
+            }
         }
 
         &--actions {
@@ -88,13 +100,21 @@
         }
 
         &--status {
-            background: $red-opacity;
-            color: $color-red;
             font-weight: 600;
             font-size: 0.8rem;
             text-transform: uppercase;
             border-radius: 20px;
             padding: 0.5rem 1rem;
+        }
+
+        &--status-instock {
+            background: $green-opacity;
+            color: $color-green;
+        }
+    
+        &--status-outofstock {
+            background: $red-opacity;
+            color: $color-red;
         }
 
         &--actions {
