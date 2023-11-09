@@ -13,7 +13,7 @@ function WarehouseList() {
     <section className='warehouse__list' >
          <section className='warehouselist__containerOne'>
             <h2 className='warehouselist__containerOne-title'>Warehouses</h2>
-            <div>
+            <div className='warehouse__nav'>
                 <input className='warehouselist__containerOne-search' type='text' placeholder='Search...'></input>
                 <button className='warehouselist__containerOne-add'>+ Add New Warehouse</button>
             </div>

@@ -2,12 +2,20 @@
 @use '../../styles/partials/mixins' as*;
 @use '../../styles/partials/variables' as*;
 
-
+.warehouse__list {
+    position: fixed;
+    top: 18vh;
+    background-color: $color-white;
+    width: 91% ;
+    margin: $mobile-main-margin;
+    // padding: 3vh 2vh 2vh 2vh;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
 .warehouselist__containerOne{
     display: flex;
     flex-direction: column;
     border-bottom: 1px solid $color-cloud ;
-    padding: 2vh;
+    padding: 5vh  2vh 2vh 2vh;
     @include tablet {
         flex-direction: row;
         justify-content: space-between;
@@ -32,6 +40,15 @@
         color: $color-white;
         border-radius: 20px;
         padding: 1vh;
+        margin-bottom: 1vh;
+    }
+}
+
+.warehouse__nav {
+    display: flex;
+    flex-direction: column;
+    @include tablet {
+        display: flex;
     }
 }
 .warehouselist__containerTwo {
