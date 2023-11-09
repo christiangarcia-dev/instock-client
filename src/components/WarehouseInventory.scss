@@ -1,101 +1,110 @@
-@use '../styles/partials/global' as *;
-@use '../styles//partials/mixins' as *;
-@use '../styles//partials/variables' as *;
+@import '../styles/partials/global';
+@import '../styles/partials/mixins';
+@import '../styles/partials/variables';
 
 .warehouse-inventory {
-    margin-top: 3rem;
-
-    &__item {
-        border-block: 1px solid $color-cloud;
+    &__table {
         width: 100%;
+        border-collapse: collapse;
+    }
+
+    &__header, &__row {
         display: flex;
-        flex-direction: column;
-        justify-content: center;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0.5rem;
+        border-bottom: 1px solid $color-cloud;
     }
 
-    &__details {
-        display: flex;
-        gap: 10vw;
-        padding-top: 0.5rem;
-    }
-
-    &__text-group {
-        display: flex;
-        flex-direction: column;
-        margin-left: $mobile-main-padding;
-        gap: 0.5rem;
-
-        &:nth-of-type(1) {
-            margin-left: 2rem;
-        }
-    }
-
-    &__subgroup {
-        display: flex;
-        flex-direction: column;
-        align-items: start;
-        margin: 1rem 0 0.5rem 0;
-    }
-
-    &__label {
-        font-size: 0.8rem;
-        color: $color-slate;
-        text-transform: uppercase;
-    }
-
-    &__combo {
-        display: flex;
-    }
-
-    &__item-value {
-        font-size: 0.95rem;
-        font-weight: 600;
-        color: $color-isindigo;
+    &__row {
         cursor: pointer;
     }
 
-    &__item-details-icon {
-
-    }
-
-    &__category-value {
-        color: $color-isblack;
-        font-size: 1rem;
-    }
-
-    &__status-value {
-        font-size: 0.75rem;
-        font-weight: 600;
-        color: $color-green;
-        border: 1px solid transparent;
-        border-radius: 20px;
-        background: $green-opacity;
+    &__header {
+        background-color: $color-lightgrey;
         text-transform: uppercase;
-        padding-inline: 0.75rem;
-        padding-block: 0.3rem;
-        margin-bottom: -0.31rem;
+        color: $color-slate;
+        font-size: 0.8rem;
+        font-weight: 600;
     }
 
-    &__quantity-value {
-        color: $color-isblack;
-        font-size: 1rem;
-    }
-
-    &__actions {
-        width: 100%;
+    &__header-item, &__row-item {
+        flex: 1;
+        text-align: left;
+        padding: 0.3rem;
         display: flex;
-        margin-top: 0.5rem;
-        margin-bottom: 1.5rem;
+        justify-content: flex-start;
+        min-width: max-content;
 
-        &-delete {
-            margin-left: 1.9rem;
-            margin-right: auto;
-            cursor: pointer;
+        // first column 
+        &:nth-of-type(1) {
+            margin-left: 2rem;
         }
 
-        &-edit {
-            margin-right: 2rem;
-            cursor: pointer;
+        &:nth-of-type(4) {
+            margin-left: 5rem;
         }
+
+        // last column 
+        &:nth-of-type(5) {
+            width: min-content;
+            margin-left: -8rem;
+            margin-right: 1rem;
+        }
+
+        &--actions {
+        display: flex;
+        justify-content: flex-end;
+        cursor: pointer;
+        }
+    }
+
+    &__header-item {
+        margin-left: 0.4rem;
+    }
+
+    &__row-item:nth-of-type(1) {
+        color: $color-isindigo;
+        font-weight: 600;
+        cursor: pointer;
+    }
+
+    // Status (in stock / out of stock) 
+    &__row-item:nth-of-type(3) {
+        justify-content: flex-start;
+    }
+
+    &__row-item {
+        padding: 0.8rem;
+
+        &--status {
+            background: $green-opacity;
+            color: $color-green;
+            font-weight: 600;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            border-radius: 20px;
+            padding: 0.5rem 1rem;
+        }
+
+        &--status {
+            background: $red-opacity;
+            color: $color-red;
+            font-weight: 600;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            border-radius: 20px;
+            padding: 0.5rem 1rem;
+        }
+
+        &--actions {
+            gap: 0.8rem;
+        }
+    }
+
+    &__sort-icon {
+        width: 17px;
+        cursor: pointer;
+        margin-left: 0.3rem;
     }
 }

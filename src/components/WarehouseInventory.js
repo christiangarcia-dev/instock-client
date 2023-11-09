@@ -5,97 +5,68 @@ import { useNavigate } from 'react-router-dom';
 import deleteIcon from '../assets/icons/delete_outline-24px.svg';
 import editIcon from '../assets/icons/edit-24px.svg';
 import rightArrowIcon from '../assets/icons/chevron_right-24px.svg';
+import sortIcon from '../assets/icons/sort-24px.svg';
 
 function WarehouseInventory({warehouseId}) {
 
     const [inventoryItems, setInventoryItems] = useState([]);
 
     // Get inventory items for specific specific warehouse 
-    // useEffect(() => {
-    //     const fetchInventory = async () => {
-    //     try {
-    //         const response = await axios.get(`http://localhost:8080/warehouse/${warehouseId}/inventory`);
-    //         setInventoryItems(response.data);
-    //     }   catch (error) {
-    //             console.error('Error fetching inventory data:', error);
-    //         }
-    // };
+    useEffect(() => {
+        const fetchInventory = async () => {
+            try {
+            const response = await axios.get(`http://localhost:8080/api/warehouses/1/inventories`);
+            console.log('LOOK HERE: ', response.data)
+            setInventoryItems(response.data);
+            } catch (error) {
+            console.error('Error fetching inventory data:', error);
+            }
+        };
+        
+        fetchInventory();
+        }, [warehouseId]);
 
-    // fetchInventory();
-    // }, [warehouseId]);
+    // Delete specific inventory item for specific warehouse 
+    const handleDelete = async (itemId) => {
+        try {
+            await axios.delete(`http://localhost:8080/api/warehouses/${warehouseId}/inventories/${itemId}`);
+            setInventoryItems(inventoryItems.filter(item => item.id !== itemId));
+        }   catch (error) {
+                console.error('Error deleting inventory item:', error);
+            }
+    };
 
-    // // Delete specific inventory item for specific warehouse 
-    // const handleDelete = async (itemId) => {
-    //     try {
-    //         await axios.delete(`http://localhost:8080/warehouse/${warehouseId}/inventory/${itemId}`);
-    //         setInventoryItems(inventoryItems.filter(item => item.id !== itemId));
-    //     }   catch (error) {
-    //             console.error('Error deleting inventory item:', error);
-    //         }
-    // };
-
-    // const handleEdit = (itemId) => {
-    //     // Edit item 
-    //     // Navigate to edit page (route has not been created yet)
-    // };
+    const handleEdit = (itemId) => {
+        // Edit item 
+        // Navigate to edit page (route has not been created yet)
+    };
 
     return (
-        <section className="warehouse-inventory">
-            <article className="warehouse-inventory__item">
-
-                <section className='warehouse-inventory__details'>
-                    <div className='warehouse-inventory__text-group'>
-                        <div className='warehouse-inventory__subgroup'>
-                            <h2 className='warehouse-inventory__label'>Inventory Item</h2>
-                            <div className='warehouse-inventory__combo'>
-                                <p className='warehouse-inventory__item-value'>Television</p>
-                                <img
-                                    className='warehouse-inventory__item-details-icon'
-                                    src={rightArrowIcon}
-                                    alt="Details"
-                                />
-                            </div>
-                        </div>
-
-                        <div className='warehouse-inventory__subgroup'>
-                            <h2 className='warehouse-inventory__label'>Category</h2>
-                            <p className="warehouse-inventory__category-value">Electronics</p>
-                        </div>
-                    </div>
-
-                    <div className='warehouse-inventory__text-group'>
-                        <div className='warehouse-inventory__subgroup'>
-                            <h2 className='warehouse-inventory__label'>Status</h2>
-                            <p className="warehouse-inventory__status-value">In Stock</p>
-                        </div>
-                        <div className='warehouse-inventory__subgroup'>
-                            <h2 className='warehouse-inventory__label'>Qty</h2>
-                            <p className="warehouse-inventory__quantity-value">500</p>
-                        </div>
-                    </div>
-                </section>
-
-                <div className="warehouse-inventory__actions">
-                    <img
-                        className='warehouse-inventory__actions-delete'
-                        src={deleteIcon}
-                        alt="Delete"
-                        // onClick={() => handleDelete(item.id)}
-                    />
-                    <img
-                        className='warehouse-inventory__actions-edit'
-                        src={editIcon}
-                        alt="Edit"
-                        // onClick={() => handleEdit(item.id)}
-                    />
+        <div className="warehouse-inventory">
+            <div className="warehouse-inventory__table">
+                <div className="warehouse-inventory__header">
+                    <div className="warehouse-inventory__header-item">Inventory Item<img src={sortIcon} className="warehouse-inventory__sort-icon" /></div>
+                    <div className="warehouse-inventory__header-item">Category<img src={sortIcon} className="warehouse-inventory__sort-icon" /></div>
+                    <div className="warehouse-inventory__header-item">Status<img src={sortIcon} className="warehouse-inventory__sort-icon" /></div>
+                    <div className="warehouse-inventory__header-item">Quantity<img src={sortIcon} className="warehouse-inventory__sort-icon" /></div>
+                    <div className="warehouse-inventory__header-item warehouse-inventory__header-item--actions">Actions</div>
                 </div>
-            </article>
-        </section>
+                {inventoryItems.map((item) => (
+                <div className="warehouse-inventory__row" key={item.id}>
+                    <div className="warehouse-inventory__row-item">{item.item_name}<img src={rightArrowIcon} className="warehouse-inventory__arrow-icon"></img></div>
+                    <div className="warehouse-inventory__row-item">{item.category}</div>
+                    <div className="warehouse-inventory__row-item"><p className='warehouse-inventory__row-item--status'>{item.status}</p></div>
+                    <div className="warehouse-inventory__row-item">{item.quantity}</div>
+                    <div className="warehouse-inventory__row-item warehouse-inventory__row-item--actions">
+                        <img src={editIcon} alt="Edit" onClick={() => alert('Edit item id ' + item.id)}/>
+                        <img src={deleteIcon} alt="Delete" onClick={() => alert('Delete item id ' + item.id)}/>
+                    </div>
+                </div>
+                ))}
+            </div>
+        </div>
     );
 }
 
 export default WarehouseInventory;
 
-// Review Questions: 
-// Should i replace 8080 with 'PORT'?
-// Double check endpoints (warehouse/warehouse-id/inventory/inventory-id
