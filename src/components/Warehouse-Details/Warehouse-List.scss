@@ -8,8 +8,17 @@
     background-color: $color-white;
     width: 91% ;
     margin: $mobile-main-margin;
-    // padding: 3vh 2vh 2vh 2vh;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+@include tablet {
+    .warehouselist__titles {
+        display: flex;
+        flex-direction: row;
+        padding: $mobile-main-padding;
+        background-color: $color-lightgrey;
+        display: flex;
+        justify-content: space-around;
+    }
 }
 .warehouselist__containerOne{
     display: flex;
@@ -19,6 +28,7 @@
     @include tablet {
         flex-direction: row;
         justify-content: space-between;
+        padding: 3vh;
     }
     &-search {
         background-image: url('../../assets/icons/search-24px.svg');
@@ -48,53 +58,100 @@
     display: flex;
     flex-direction: column;
     @include tablet {
-        display: flex;
-    }
+        flex-direction: row    }
 }
 .warehouselist__containerTwo {
     padding:$mobile-main-padding;
-    border-bottom: 1px solid $color-cloud ;
+    border-bottom: 1px solid $color-cloud;
+    @include tablet {
+        display: flex;
+    }
 
-}
-
-.warehouselist__containerTwo{
-    @extend .warehouselist__containerTwo
 }
 
 
 .warehouse__allWarehouses{
     display: flex;
     justify-content: space-between;
-
+    // @include tablet {
+    //     justify-content: space-around;
+    // }
+  
     &-titleWare{
         color: $color-slate;
+        @include tablet{
+            display: none;
+        }
+    }
+    &--titleWare{
+        display: none;
+        @include tablet {
+            display:flex;
+        }
     }
     &-titleAddress {
         color: $color-slate;
-
+        @include tablet{
+            display: none;
+        }
+    }
+    &--titleAddress{
+        display: none;
+        @include tablet {
+            display:flex;
+        }
     }
     &-titleContact{
         color: $color-slate;
-
+        @include tablet{
+            display: none;
+        }
+    }
+    &--titleContact{
+        display: none;
+        @include tablet {
+            display:flex;
+        }
     }
     &-titleInfo {
         color: $color-slate;
-
+        @include tablet{
+            display: none;
+        }
     }
     &-stock{
         border: 5px;
-
     }
     &-typeItem {
         color: $color-isindigo;
         font-weight: 600;
         display: flex;
     }
+    &-one {
+        @include tablet {
+            display:  flex;
+            flex-direction: row;
+        }  
+    }
+    &-two {
+        @include tablet {
+            display: flex;
+            flex-direction: row;
+        }
+    }
 }
 
-.warehouse__allWarehouses-buttons{
+.warehouse__allWarehouses{
+    &-title {
+        display: none;
+        @include tablet {
+            display: flex;
+        }
+    }
+&-buttons{
     display: flex;
     justify-content: space-between;
     margin-top: 2vh;
+}
 }
 

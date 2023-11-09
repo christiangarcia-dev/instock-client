@@ -18,14 +18,24 @@ function WarehouseList() {
                 <button className='warehouselist__containerOne-add'>+ Add New Warehouse</button>
             </div>
          </section>
-        
+            <div className='warehouselist__titles'>
+                <h6 className='warehouse__allWarehouses--titleWare'>WAREHOUSE</h6>
+                <h6 className='warehouse__allWarehouses--titleAddress'>ADDRESS</h6>
+                <h6 className='warehouse__allWarehouses--titleContact'>CONTACT NAME</h6>
+                <h6 className='warehouse__allWarehouses--titleInfo'>CONTACT INFORMATION</h6>
+                <h6 className='warehouse__allWarehouse-title'>ACTIONS</h6>
+            </div>
          <section className='warehouselist__containerTwo'>
             <div className='warehouse__allWarehouses'>
                 <div className='warehouse__allWarehouses-one'>
-                    <h6 className='warehouse__allWarehouses-titleWare'>WAREHOUSE</h6>
+                    <div>
+                        <h6 className='warehouse__allWarehouses-titleWare'>WAREHOUSE</h6>
                         <p className='warehouse__allWarehouses-typeItem'>Item <img src={chevronRight}/> </p>
-                    <h6 className='warehouse__allWarehouses-titleAddress'>ADDRESS</h6>
-                    <p className='warehouse__allWarehouses-category'>CategoryType</p>
+                    </div>
+                    <div>
+                        <h6 className='warehouse__allWarehouses-titleAddress'>ADDRESS</h6>
+                        <p className='warehouse__allWarehouses-category'>CategoryType</p>
+                    </div>
                 </div>
                 <div className='warehouse__allWarehouses-two'>
                     <h6 className='warehouse__allWarehouses-titleContact'>CONTACT NAME</h6>
