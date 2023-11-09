@@ -1,16 +1,14 @@
 import './App.scss';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import WarehouseList from './components/Warehouse-Details/Warehouse-List';
+import Header from "./components/Header/Header";
 
 
 function App() {
   return (
     <div className="App">
-<<<<<<< HEAD
-  
-=======
->>>>>>> develop
       <BrowserRouter>
+      <Header />
         <Routes>
          <Route path='/warehouse-list' element={<WarehouseList/>}/>
         </Routes>
