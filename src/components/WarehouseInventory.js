@@ -1,14 +1,16 @@
 import './WarehouseInventory.scss';
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import { useParams } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
 import deleteIcon from '../assets/icons/delete_outline-24px.svg';
 import editIcon from '../assets/icons/edit-24px.svg';
 import rightArrowIcon from '../assets/icons/chevron_right-24px.svg';
 import sortIcon from '../assets/icons/sort-24px.svg';
 
-function WarehouseInventory({warehouseId}) {
+function WarehouseInventory() {
 
+    const { warehouseId } = useParams();
     const [isMobileView, setIsMobileView] = useState(window.innerWidth < 768);
     const [inventoryItems, setInventoryItems] = useState([]);
 
@@ -17,7 +19,7 @@ function WarehouseInventory({warehouseId}) {
         const fetchInventory = async () => {
             try {
             // make warehouse id dynamic with useParams once warehouse list is up 
-            const response = await axios.get(`http://localhost:8080/api/warehouses/1/inventories`);
+            const response = await axios.get(`http://localhost:8080/api/warehouses/${warehouseId}/inventories`);
             setInventoryItems(response.data);
             } catch (error) {
             console.error('Error fetching inventory data:', error);
@@ -155,3 +157,6 @@ function WarehouseInventory({warehouseId}) {
 
 export default WarehouseInventory;
 
+// STILL NEEDED: 
+// useParams() to display inventory for specific warehouse 
+// navigation for edit item, delete item, and item itself 
