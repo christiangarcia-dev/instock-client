@@ -18,7 +18,6 @@ function WarehouseInventory({warehouseId}) {
             try {
             // make warehouse id dynamic with useParams once warehouse list is up 
             const response = await axios.get(`http://localhost:8080/api/warehouses/1/inventories`);
-            console.log('LOOK HERE: ', response.data)
             setInventoryItems(response.data);
             } catch (error) {
             console.error('Error fetching inventory data:', error);
@@ -62,34 +61,56 @@ function WarehouseInventory({warehouseId}) {
                 {inventoryItems.map((item) => (
                 <article key={item.id} className="warehouse-inventoryMB__item">
                     <div>
-                        <h2 className="warehouse-inventoryMB__title">Inventory Item: {item.item_name}</h2>
+
+                        <div className='warehouse-inventoryMB__flex--group'>
+                            {/* item group*/}
+                            <div className='warehouse-inventoryMB__title--group'>
+                                <h2 className="warehouse-inventoryMB__title warehouse-inventoryMB__label">Inventory Item:</h2>
+                                <div className='warehouse-inventoryMB__title--text-icon'>
+                                    <p className='warehouse-inventoryMB__title--value'>{item.item_name}<img className='warehouse-inventoryMB__detail-icon' src={rightArrowIcon} alt="Details"/></p>
+                                </div>
+                            </div>
+
+                            {/* status group */}
+                            <div className='warehouse-inventoryMB__status--group'>
+                                <h2 className="warehouse-inventoryMB__status warehouse-inventoryMB__label">Status:</h2>
+                                {/* <p className='warehouse-inventoryMB__status--value'>{item.status}</p> */}
+                                <p className={`warehouse-inventoryMB__status--value ${item.status === 'In Stock' ? 
+                                'warehouse-inventoryMB__status--value-instock' : 'warehouse-inventoryMB__status--value-outofstock'}`}>{item.status}</p>
+                            </div>
+                        </div>
+
+
+                        <div className='warehouse-inventoryMB__flex--group'>
+                            {/* category group */}
+                            <div className='warehouse-inventoryMB__category--group'>
+                                <h2 className="warehouse-inventoryMB__category warehouse-inventoryMB__label">Category:</h2>
+                                <p className='warehouse-inventoryMB__category--value'>{item.category}</p>
+                            </div>
+
+                            {/* quantitiy group */}
+                            <div className='warehouse-inventoryMB__quantity--group'>
+                                <h2 className="warehouse-inventoryMB__quantity warehouse-inventoryMB__label">Qty:</h2>
+                                <p className='warehouse-inventoryMB__quantity--value'>{item.quantity}</p>
+                            </div>
+                        </div>
+                    </div>
+                        
+
+                    {/* action buttons group */}
+                    <div className="warehouse-inventoryMB__actions">
                         <img
-                            className='warehouse-inventoryMB__detail-icon'
-                            src={rightArrowIcon}
-                            alt="Details"
+                            className='warehouse-inventoryMB__action warehouse-inventoryMB__action--delete'
+                            src={deleteIcon}
+                            alt="Delete"
+                            onClick={() => handleDelete(item.id)}
                         />
-                        {/* Additional details can be added here */}
-                        <div className="warehouse-inventoryMB__details">
-                            <span className="warehouse-inventoryMB__category">Category: {item.category}</span>
-                            <span className={`warehouse-inventoryMB__status warehouse-inventoryMB__status--${item.status.toLowerCase().replace(/\s/g, '-')}`}>
-                                Status: {item.status}
-                            </span>
-                            <span className="warehouse-inventoryMB__quantity">Qty: {item.quantity}</span>
-                        </div>
-                        <div className="warehouse-inventoryMB__actions">
-                            <img
-                                className='warehouse-inventoryMB__action warehouse-inventoryMB__action--delete'
-                                src={deleteIcon}
-                                alt="Delete"
-                                onClick={() => handleDelete(item.id)}
-                            />
-                            <img
-                                className='warehouse-inventoryMB__action warehouse-inventoryMB__action--edit'
-                                src={editIcon}
-                                alt="Edit"
-                                onClick={() => handleEdit(item.id)}
-                            />
-                        </div>
+                        <img
+                            className='warehouse-inventoryMB__action warehouse-inventoryMB__action--edit'
+                            src={editIcon}
+                            alt="Edit"
+                            onClick={() => handleEdit(item.id)}
+                        />
                     </div>
                 </article>
             ))}
