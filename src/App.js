@@ -12,7 +12,6 @@ function App() {
           <Route path='/' element={<HomePage />}/>
           <Route path='/warehouse-details' element={<WarehouseDetailsPage />} />
         </Routes>
-        <Footer />
       </BrowserRouter>
     </div>
   );
