@@ -3,7 +3,6 @@
 @use "../../styles/partials/variables" as *;
 
 .form {
-    padding: 0 .5rem;
 
     &__header-div {
         display: flex;
@@ -20,12 +19,10 @@
 
     }
 
-    &__form {
-
-    } 
+    &__form {}
 
     &__warehouse-div {
-
+        padding: 0 .5rem;
     }
 
     &__label {
@@ -41,14 +38,32 @@
         border: 1px solid $color-cloud;
     }
 
+    &__contact-div {
+        padding: 0 .5rem;
+    }
+
+    &__buttons-div {
+        background-color: $color-lightgrey;
+        height: 4.25rem;
+        width: 21.4375rem;
+        padding: 0 .5rem;
+
+    }
+
     &__button {
         height: 2.25rem;
-        width: 50%;
+        width: 40%;
         padding: 0 1rem;
         border-radius: 1.25rem;
+        border: 1px solid $color-cloud;
+        background-color: $color-white;
+
     }
 
     &__button--save {
+        background-color: $color-isindigo;
+        color: $color-white;
+        border: none;
 
-    } 
+    }
 }

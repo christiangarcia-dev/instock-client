@@ -2,6 +2,7 @@ import './App.scss';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import WarehouseDetails from './components/Warehouse-Details/Warehouse-Details';
 import Header from "./components/Header/Header";
+import EditWarehouse from './components/EditWarehouse/EditWarehouse';
 
 
 function App() {
@@ -14,6 +15,7 @@ function App() {
          <Route path='/warehouse-details' element={<WarehouseDetails/>}/>
         </Routes>
       </BrowserRouter>
+      <EditWarehouse />
     </div>
   );
 }
