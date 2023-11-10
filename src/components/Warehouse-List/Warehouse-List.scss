@@ -3,8 +3,8 @@
 @use '../../styles/partials/variables' as*;
 
 .warehouse__list {
-    position: fixed;
-    top: 18vh;
+    position: relative;
+    top: -10vh;
     background-color: $color-white;
     width: 91% ;
     margin: $mobile-main-margin;

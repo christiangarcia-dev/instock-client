@@ -18,17 +18,16 @@ function WarehouseList() {
         getWarehouses();
     }, [])
 
-
   
     return (
     <section className='warehouse__list' >
-         <section className='warehouselist__containerOne'>
+        <section className='warehouselist__containerOne'>
             <h2 className='warehouselist__containerOne-title'>Warehouses</h2>
             <div className='warehouse__nav'>
                 <input className='warehouselist__containerOne-search' type='text' placeholder='Search...'></input>
                 <button className='warehouselist__containerOne-add'>+ Add New Warehouse</button>
             </div>
-         </section>
+        </section>
             <div className='warehouselist__titles'>
                 <h6 className='warehouse__allWarehouses--titleWare'>WAREHOUSE</h6>
                 <h6 className='warehouse__allWarehouses--titleAddress'>ADDRESS</h6>
