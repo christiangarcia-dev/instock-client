@@ -1,14 +1,25 @@
 import './Warehouse-List.scss';
 import editIcon from '../../assets/icons/edit-24px.svg';
 import deleteIcon from '../../assets/icons/delete_outline-24px.svg'
-// import { Link } from 'react-router-dom';
 import chevronRight from '../../assets/icons/chevron_right-24px.svg';
-import { NavLink } from 'react-router-dom';
+import { useEffect, useState } from 'react';
+import axios from 'axios';
 
+const API = 'http://localhost:8080/api/warehouses'
 function WarehouseList() {
-    // const hanldeAddNew = () => {
-    //    return <NavLink to={<Warehouse-Details>}>
-    // }
+
+    const [warehouses, setWarehouses] = useState([]);
+
+    useEffect( () => {
+        async function getWarehouses(){
+            const response = await axios.get('http://localhost:8080/api/warehouses')
+            setWarehouses(response.data)
+        }
+        getWarehouses();
+    }, [])
+
+
+  
     return (
     <section className='warehouse__list' >
          <section className='warehouselist__containerOne'>
@@ -25,23 +36,27 @@ function WarehouseList() {
                 <h6 className='warehouse__allWarehouses--titleInfo'>CONTACT INFORMATION</h6>
                 <h6 className='warehouse__allWarehouse-title'>ACTIONS</h6>
             </div>
-         <section className='warehouselist__containerTwo'>
+            {
+                warehouses?.map ((warehouse) => (
+
+                    <section key={warehouse.id} className='warehouselist__containerTwo'>
             <div className='warehouse__allWarehouses'>
                 <div className='warehouse__allWarehouses-one'>
                     <div>
                         <h6 className='warehouse__allWarehouses-titleWare'>WAREHOUSE</h6>
-                        <p className='warehouse__allWarehouses-typeItem'>Item <img src={chevronRight}/> </p>
+                        <p className='warehouse__allWarehouses-typeItem'> {warehouse.city}<img src={chevronRight}/></p>
                     </div>
                     <div>
                         <h6 className='warehouse__allWarehouses-titleAddress'>ADDRESS</h6>
-                        <p className='warehouse__allWarehouses-category'>CategoryType</p>
+                        <p className='warehouse__allWarehouses-category'>{warehouse.address}</p>
                     </div>
                 </div>
                 <div className='warehouse__allWarehouses-two'>
                     <h6 className='warehouse__allWarehouses-titleContact'>CONTACT NAME</h6>
-                    <p className='warehouse__allWarehouses-stock'>In stock</p>
+                    <p className='warehouse__allWarehouses-stock'>{warehouse.contact_name}</p>
                     <h6 className='warehouse__allWarehouses-titleInfo'>CONTACT INFORMATION</h6>
-                    <p  className='warehouse__allWarehouses-quantity'>Quantity</p>
+                    <p  className='warehouse__allWarehousescontact_phone'>{warehouse.contact_phone}</p>
+                    <p  className='warehouse__allWarehousescontact_email'>{warehouse.contact_email}</p>
                 </div>
             </div>
             <div className='warehouse__allWarehouses-buttons'>
@@ -49,6 +64,7 @@ function WarehouseList() {
                 <img className='warehouse__allWarehouses-edit' src={editIcon}/>
             </div>
          </section>
+            ))}
     </section>
 
     // I HAVE TO ADD ALT FOR THR ICONS-IMAGES
