@@ -5,6 +5,7 @@ import Header from "./components/Header/Header";
 import Footer from './components/Footer/Footer';
 
 
+import WarehouseDetails from './components/Warehouse-Details/Warehouse-Details';
 
 function App() {
   return (
@@ -12,7 +13,8 @@ function App() {
       <BrowserRouter>
       <Header />
         <Routes>
-         <Route path='/warehouse-list' element={<WarehouseList/>}/>
+         <Route path='/' element={<WarehouseList/>}/>
+        <Route path='/warehouse-details' element={<WarehouseDetails />} />
         </Routes>
         <Footer />
       </BrowserRouter>
