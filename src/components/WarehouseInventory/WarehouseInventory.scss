@@ -1,0 +1,239 @@
+@import '../../styles/partials/global';
+@import '../../styles/partials/mixins';
+@import '../../styles/partials/variables';
+
+.warehouse-inventory {
+    &__table {
+        width: 100%;
+        border-collapse: collapse;
+    }
+
+    &__header, &__row {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0.5rem;
+        border-bottom: 1px solid $color-cloud;
+    }
+
+    &__row {
+        cursor: pointer;
+
+        &:hover {
+            background: $blue-opacity;
+        }
+    }
+
+    &__header {
+        background-color: $color-lightgrey;
+        text-transform: uppercase;
+        color: $color-slate;
+        font-size: 0.8rem;
+        font-weight: 600;
+    }
+
+    &__header-item, &__row-item {
+        flex: 1;
+        text-align: left;
+        padding: 0.3rem;
+        display: flex;
+        justify-content: flex-start;
+        min-width: max-content;
+
+        // first column 
+        &:nth-of-type(1) {
+            margin-left: 2rem;
+        }
+
+        &:nth-of-type(4) {
+            margin-left: 5rem;
+
+            @include desktop {
+                margin-left: 13rem;
+            }
+        }
+
+        // last column 
+        &:nth-of-type(5) {
+            width: min-content;
+            margin-left: -8rem;
+            margin-right: 1rem;
+
+            @include desktop {
+                margin-left: -20rem;
+            }
+        }
+
+        &--actions {
+        display: flex;
+        justify-content: flex-end;
+        cursor: pointer;
+        }
+    }
+
+    &__header-item {
+        margin-left: 0.4rem;
+    }
+
+    &__row-item:nth-of-type(1) {
+        color: $color-isindigo;
+        font-weight: 600;
+        cursor: pointer;
+    }
+
+    // Status (in stock / out of stock) 
+    &__row-item:nth-of-type(3) {
+        justify-content: flex-start;
+    }
+
+    &__row-item {
+        padding: 0.8rem;
+
+        &--status {
+            font-weight: 600;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            border-radius: 20px;
+            padding: 0.5rem 1rem;
+        }
+
+        &--status-instock {
+            background: $green-opacity;
+            color: $color-green;
+        }
+    
+        &--status-outofstock {
+            background: $red-opacity;
+            color: $color-red;
+        }
+
+        &--actions {
+            gap: 0.8rem;
+        }
+    }
+
+    &__sort-icon {
+        width: 17px;
+        cursor: pointer;
+        margin-left: 0.3rem;
+    }
+}
+
+
+
+
+// Mobile JSX
+.warehouse-inventoryMB {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+
+    &__item {
+        border-bottom: 1px solid $color-cloud;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    &__flex--group {
+        display: flex;
+        margin-block: 1.5rem;
+        justify-content: space-between;
+    }
+
+    &__title--group,
+    &__category--group, 
+    &__status--group, 
+    &__quantity--group {
+        width: 7rem;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    &__title--group,
+    &__category--group {
+        margin-left: 2rem;
+        min-width: max-content;
+    }
+
+    &__quantity--group,
+    &__status--group {
+        margin-right: auto;
+        margin-left: 9vw;
+    }
+
+    &__label {
+        font-size: 0.8rem;
+        color: $color-slate;
+        text-transform: uppercase;
+    }
+
+    &__title {
+
+        &--value {
+            display: flex;
+            align-items: center;
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: $color-isindigo;
+            cursor: pointer;
+        }
+    }
+
+
+    &__category {
+
+        &--value {
+            color: $color-isblack;
+        }
+    }
+
+    &__status {
+
+        &--value {
+            font-weight: 600;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            border-radius: 20px;
+            padding: 0.4rem 0.7rem;
+            margin-top: 0.4rem;
+            color: $color-isblack;
+
+            &-instock {
+                background: $green-opacity;
+                color: $color-green;
+            }
+
+            &-outofstock {
+                background: $red-opacity;
+                color: $color-red;
+            }
+        }
+    }
+
+    &__quantity {
+
+        &--value {
+            color: $color-isblack;
+        }
+    }
+    
+
+    &__actions {
+        margin-bottom: 1rem;
+        padding-left: 2rem;
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+    }
+
+    &__action {
+        cursor: pointer;
+
+        &--edit {
+            margin-right: 2rem;
+        }
+    }
+}  

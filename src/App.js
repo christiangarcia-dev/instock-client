@@ -1,18 +1,16 @@
 import './App.scss';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import WarehouseDetails from './components/Warehouse-Details/Warehouse-Details';
-import Header from "./components/Header/Header";
-import EditWarehouse from './components/EditWarehouse/EditWarehouse';
-
+import WarehouseDetailsPage from './pages/WarehouseDetailsPage/WarehouseDetailsPage';
+import HomePage from './pages/HomePage/HomePage';
 
 function App() {
   return (
     <div className="App">
-    
+      
       <BrowserRouter>
-      <Header />
         <Routes>
-         <Route path='/warehouse-details' element={<WarehouseDetails/>}/>
+          <Route path='/' element={<HomePage />}/>
+          <Route path='/warehouse-details' element={<WarehouseDetailsPage />} />
         </Routes>
       </BrowserRouter>
       <EditWarehouse />
