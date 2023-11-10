@@ -13,6 +13,7 @@ function App() {
         <Route path='/warehouse-details' element={<WarehouseDetails />} />
          <Route path='/warehouse-list' element={<WarehouseList/>}/>
         </Routes>
+        <Footer />
       </BrowserRouter>
     </div>
   );
