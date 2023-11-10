@@ -3,15 +3,16 @@
 @use '../../styles/partials/variables' as*;
 
 .warehouse__list {
-    position: fixed;
-    top: 18vh;
+    position: relative;
+    top: -10vh;
     background-color: $color-white;
     width: 91% ;
     margin: $mobile-main-margin;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
+.warehouselist__titles {
+    display: none;
 @include tablet {
-    .warehouselist__titles {
         display: flex;
         flex-direction: row;
         padding: $mobile-main-padding;
