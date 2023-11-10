@@ -40,30 +40,30 @@ function WarehouseList() {
                 warehouses?.map ((warehouse) => (
 
                     <section key={warehouse.id} className='warehouselist__containerTwo'>
-            <div className='warehouse__allWarehouses'>
-                <div className='warehouse__allWarehouses-one'>
-                    <div>
-                        <h6 className='warehouse__allWarehouses-titleWare'>WAREHOUSE</h6>
-                        <p className='warehouse__allWarehouses-typeItem'> {warehouse.city}<img src={chevronRight}/></p>
-                    </div>
-                    <div>
-                        <h6 className='warehouse__allWarehouses-titleAddress'>ADDRESS</h6>
-                        <p className='warehouse__allWarehouses-category'>{warehouse.address}</p>
-                    </div>
-                </div>
-                <div className='warehouse__allWarehouses-two'>
-                    <h6 className='warehouse__allWarehouses-titleContact'>CONTACT NAME</h6>
-                    <p className='warehouse__allWarehouses-stock'>{warehouse.contact_name}</p>
-                    <h6 className='warehouse__allWarehouses-titleInfo'>CONTACT INFORMATION</h6>
-                    <p  className='warehouse__allWarehousescontact_phone'>{warehouse.contact_phone}</p>
-                    <p  className='warehouse__allWarehousescontact_email'>{warehouse.contact_email}</p>
-                </div>
-            </div>
-            <div className='warehouse__allWarehouses-buttons'>
-                <img className='warehouse__allWarehouses-delete' src={deleteIcon}/>
-                <img className='warehouse__allWarehouses-edit' src={editIcon}/>
-            </div>
-         </section>
+                        <div className='warehouse__allWarehouses'>
+                            <div className='warehouse__allWarehouses-one'>
+                                <div>
+                                    <h6 className='warehouse__allWarehouses-titleWare'>WAREHOUSE</h6>
+                                    <p className='warehouse__allWarehouses-typeItem'> {warehouse.city}<img src={chevronRight}/></p>
+                                </div>
+                                <div>
+                                    <h6 className='warehouse__allWarehouses-titleAddress'>ADDRESS</h6>
+                                    <p className='warehouse__allWarehouses-category'>{warehouse.address}</p>
+                                </div>
+                            </div>
+                            <div className='warehouse__allWarehouses-two'>
+                                <h6 className='warehouse__allWarehouses-titleContact'>CONTACT NAME</h6>
+                                <p className='warehouse__allWarehouses-stock'>{warehouse.contact_name}</p>
+                                <h6 className='warehouse__allWarehouses-titleInfo'>CONTACT INFORMATION</h6>
+                                <p  className='warehouse__allWarehousescontact_phone'>{warehouse.contact_phone}</p>
+                                <p  className='warehouse__allWarehousescontact_email'>{warehouse.contact_email}</p>
+                            </div>
+                        </div>
+                        <div className='warehouse__allWarehouses-buttons'>
+                            <img className='warehouse__allWarehouses-delete' src={deleteIcon}/>
+                            <img className='warehouse__allWarehouses-edit' src={editIcon}/>
+                        </div>
+                    </section>
             ))}
     </section>
 
