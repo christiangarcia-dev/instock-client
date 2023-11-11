@@ -3,6 +3,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import WarehouseList from './components/Warehouse-List/Warehouse-List';
 import Header from "./components/Header/Header";
 import WarehouseDetails from './components/Warehouse-Details/Warehouse-Details';
+import InventoryList from './components/Inventory-List/Inventory-List'
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
         <Routes>
         <Route path='/warehouse-details' element={<WarehouseDetails />} />
          <Route path='/warehouse-list' element={<WarehouseList/>}/>
+         <Route path='/inventory'element={<InventoryList/>} />
         </Routes>
       </BrowserRouter>
     </div>
