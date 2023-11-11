@@ -18,7 +18,16 @@ function WarehouseList() {
         getWarehouses();
     }, [])
 
-  
+    const handleDeleteWarehouse = async (warehouseId) => {
+        try {
+            await axios.delete(`${API}/${warehouseId}`);
+            setWarehouses(warehouses.filter(warehouse => warehouse.id !== warehouseId));
+        } catch (error) {
+            console.error('Error deleting warehouse:', error);
+            // Here, you can add more sophisticated error handling, such as displaying a message to the user
+        }
+    };
+
     return (
     <section className='warehouse__list' >
         <section className='warehouselist__containerOne'>
@@ -59,8 +68,8 @@ function WarehouseList() {
                             </div>
                         </div>
                         <div className='warehouse__allWarehouses-buttons'>
-                            <img className='warehouse__allWarehouses-delete' src={deleteIcon}/>
-                            <img className='warehouse__allWarehouses-edit' src={editIcon}/>
+                            <img className='warehouse__allWarehouses-delete' src={deleteIcon} alt="Delete" onClick={() => handleDeleteWarehouse(warehouse.id)}/>
+                            <img className='warehouse__allWarehouses-edit' src={editIcon} alt="Edit"/>
                         </div>
                     </section>
             ))}
