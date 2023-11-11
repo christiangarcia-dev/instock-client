@@ -5,9 +5,9 @@ import chevronRight from '../../assets/icons/chevron_right-24px.svg';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 import sortIcon from '../../assets/icons/sort-24px.svg';
+import { Link, useParams } from 'react-router-dom';
 
 function WarehouseList() {
-
     const [warehouses, setWarehouses] = useState([]);
 
     useEffect( () => {
@@ -18,7 +18,7 @@ function WarehouseList() {
         getWarehouses();
     }, [])
 
-  
+ 
     return (
     <section className='warehouse__list' >
         <section className='warehouselist__containerOne'>
@@ -40,7 +40,9 @@ function WarehouseList() {
                 warehouses?.map ((warehouse) => (
 
                     <section key={warehouse.id} className='warehouselist__containerTwo--tablet'>
-                        <p className='warehouse__allWarehouses-typeItem'> {warehouse.warehouse_name}<img src={chevronRight} alt='chevron right for warehouse'/></p>
+                        <Link to={`/warehouse-details/${warehouse.id}`}>    
+                            <p className='warehouse__allWarehouses-typeItem'> {warehouse.warehouse_name}<img src={chevronRight} alt='chevron right for warehouse'/></p>
+                        </Link>
                         <div className='address-info-tablet'>
                             <p className='warehouse__allWarehouses-category'>{warehouse.address}</p>
                             <p>{warehouse.city}, {warehouse.country}</p>        
@@ -67,7 +69,9 @@ function WarehouseList() {
                             <div className='warehouse__allWarehouses-one'>
                                 <div className='warehouse'> 
                                     <h6 className='warehouse__allWarehouses-titleWare'>WAREHOUSE</h6>
-                                    <p className='warehouse__allWarehouses-typeItem'> {warehouse.warehouse_name}<img src={chevronRight} alt='chevron right for warehouse'/></p>
+                                    <Link to={`/warehouse-details/${warehouse.id}`}>
+                                        <p className='warehouse__allWarehouses-typeItem'> {warehouse.warehouse_name}<img src={chevronRight} alt='chevron right for warehouse'/></p>
+                                    </Link>
                                 </div>
                                 <div className='address'>
                                     <h6 className='warehouse__allWarehouses-titleAddress'>ADDRESS</h6>
