@@ -63,6 +63,11 @@
         padding: 1vh;
         margin-bottom: 1vh;
     }
+    &-title {
+        @include desktop {
+            margin: 1vh 5vh;
+        }
+    }
 }
 
 .warehouse__nav {
@@ -143,6 +148,9 @@ a {
         @include tablet {
             display: flex;
             width: 25vh;
+        }
+        @include desktop {
+            width: 20vh;
         }
     }
 
