@@ -7,7 +7,7 @@
     position: relative;
     top: -10vh;
     background-color: $color-white;
-    width: 91% ;
+    width: 91%;
     box-shadow: 0 4px 8px rgba(19, 24, 44, 0.1);
     margin: 0 auto;
 
@@ -28,32 +28,45 @@
         line-height: 2.25rem;
         font-weight: 600;
         padding-left: .25rem;
-
     }
 
-    &__form {
-
-    }
+    &__form {}
 
     &__content-div {
         @include tablet {
             display: flex;
+            margin-bottom: 1rem;
         }
     }
 
     &__warehouse-div {
-        padding: 1rem;
+        padding: 0 1rem;
         border-bottom: 1px solid $color-cloud;
+
+        @include tablet {
+            border-bottom: none;
+            margin: 1rem 0;
+        }
+        @include desktop {
+            border-bottom: none;
+            margin: 1rem 0;
+        }
     }
 
     &__subheader {
         font-size: 1.25rem;
         font-weight: 600;
         line-height: 1.75rem;
+        padding: 1rem 0;
+        ;
+
     }
 
     &__label {
         margin-bottom: 0.25rem;
+        font-size: 0.8125rem;
+        font-weight: 600;
+        line-height: 1.25rem;
     }
 
     &__field {
@@ -61,12 +74,20 @@
         width: 100%;
         padding: 0 1rem;
         border-radius: 1.25rem;
-        margin-top: 0.25rem;
+        margin-top: .25rem;
+        margin-bottom: 1rem;
         border: 1px solid $color-cloud;
     }
 
     &__contact-div {
         padding: 1rem;
+
+        @include tablet {
+            padding: 0 2rem;
+            margin: 1rem 0;
+            border-left: 1px solid $color-cloud;
+
+        }
     }
 
     &__buttons-div {
@@ -75,6 +96,14 @@
         padding: 0 .5rem;
         display: flex;
         justify-content: space-around;
+
+        @include tablet {
+            justify-content: flex-end;
+        }
+
+        @include desktop {
+            justify-content: flex-end;
+        }
 
 
     }
@@ -87,6 +116,19 @@
         border: 1px solid $color-cloud;
         background-color: $color-white;
         margin-top: 1rem;
+
+        @include tablet {
+            padding: 0.5rem 1rem;
+            width: 15%;
+            margin-left: .5rem;
+        }
+
+        @include desktop {
+            padding: 0.5rem 1rem;
+            width: 8%;
+            margin-left: .5rem;
+            
+        }
 
     }
 

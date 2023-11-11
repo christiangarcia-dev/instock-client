@@ -3,6 +3,12 @@ import backArrow from "../../assets/icons/arrow_back-24px.svg"
 
 function EditWarehouse() {
 
+    function onChangeHandler (event) {
+
+    }
+    function submitHandler (event) {
+
+    }
 
 
     return (
@@ -11,7 +17,7 @@ function EditWarehouse() {
                 <img src={backArrow} alt="arrow pointing left" className="form__back-arrow"></img>
                 <h1 className="form__header"> Edit Warehouse</h1>
             </div>
-            <form className="form__form">
+            <form className="form__form" onChange={onChangeHandler} onSubmit={submitHandler}>
                 <div className="form__content-div">
                     <div className="form__warehouse-div">
                         <h2 className="form__subheader">Warehouse Details</h2>
