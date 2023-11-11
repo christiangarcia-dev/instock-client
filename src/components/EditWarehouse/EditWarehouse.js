@@ -3,11 +3,45 @@ import backArrow from "../../assets/icons/arrow_back-24px.svg"
 
 function EditWarehouse() {
 
-    function onChangeHandler (event) {
-
+    function validatePhoneNumber(event) {
+        event.preventDefault();
+        const phoneNumber = event.target.phoneNumber.value;
+        const inputValidation = new RegExp ("^\+[1-9]{1}[0-9]{0,2}-[2-9]{1}[0-9]{2}-[2-9]{1}[0-9]{2}-$")
+        
+        if (inputValidation.test (phoneNumber)){
+            return true
+        } else {
+            alert ("Please enter phone number using the format +1(647)504-0911")
+        }
     }
-    function submitHandler (event) {
+    
+    function validateEmail (event) {
+        const email = event.target.email.value;
+        
+    }
 
+    function submitHandler(event) {
+        event.preventDefault();
+
+        const warehouseName = event.target.warehouseName.value;
+        const streetAddress = event.target.streetAddress.value;
+        const city = event.target.city.value;
+        const country = event.target.country.value;
+        const contactName = event.target.contactName.value;
+        const position = event.target.position.value;
+        const phoneNumber = event.target.phoneNumber.value;
+        const email = event.target.email.value;
+
+        if (!warehouseName ||
+            !streetAddress ||
+            !city ||
+            !country ||
+            !contactName ||
+            !position ||
+            !phoneNumber ||
+            !email) {
+            alert("Please complete all fields")
+        }
     }
 
 
@@ -17,7 +51,7 @@ function EditWarehouse() {
                 <img src={backArrow} alt="arrow pointing left" className="form__back-arrow"></img>
                 <h1 className="form__header"> Edit Warehouse</h1>
             </div>
-            <form className="form__form" onChange={onChangeHandler} onSubmit={submitHandler}>
+            <form className="form__form" onSubmit={submitHandler}>
                 <div className="form__content-div">
                     <div className="form__warehouse-div">
                         <h2 className="form__subheader">Warehouse Details</h2>
@@ -84,7 +118,8 @@ function EditWarehouse() {
                             >
                             </input>
                         </label>
-                        <label htmlFor="phoneNumber" className="form__label">
+                        <label htmlFor="phoneNumber" className="form__label"
+                            onChange={validatePhoneNumber}>
                             Phone Number
                             <input type="text"
                                 name="phoneNumber"
