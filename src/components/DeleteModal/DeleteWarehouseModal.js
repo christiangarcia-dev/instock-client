@@ -1,45 +1,27 @@
-import "../DeleteWarehouseModal/DeleteWarehouseModal.scss";
+import "../DeleteModal/DeleteWarehouseModal.scss";
 import { useState } from "react";
 import closeIcon from "../../assets/icons/close-24px.svg";;
 
-function DeleteWarehouseModal() {
+function DeleteWarehouseModal({ showModal, closeModal, confirmDelete, warehouseId }) {
 
-    const [modal, setModal] = useState(false);
-
-    const toggleModal = () => {
-        setModal(!modal);
-    };
-
-    if(modal) {
-        document.body.classList.add('active-modal')
+    if(showModal) {
+        document.body.classList.add('active-modal');
     } else {
-        document.body.classList.remove('active-modal')
+        document.body.classList.remove('active-modal');
     }
 
     return (
         <>
-            <button onClick={toggleModal} className="delete-warehouse-modal__btn">
-                Open
-            </button>
-
-            {modal && (
+            {showModal && (
                 <div className="delete-warehouse-modal">
-                    <div onClick={toggleModal} className="delete-warehouse-modal__overlay"></div>
+                    <div onClick={closeModal} className="delete-warehouse-modal__overlay"></div>
                     <div className="delete-warehouse-modal__content">
-                        <img 
-                            onClick={toggleModal} 
-                            className="delete-warehouse-modal__close-icon" 
-                            src={closeIcon}>
-                        </img>
-                        <h2 className="delete-warehouse-modal__header">Delete Washington Warehouse?</h2>
-                        <p className="delete-warehouse-modal__confirmation">Please confirm that you’d like to delete the Washington from the list of warehouses. You won’t be able to undo this action.</p>
+                        <img onClick={closeModal} className="delete-warehouse-modal__close-icon" src={closeIcon} alt="Close" />
+                        <h2 className="delete-warehouse-modal__header">Delete Warehouse?</h2>
+                        <p className="delete-warehouse-modal__confirmation">Please confirm that you’d like to delete the warehouse from the list of warehouses. You won’t be able to undo this action.</p>
                         <div className="delete-warehouse-modal__buttons">
-                            <button className="delete-warehouse-modal__btn-close" onClick={toggleModal}>
-                                Cancel
-                            </button>
-                            <button className="delete-warehouse-modal__btn-delete" onClick={toggleModal}>
-                                Delete
-                            </button>
+                            <button className="delete-warehouse-modal__btn-close" onClick={closeModal}>Cancel</button>
+                            <button className="delete-warehouse-modal__btn-delete" onClick={confirmDelete}>Delete</button>
                         </div>
                     </div>
                 </div>
