@@ -17,16 +17,26 @@
         width: 50%;
         height: 5vh;
         margin-right: 1vh;
+        @include  tablet {
+            width: 10vh;
+        }
     }
     &-delete-button{
         border-radius: 20px;
         border: none;
         background-color: $color-red;
         width: 50%;
+        @include  tablet {
+            width: 10vh;
+        }
     }
 }
 
 .buttons {
     margin-top: 55vh;
     display: flex;
+    @include tablet {
+        justify-content: flex-end;
+        margin-top: 4vh;
+    }
 }
