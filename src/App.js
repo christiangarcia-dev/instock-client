@@ -2,6 +2,7 @@ import './App.scss';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import WarehouseDetailsPage from './pages/WarehouseDetailsPage/WarehouseDetailsPage';
 import HomePage from './pages/HomePage/HomePage';
+import EditWarehouse from './components/EditWarehouse/EditWarehouse';
 
 function App() {
   return (

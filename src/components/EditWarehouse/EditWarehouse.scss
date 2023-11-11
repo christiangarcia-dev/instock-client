@@ -4,11 +4,23 @@
 
 .form {
 
+    position: relative;
+    top: -10vh;
+    background-color: $color-white;
+    width: 91% ;
+    box-shadow: 0 4px 8px rgba(19, 24, 44, 0.1);
+    margin: 0 auto;
+
     &__header-div {
         display: flex;
         border-bottom: 1px solid $color-cloud;
-        padding-bottom: 1rem;
+        align-items: center;
+        padding: 1rem .5rem;
+    }
 
+    &__back-arrow {
+        width: 1.5rem;
+        height: 1.5rem;
     }
 
     &__header {
@@ -19,10 +31,25 @@
 
     }
 
-    &__form {}
+    &__form {
+
+    }
+
+    &__content-div {
+        @include tablet {
+            display: flex;
+        }
+    }
 
     &__warehouse-div {
-        padding: 0 .5rem;
+        padding: 1rem;
+        border-bottom: 1px solid $color-cloud;
+    }
+
+    &__subheader {
+        font-size: 1.25rem;
+        font-weight: 600;
+        line-height: 1.75rem;
     }
 
     &__label {
@@ -39,14 +66,16 @@
     }
 
     &__contact-div {
-        padding: 0 .5rem;
+        padding: 1rem;
     }
 
     &__buttons-div {
         background-color: $color-lightgrey;
         height: 4.25rem;
-        width: 21.4375rem;
         padding: 0 .5rem;
+        display: flex;
+        justify-content: space-around;
+
 
     }
 
@@ -57,6 +86,7 @@
         border-radius: 1.25rem;
         border: 1px solid $color-cloud;
         background-color: $color-white;
+        margin-top: 1rem;
 
     }
 

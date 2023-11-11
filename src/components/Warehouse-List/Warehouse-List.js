@@ -35,7 +35,7 @@ function WarehouseList() {
                 <h6 className='warehouse__allWarehouses--titleInfo'>CONTACT INFORMATION</h6>
                 <h6 className='warehouse__allWarehouse-title'>ACTIONS</h6>
             </div>
-            {
+            {/* {
                 warehouses?.map ((warehouse) => (
 
                     <section key={warehouse.id} className='warehouselist__containerTwo'>
@@ -63,7 +63,7 @@ function WarehouseList() {
                             <img className='warehouse__allWarehouses-edit' src={editIcon}/>
                         </div>
                     </section>
-            ))}
+            ))} */}
     </section>
 
     // I HAVE TO ADD ALT FOR THR ICONS-IMAGES
