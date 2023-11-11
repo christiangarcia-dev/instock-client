@@ -3,12 +3,18 @@
 @use '../../styles/partials/variables' as*;
 
 .warehouse__list {
-    position: relative;
     top: -10vh;
     background-color: $color-white;
-    width: 91% ;
     margin: $mobile-main-margin;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    @include tablet {
+        margin:$tablet-main-margin;
+        top: -13vh;
+    }
+    @include desktop {
+        margin: $desktop-main-margin;
+        top: -17vh;
+    }
 }
 .warehouselist__titles {
     display: none;
@@ -17,6 +23,12 @@
         padding: $mobile-main-padding;
         background-color: $color-lightgrey;
         justify-content: space-around;
+        @include desktop {
+            &-titleAct {
+                width: 10vh;
+            }
+
+        }
 }
 }
 .warehouselist__containerOne{
@@ -75,7 +87,7 @@ a {
 .warehouse__allWarehouses{
     display: flex;
     justify-content: space-between;
-  
+ 
     &-titleWare{
         color: $color-slate;
         @include tablet{
@@ -91,6 +103,7 @@ a {
     }
     &-titleAddress {
         color: $color-slate;
+        margin-top: 2vh;
         @include tablet{
             display: none;
         }
@@ -100,6 +113,9 @@ a {
         @include tablet {
             display:flex;
             width: 18vh;
+        }
+        @include desktop {
+            width: 40vh;
         }
     }
     &-titleContact{
@@ -117,6 +133,7 @@ a {
     }
     &-titleInfo {
         color: $color-slate;
+        margin-top: 2vh;
         @include tablet{
             display: none;
         }
@@ -126,7 +143,6 @@ a {
         @include tablet {
             display: flex;
             width: 25vh;
-            
         }
     }
 
@@ -143,6 +159,7 @@ a {
         @include tablet {
             width: 20vh;
         }
+     
     }
     &-one {
         @include tablet {
@@ -154,6 +171,11 @@ a {
         @include tablet {
             display: flex;
             flex-direction: row;
+        }
+    }
+    @include desktop {
+        &-address {
+            margin-right: 1vh;
         }
     }
 }
@@ -179,6 +201,7 @@ a {
         border-bottom: 1px solid $color-cloud;
         align-items: center;
         justify-content: space-evenly;
+        height: 12vh;
 
     }
 }
@@ -188,4 +211,8 @@ a {
 }
 .address-info-tablet {
     width: 20vh;
+    @include desktop {
+        width: 41vh;
+        display: flex;
+    }
 }

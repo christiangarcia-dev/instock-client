@@ -44,7 +44,7 @@ function WarehouseList() {
                             <p className='warehouse__allWarehouses-typeItem'> {warehouse.warehouse_name}<img src={chevronRight} alt='chevron right for warehouse'/></p>
                         </Link>
                         <div className='address-info-tablet'>
-                            <p className='warehouse__allWarehouses-category'>{warehouse.address}</p>
+                            <p className='warehouse__allWarehouses-address'>{warehouse.address}</p> 
                             <p>{warehouse.city}, {warehouse.country}</p>        
                         </div>
                         <p className='warehouse__allWarehouses-name'>{warehouse.contact_name}</p>
@@ -75,7 +75,7 @@ function WarehouseList() {
                                 </div>
                                 <div className='address'>
                                     <h6 className='warehouse__allWarehouses-titleAddress'>ADDRESS</h6>
-                                    <p className='warehouse__allWarehouses-category'>{warehouse.address}</p>
+                                    <p className='warehouse__allWarehouses-address'>{warehouse.address}</p>
                                     <p>{warehouse.city}, {warehouse.country}</p>
                                 </div>
                             </div>
