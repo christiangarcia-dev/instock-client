@@ -1,0 +1,32 @@
+@use '../../styles/partials/global' as*;
+@use '../../styles/partials/mixins' as*;
+@use '../../styles/partials/variables' as*;
+
+.delete__inventory{
+    margin: $mobile-main-margin;
+    &-title {
+        margin-top: 10vh;
+    }
+    &-explanation {
+        margin-top: 2vh;
+    }
+    &-cancel-button {
+        border: 1px solid $color-cloud;
+        border-radius: 20px;
+        background-color: $color-white;
+        width: 50%;
+        height: 5vh;
+        margin-right: 1vh;
+    }
+    &-delete-button{
+        border-radius: 20px;
+        border: none;
+        background-color: $color-red;
+        width: 50%;
+    }
+}
+
+.buttons {
+    margin-top: 55vh;
+    display: flex;
+}
