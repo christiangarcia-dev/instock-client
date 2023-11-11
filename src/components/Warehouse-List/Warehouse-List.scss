@@ -14,12 +14,10 @@
     display: none;
 @include tablet {
         display: flex;
-        flex-direction: row;
         padding: $mobile-main-padding;
         background-color: $color-lightgrey;
-        display: flex;
         justify-content: space-around;
-    }
+}
 }
 .warehouselist__containerOne{
     display: flex;
@@ -65,7 +63,7 @@
     padding:$mobile-main-padding;
     border-bottom: 1px solid $color-cloud;
     @include tablet {
-        display: flex;
+        display: none;
     }
 
 }
@@ -74,9 +72,6 @@
 .warehouse__allWarehouses{
     display: flex;
     justify-content: space-between;
-    // @include tablet {
-    //     justify-content: space-around;
-    // }
   
     &-titleWare{
         color: $color-slate;
@@ -88,6 +83,7 @@
         display: none;
         @include tablet {
             display:flex;
+            width: 20vh;
         }
     }
     &-titleAddress {
@@ -100,6 +96,7 @@
         display: none;
         @include tablet {
             display:flex;
+            width: 18vh;
         }
     }
     &-titleContact{
@@ -112,6 +109,7 @@
         display: none;
         @include tablet {
             display:flex;
+            width: 18vh;
         }
     }
     &-titleInfo {
@@ -120,13 +118,28 @@
             display: none;
         }
     }
-    &-stock{
+    &--titleInfo {
+        display: none;
+        @include tablet {
+            display: flex;
+            width: 25vh;
+            
+        }
+    }
+
+    &-name{
         border: 5px;
+        @include tablet {
+            width: 18vh
+        }
     }
     &-typeItem {
         color: $color-isindigo;
         font-weight: 600;
         display: flex;
+        @include tablet {
+            width: 20vh;
+        }
     }
     &-one {
         @include tablet {
@@ -156,3 +169,20 @@
 }
 }
 
+.warehouselist__containerTwo--tablet {
+    display: none;
+    @include tablet {
+        display: flex;
+        border-bottom: 1px solid $color-cloud;
+        align-items: center;
+        justify-content: space-evenly;
+
+    }
+}
+
+.contact-info {
+    width: 25vh;
+}
+.address-info-tablet {
+    width: 20vh;
+}
