@@ -6,8 +6,6 @@ import editIcon from '../../assets/icons/edit-24px.svg';
 import deleteIcon from '../../assets/icons/delete_outline-24px.svg'
 import chevronRight from '../../assets/icons/chevron_right-24px.svg';
 
-const API = 'http://localhost:8080/api/warehouses';
-
 function WarehouseList() {
     const [warehouses, setWarehouses] = useState([]);
     const [modalIsOpen, setModalIsOpen] = useState(false);
