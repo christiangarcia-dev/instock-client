@@ -4,10 +4,10 @@ import deleteIcon from '../../assets/icons/delete_outline-24px.svg'
 import chevronRight from '../../assets/icons/chevron_right-24px.svg';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
+import sortIcon from '../../assets/icons/sort-24px.svg';
+import { Link, useParams } from 'react-router-dom';
 
-const API = 'http://localhost:8080/api/warehouses'
 function WarehouseList() {
-
     const [warehouses, setWarehouses] = useState([]);
 
     useEffect( () => {
@@ -18,7 +18,7 @@ function WarehouseList() {
         getWarehouses();
     }, [])
 
-  
+ 
     return (
     <section className='warehouse__list' >
         <section className='warehouselist__containerOne'>
@@ -28,45 +28,76 @@ function WarehouseList() {
                 <button className='warehouselist__containerOne-add'>+ Add New Warehouse</button>
             </div>
         </section>
+        <div>
             <div className='warehouselist__titles'>
-                <h6 className='warehouse__allWarehouses--titleWare'>WAREHOUSE</h6>
-                <h6 className='warehouse__allWarehouses--titleAddress'>ADDRESS</h6>
-                <h6 className='warehouse__allWarehouses--titleContact'>CONTACT NAME</h6>
-                <h6 className='warehouse__allWarehouses--titleInfo'>CONTACT INFORMATION</h6>
-                <h6 className='warehouse__allWarehouse-title'>ACTIONS</h6>
+                <h6 className='warehouse__allWarehouses--titleWare'>WAREHOUSE<img src={sortIcon} alt='sort icon'/></h6>
+                <h6 className='warehouse__allWarehouses--titleAddress'>ADDRESS<img src={sortIcon}  alt='sort icon'/></h6>
+                <h6 className='warehouse__allWarehouses--titleContact'>CONTACT NAME<img src={sortIcon}  alt='sort icon'/></h6>
+                <h6 className='warehouse__allWarehouses--titleInfo'>CONTACT INFORMATION<img src={sortIcon}  alt='sort icon'/></h6>
+                <h6 className='warehouselist__titles-titleAct'>ACTIONS</h6>
             </div>
+            {
+                warehouses?.map ((warehouse) => (
+
+                    <section key={warehouse.id} className='warehouselist__containerTwo--tablet'>
+                        <Link to={`/warehouse-details/${warehouse.id}`}>    
+                            <p className='warehouse__allWarehouses-typeItem'> {warehouse.warehouse_name}<img src={chevronRight} alt='chevron right for warehouse'/></p>
+                        </Link>
+                        <div className='address-info-tablet'>
+                            <p className='warehouse__allWarehouses-address'>{warehouse.address}</p> 
+                            <p>{warehouse.city}, {warehouse.country}</p>        
+                        </div>
+                        <p className='warehouse__allWarehouses-name'>{warehouse.contact_name}</p>
+                        <div className='contact-info'>
+                            <p  className='warehouse__allWarehousescontact_phone'>{warehouse.contact_phone}</p>
+                            <p  className='warehouse__allWarehousescontact_email'>{warehouse.contact_email}</p>
+                        </div>    
+                        <div className='warehouse__allWarehouses-buttons'>
+                            <img className='warehouse__allWarehouses-delete' src={deleteIcon} alt='delete icon'/>
+                            <img className='warehouse__allWarehouses-edit' src={editIcon} alt='edit icon'/>
+                        </div>   
+                    </section>
+                    
+            ))}
+
+        </div>
             {
                 warehouses?.map ((warehouse) => (
 
                     <section key={warehouse.id} className='warehouselist__containerTwo'>
                         <div className='warehouse__allWarehouses'>
                             <div className='warehouse__allWarehouses-one'>
-                                <div>
+                                <div className='warehouse'> 
                                     <h6 className='warehouse__allWarehouses-titleWare'>WAREHOUSE</h6>
-                                    <p className='warehouse__allWarehouses-typeItem'> {warehouse.city}<img src={chevronRight}/></p>
+                                    <Link to={`/warehouse-details/${warehouse.id}`}>
+                                        <p className='warehouse__allWarehouses-typeItem'> {warehouse.warehouse_name}<img src={chevronRight} alt='chevron right for warehouse'/></p>
+                                    </Link>
                                 </div>
-                                <div>
+                                <div className='address'>
                                     <h6 className='warehouse__allWarehouses-titleAddress'>ADDRESS</h6>
-                                    <p className='warehouse__allWarehouses-category'>{warehouse.address}</p>
+                                    <p className='warehouse__allWarehouses-address'>{warehouse.address}</p>
+                                    <p>{warehouse.city}, {warehouse.country}</p>
                                 </div>
                             </div>
                             <div className='warehouse__allWarehouses-two'>
                                 <h6 className='warehouse__allWarehouses-titleContact'>CONTACT NAME</h6>
-                                <p className='warehouse__allWarehouses-stock'>{warehouse.contact_name}</p>
+                                <p className='warehouse__allWarehouses-name'>{warehouse.contact_name}</p>
                                 <h6 className='warehouse__allWarehouses-titleInfo'>CONTACT INFORMATION</h6>
-                                <p  className='warehouse__allWarehousescontact_phone'>{warehouse.contact_phone}</p>
-                                <p  className='warehouse__allWarehousescontact_email'>{warehouse.contact_email}</p>
+                                <div className='contact-info'>
+                                    <p  className='warehouse__allWarehousescontact_phone'>{warehouse.contact_phone}</p>
+                                    <p  className='warehouse__allWarehousescontact_email'>{warehouse.contact_email}</p>
+                                </div>
                             </div>
                         </div>
                         <div className='warehouse__allWarehouses-buttons'>
-                            <img className='warehouse__allWarehouses-delete' src={deleteIcon}/>
-                            <img className='warehouse__allWarehouses-edit' src={editIcon}/>
+                            <img className='warehouse__allWarehouses-delete' src={deleteIcon} alt='delete icon'/>
+                            <img className='warehouse__allWarehouses-edit' src={editIcon} alt='edit icon'/>
                         </div>
                     </section>
+                    
             ))}
     </section>
 
-    // I HAVE TO ADD ALT FOR THR ICONS-IMAGES
     )
 
 }
