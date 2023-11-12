@@ -36,6 +36,12 @@
         @include tablet {
             display: flex;
             margin-bottom: 1rem;
+            justify-content: space-evenly;
+        }
+        @include desktop {
+            display: flex;
+            margin-bottom: 1rem;
+            justify-content: space-evenly;
         }
     }
 
@@ -46,11 +52,13 @@
         @include tablet {
             border-bottom: none;
             margin: 1rem 0;
+            padding: 0;
         }
 
         @include desktop {
             border-bottom: none;
-            margin: 1rem 0;
+            margin: 1rem;
+            padding: 0;
         }
     }
 
@@ -59,7 +67,15 @@
         font-weight: 600;
         line-height: 1.75rem;
         padding: 1rem 0;
-        ;
+        padding-left: 2rem;
+
+        @include tablet {
+            padding-left: 0;
+        }
+
+        @include desktop {
+            padding-left: 0;
+        }
 
     }
 
@@ -84,10 +100,33 @@
         outline: 1px solid $color-red;
     }
 
+     &__missing-input {
+        display: none;
+     }
+     
+     &__missing-input--display {
+        display: flex;
+        align-items: center;
+     }
+
+     &__invalid-text {
+        font-size: .75rem;
+        font-weight: 400;
+        line-height: 1.125rem;
+        color: $color-red;
+        margin-left: .25rem;
+     }
+
     &__contact-div {
         padding: 1rem;
 
         @include tablet {
+            padding: 0 2rem;
+            margin: 1rem 0;
+            border-left: 1px solid $color-cloud;
+
+        }
+        @include desktop {
             padding: 0 2rem;
             margin: 1rem 0;
             border-left: 1px solid $color-cloud;
