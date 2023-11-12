@@ -2,7 +2,7 @@ import './App.scss';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import WarehouseDetailsPage from './pages/WarehouseDetailsPage/WarehouseDetailsPage';
 import HomePage from './pages/HomePage/HomePage';
-import InventoryList from './components/Inventory-List/Inventory-List'
+import InventoryListPage from './pages/InventoryListPage/InventoryListPage';
 
 function App() {
   return (
@@ -12,7 +12,7 @@ function App() {
         <Routes>
           <Route path='/' element={<HomePage />}/>
           <Route path='/warehouse-details' element={<WarehouseDetailsPage />} />
-          <Route path='/inventory'element={<InventoryList/>} />
+          <Route path='/inventory'element={<InventoryListPage/>} />
         </Routes>
       </BrowserRouter>
     </div>
