@@ -1,34 +1,65 @@
+import React, { useEffect, useState } from 'react';
+import axios from 'axios';
+import DeleteWarehouseModal from '../DeleteModal/DeleteWarehouseModal'; // Adjust the path as necessary
 import './Warehouse-List.scss';
 import editIcon from '../../assets/icons/edit-24px.svg';
 import deleteIcon from '../../assets/icons/delete_outline-24px.svg'
 import chevronRight from '../../assets/icons/chevron_right-24px.svg';
-import { useEffect, useState } from 'react';
-import axios from 'axios';
 import sortIcon from '../../assets/icons/sort-24px.svg';
+import { useEffect, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
+
 
 function WarehouseList() {
     const [warehouses, setWarehouses] = useState([]);
+    const [modalIsOpen, setModalIsOpen] = useState(false);
+    const [selectedWarehouseId, setSelectedWarehouseId] = useState(null);
 
-    useEffect( () => {
-        async function getWarehouses(){
-            const response = await axios.get('http://localhost:8080/api/warehouses')
-            setWarehouses(response.data)
+    useEffect(() => {
+        async function getWarehouses() {
+            const response = await axios.get('http://localhost:8080/api/warehouses');
+            setWarehouses(response.data);
         }
         getWarehouses();
-    }, [])
+    }, []);
 
- 
+    const openModal = (warehouseId) => {
+        setSelectedWarehouseId(warehouseId);
+        setModalIsOpen(true);
+    };
+
+    const closeModal = () => {
+        setModalIsOpen(false);
+    };
+
+    const confirmDelete = async () => {
+        if (selectedWarehouseId) {
+            await handleDeleteWarehouse(selectedWarehouseId);
+        }
+    };
+
+    const handleDeleteWarehouse = async (warehouseId) => {
+        try {
+            await axios.delete(`${'http://localhost:8080/api/warehouses'}/${warehouseId}`);
+            setWarehouses(warehouses.filter(warehouse => warehouse.id !== warehouseId));
+            closeModal();
+        } catch (error) {
+            console.error('Error deleting warehouse:', error);
+        }
+    };
+
+
+
     return (
-    <section className='warehouse__list' >
-        <section className='warehouselist__containerOne'>
-            <h2 className='warehouselist__containerOne-title'>Warehouses</h2>
-            <div className='warehouse__nav'>
-                <input className='warehouselist__containerOne-search' type='text' placeholder='Search...'></input>
-                <button className='warehouselist__containerOne-add'>+ Add New Warehouse</button>
-            </div>
-        </section>
-        <div>
+        <section className='warehouse__list' >
+            <section className='warehouselist__containerOne'>
+                <h2 className='warehouselist__containerOne-title'>Warehouses</h2>
+                <div className='warehouse__nav'>
+                    <input className='warehouselist__containerOne-search' type='text' placeholder='Search...'></input>
+                    <button className='warehouselist__containerOne-add'>+ Add New Warehouse</button>
+                </div>
+            </section>
+
             <div className='warehouselist__titles'>
                 <h6 className='warehouse__allWarehouses--titleWare'>WAREHOUSE<img src={sortIcon} alt='sort icon'/></h6>
                 <h6 className='warehouse__allWarehouses--titleAddress'>ADDRESS<img src={sortIcon}  alt='sort icon'/></h6>
@@ -36,6 +67,7 @@ function WarehouseList() {
                 <h6 className='warehouse__allWarehouses--titleInfo'>CONTACT INFORMATION<img src={sortIcon}  alt='sort icon'/></h6>
                 <h6 className='warehouselist__titles-titleAct'>ACTIONS</h6>
             </div>
+
             {
                 warehouses?.map ((warehouse) => (
 
@@ -99,6 +131,7 @@ function WarehouseList() {
     </section>
 
     )
+
 
 }
 
