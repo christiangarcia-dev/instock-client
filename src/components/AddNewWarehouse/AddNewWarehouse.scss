@@ -1,4 +1,9 @@
-.add-form {
+@use "../../styles/partials/global" as *;
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/variables" as *;
+
+
+.form {
     position: relative;
     top: -10vh;
     background-color: $color-white;
@@ -149,13 +154,13 @@
 
         @include tablet {
             padding: 0.5rem 1rem;
-            width: 15%;
+            width: max-content;
             margin-left: .5rem;
         }
 
         @include desktop {
             padding: 0.5rem 1rem;
-            width: 8%;
+            width: max-content;
             margin-left: .5rem;
 
         }
@@ -175,6 +180,5 @@
 
     &__button--save:hover {
         background-color: $color-graphite;
-
     }
 }

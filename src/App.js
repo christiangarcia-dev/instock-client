@@ -16,6 +16,7 @@ function App() {
           <Route path='/warehouse-details/:id' element={<WarehouseDetailsPage />} />
           <Route path='/inventory'element={<InventoryListPage/>} />
         </Routes>
+        <AddNewWarehouse />
       </BrowserRouter>
     </div>
   );

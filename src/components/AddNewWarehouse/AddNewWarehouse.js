@@ -1,5 +1,6 @@
 import "../AddNewWarehouse/AddNewWarehouse.scss";
 import errorImg from "../../assets/icons/error-24px.svg";
+import backArrow from "../../assets/icons/arrow_back-24px.svg";
 import { useState } from "react";
 
 function AddNewWarehouse () {
@@ -76,102 +77,156 @@ function AddNewWarehouse () {
     }
 
     return (
-        <div className="add-form">
-            <div className="add-form__header-div">
-                <h1 className="add-form__header"> Add Warehouse</h1>
-            </div>
-            <form className="add-form__form">
-                <div className="add-form__warehouse-div">
-                    <h2 className="add-form__subheader">Warehouse Details</h2>
-                    <label htmlFor="warehouseName" className="add-form__label">
-                        Warehouse Name
-                        <input type="text"
-                            name="warehouseName"
-                            id="warehouseName"
-                            className="add-form__field"
-                            placeholder="Warehouse Name"
-                        >
-                        </input>
-                    </label>
-                    <label htmlFor="streetAddress" className="add-form__label">
-                        Street Address
-                        <input type="text"
-                            name="streetAddress"
-                            id="streetAddress"
-                            className="add-form__field"
-                            placeholder="Street Address"
-                        >
-                        </input>
-                    </label>
-                    <label htmlFor="city" className="add-form__label">
-                        City
-                        <input type="text"
-                            name="city"
-                            id="city"
-                            className="add-form__field"
-                            placeholder="City"
-                        >
-                        </input>
-                    </label>
-                    <label htmlFor="country" className="add-form__label">
-                        Country
-                        <input type="text"
-                            name="country"
-                            id="country"
-                            className="add-form__field"
-                            placeholder="Country"
-                        >
-                        </input>
-                    </label>
-                </div>
-                <div className="add-form__contact-div">
-                    <h2 className="add-form__subheader">Contact Details</h2>
-                    <label htmlFor="contactName" className="add-form__label">
-                        Contact Name
-                        <input type="text"
-                            name="contactName"
-                            id="contactName"
-                            className="add-form__field"
-                            placeholder="Contact Name"
-                        >
-                        </input>
-                    </label>
-                    <label htmlFor="position" className="add-form__label">
-                        Position
-                        <input type="text"
-                            name="position"
-                            id="position"
-                            className="add-form__field"
-                            placeholder="Position"
-                        >
-                        </input>
-                    </label>
-                    <label htmlFor="phoneNumber" className="add-form__label">
-                        Phone Number
-                        <input type="text"
-                            name="phoneNumber"
-                            id="phoneNumber"
-                            className="add-form__field"
-                            placeholder="Phone Number"
-                        >
-                        </input>
-                    </label>
-                    <label htmlFor="email" className="add-form__label">
-                        Email
-                        <input type="email"
-                            name="email"
-                            id="email"
-                            className="add-form__field"
-                            placeholder="Email"
-                        >
-                        </input>
-                    </label>
-                </div>
-                <div className="add-form__buttons-div">
-                    <button type="button" className="add-form__button"> Cancel </button>
-                    <button type="submit" className="add-form__button add-form__button--secondary"> +Add Warehouse </button>
-                </div>
 
+        <div className="form">
+            <div className="form__header-div">
+                <img src={backArrow} alt="arrow pointing left" className="form__back-arrow"></img>
+                <h1 className="form__header"> Add Warehouse</h1>
+            </div>
+            <form className="form__form" onSubmit={submitHandler}>
+                <div className="form__content-div">
+                    <div className="form__warehouse-div">
+                        <h2 className="form__subheader">Warehouse Details</h2>
+                        <label htmlFor="warehouseName" className="form__label">
+                            Warehouse Name
+                            <input type="text"
+                                name="warehouseName"
+                                id="warehouseName"
+                                className="form__field"
+                                placeholder="Washington"
+                            >
+                            </input>
+                            <div className={inputWarehouseRequired ? "form__missing-input" : "form__missing-input--display"}>
+                                <img src={errorImg} alt="red exclamation point"></img>
+                                <p className="form__invalid-text">
+                                    This field is required.
+                                </p>
+                            </div>
+                        </label>
+                        <label htmlFor="streetAddress" className="form__label">
+                            Street Address
+                            <input type="text"
+                                name="streetAddress"
+                                id="streetAddress"
+                                className="form__field"
+                                placeholder="33 Pearl Street SW"
+                            >
+                            </input>
+                            <div className={inputAddressRequired ? "form__missing-input" : "form__missing-input--display"}>
+                                <img src={errorImg} alt="red exclamation point"></img>
+                                <p className="form__invalid-text">
+                                    This field is required.
+                                </p>
+                            </div>
+                        </label>
+                        <label htmlFor="city" className="form__label">
+                            City
+                            <input type="text"
+                                name="city"
+                                id="city"
+                                className="form__field"
+                                placeholder="Washington"
+                            >
+                            </input>
+                            <div className={inputCityRequired ? "form__missing-input" : "form__missing-input--display"}>
+                                <img src={errorImg} alt="red exclamation point"></img>
+                                <p className="form__invalid-text">
+                                    This field is required.
+                                </p>
+                            </div>
+                        </label>
+                        <label htmlFor="country" className="form__label">
+                            Country
+                            <input type="text"
+                                name="country"
+                                id="country"
+                                className="form__field"
+                                placeholder="USA"
+                            >
+                            </input>
+                            <div className={inputCountryRequired ? "form__missing-input" : "form__missing-input--display"}>
+                                <img src={errorImg} alt="red exclamation point"></img>
+                                <p className="form__invalid-text">
+                                    This field is required.
+                                </p>
+                            </div>
+                        </label>
+                    </div>
+                    <div className="form__contact-div">
+                        <h2 className="form__subheader">Contact Details</h2>
+                        <label htmlFor="contactName" className="form__label">
+                            Contact Name
+                            <input type="text"
+                                name="contactName"
+                                id="contactName"
+                                className="form__field"
+                                placeholder="Contact Name"
+                            >
+                            </input>
+                            <div className={inputNameRequired ? "form__missing-input" : "form__missing-input--display"}>
+                                <img src={errorImg} alt="red exclamation point"></img>
+                                <p className="form__invalid-text">
+                                    This field is required.
+                                </p>
+                            </div>
+                        </label>
+                        <label htmlFor="position" className="form__label">
+                            Position
+                            <input type="text"
+                                name="position"
+                                id="position"
+                                className="form__field"
+                                placeholder="Position"
+                            >
+                            </input>
+                            <div className={inputPositionRequired ? "form__missing-input" : "form__missing-input--display"}>
+                                <img src={errorImg} alt="red exclamation point"></img>
+                                <p className="form__invalid-text">
+                                    This field is required.
+                                </p>
+                            </div>
+                        </label>
+                        <label htmlFor="phoneNumber" className="form__label"
+                            onInput={validatePhoneNumber}
+                        >
+                            Phone Number
+                            <input type="text"
+                                name="phoneNumber"
+                                id="phoneNumber"
+                                className="form__field"
+                                placeholder="Phone Number"
+                            >
+                            </input>
+                            <div className={phoneInvaild ? "form__missing-input" : "form__missing-input--display"}>
+                                <img src={errorImg} alt="red exclamation point"></img>
+                                <p className="form__invalid-text">
+                                    Please enter phone number using the format +x(xxx)xxx-xxxx.
+                                </p>
+                            </div>
+                        </label>
+                        <label htmlFor="email" className="form__label">
+                            Email
+                            <input type="email"
+                                name="email"
+                                id="email"
+                                className="form__field"
+                                placeholder="Email"
+                                onInput={validateEmail}
+                            >
+                            </input>
+                            <div className={inputEmailRequired ? "form__missing-input" : "form__missing-input--display"}>
+                                <img src={errorImg} alt="red exclamation point"></img>
+                                <p className="form__invalid-text">
+                                    A valid email is required.
+                                </p>
+                            </div>
+                        </label>
+                    </div>
+                </div>
+                <div className="form__buttons-div">
+                    <button type="button" className="form__button"> Cancel </button>
+                    <button type="submit" className="form__button form__button--save"> +Add Warehouse </button>
+                </div>
             </form>
         </div>
 
