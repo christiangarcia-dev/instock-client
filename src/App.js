@@ -4,7 +4,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import WarehouseDetailsPage from './pages/WarehouseDetailsPage/WarehouseDetailsPage';
 import HomePage from './pages/HomePage/HomePage';
 import InventoryListPage from './pages/InventoryListPage/InventoryListPage';
-import EditWarehouse from '../src/pages/EditWarehouse/EditWarehouse';
+import EditWarehouse from './pages/EditWarehouse/EditWarehouse';
 import InventoryItemDetails from './components/InventoryItemDetails/InventoryItemDetails';
 
 function App() {

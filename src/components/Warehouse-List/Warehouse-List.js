@@ -117,20 +117,20 @@ function WarehouseList() {
             </p>
             </div>
             <div className="warehouse__allWarehouses-buttons">
-            <img
-                className="warehouse__allWarehouses-delete"
-                src={deleteIcon}
-                alt="delete icon"
-                onClick={() => openModal(warehouse.id)}
-            />
-            <Link to={`edit-warehouse-form/${warehouse.id}`}>
-              <img
-                className="warehouse__allWarehouses-edit"
-                src={editIcon}
-                alt="edit icon"
-              />
-            </Link>
-          </div>
+                <img
+                    className="warehouse__allWarehouses-delete"
+                    src={deleteIcon}
+                    alt="delete icon"
+                    onClick={() => openModal(warehouse.id)}
+                />
+                <Link to={`edit-warehouse-form/${warehouse.id}`}>
+                    <img
+                        className="warehouse__allWarehouses-edit"
+                        src={editIcon}
+                        alt="edit icon"
+                    />
+                </Link>
+            </div>
         </section>
         ))}
 
