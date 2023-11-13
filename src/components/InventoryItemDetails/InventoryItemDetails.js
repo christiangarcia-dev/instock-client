@@ -13,29 +13,27 @@ function InventoryItemDetails() {
         <section className="item">
             <div className="item__header-div">
                 <img src={backButton} alt="blue arrow pointing left" className="item__image"></img>
-                <h1 className="">ITEM NAME</h1>
-                <button type="button">
+                <h1 className="item__page-header">ITEM NAME</h1>
+                <button type="button" className="item__edit-button">
                     <img src={editIcon} alt="pencil icon"></img>
                 </button>
             </div>
             <div className="item__description-div">
-                <h3 className="item__">ITEM DESCRIPTION:</h3>
-                <p className=""></p>
-                <h3 className="">CATEGORY:</h3>
-                <p className=""></p>
+                <h3 className="item__category-header">ITEM DESCRIPTION:</h3>
+                <p className="item__category-description"></p>
+                <h3 className="item__category-header">CATEGORY:</h3>
+                <p className="item__category-description"></p>
             </div>
             <div className="item__status-div">
                 <div className="">
-                    <h3 className="">STATUS:</h3>
-                    <p className=""></p>
+                    <h3 className="item__category-header">STATUS:</h3>
+                    <p className="item__category-description">Decription</p>
                 </div>
                 <div className="">
-                    <h3 className="">QUANTITY:</h3>
-                    <p className=""></p>
+                    <h3 className="item__category-header">QUANTITY:</h3>
+                    <p className="item__category-description">000</p>
                 </div>
-
             </div>
-
         </section>
     )
 }
