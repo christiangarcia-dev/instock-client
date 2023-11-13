@@ -29,6 +29,7 @@
         @include tablet {
             display: flex;
             padding: 0;
+            justify-content: start;
         }
     }
 
@@ -37,13 +38,17 @@
         justify-content: space-between;
         
         @include tablet {
-            width: 12rem;
+            width: 16rem;
+        }
+
+        &-link {
+            
         }
 
         &-all {
             width: 45%;
             height: 2.25rem;
-            border-radius: 40px;
+            border-radius: 1.25rem;
             font-weight: 600;
             background-color: $color-graphite;
             border: none;
@@ -62,7 +67,8 @@
     }
 
     .header__buttons-all:hover {
-        // 
+        color: $color-white;
+        text-decoration: underline;
     }
 
 }
