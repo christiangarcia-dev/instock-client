@@ -17,21 +17,14 @@ function EditWarehouse() {
 
   function validatePhoneNumber(event) {
     const phoneNumberInput = event.target.value;
-
     const phoneValidation = /^\+\d{1,3}\s?\(\d{1,4}\)\s?\d{1,10}-?\d{1,10}$/;
-
-    if (!phoneNumberInput.match(phoneValidation)) {
-      setPhoneInvalid(false);
-    }
+    setPhoneInvalid(phoneNumberInput.match(phoneValidation));
   }
 
   function validateEmail(event) {
-    const email = event.target.email.value;
+    const emailInput = event.target.value;
     const emailValidation = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
-
-    if (!email.match(emailValidation)) {
-      setInputEmailRequired(false);
-    }
+    setInputEmailRequired(emailInput.match(emailValidation));
   }
 
   function submitHandler(event) {
