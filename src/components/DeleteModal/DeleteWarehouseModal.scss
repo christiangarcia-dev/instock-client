@@ -21,8 +21,8 @@
     }
 
     &__content {
-        position: absolute;
-        top: 40%; 
+        position: fixed;
+        top: 50%; 
         left: 50%;
         transform: translate(-50%, -50%);
         line-height: 1.4;
@@ -42,6 +42,14 @@
         position: relative;
         left: 98%;
         cursor: pointer;
+    }
+
+    &__text-container {
+        height: 83vh;
+
+        @include tablet {
+            height: min-content;
+        }
     }
 
     &__header {
@@ -73,8 +81,6 @@
         display: flex;
         gap: 1rem;
         margin-top: auto;
-        position: relative;
-        top: 45%;
 
         @include tablet {
             position: static;
