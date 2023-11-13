@@ -2,6 +2,7 @@ import "../EditWarehouse/EditWarehouse.scss";
 import backArrow from "../../assets/icons/arrow_back-24px.svg";
 import errorImg from "../../assets/icons/error-24px.svg";
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 function EditWarehouse() {
 
@@ -13,12 +14,12 @@ function EditWarehouse() {
     const [inputNameRequired, setInputNameRequired] = useState(true);
     const [inputPositionRequired, setInputPositionRequired] = useState(true);
     const [inputEmailRequired, setInputEmailRequired] = useState(true);
-    
+
 
     function validatePhoneNumber(event) {
         const phoneNumberInput = event.target.value;
 
-        const phoneValidation =/^\+\d{1,3}\s?\(\d{1,4}\)\s?\d{1,10}-?\d{1,10}$/;
+        const phoneValidation = /^\+\d{1,3}\s?\(\d{1,4}\)\s?\d{1,10}-?\d{1,10}$/;
 
         console.log(!phoneNumberInput.match(phoneValidation));
 
@@ -32,9 +33,9 @@ function EditWarehouse() {
         const email = event.target.email.value;
         const emailValidation = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
 
-        if(!email.match(emailValidation)){
+        if (!email.match(emailValidation)) {
             setInputEmailRequired(false)
-        } 
+        }
     }
 
 
@@ -52,35 +53,37 @@ function EditWarehouse() {
 
         if (!warehouseName) {
             setInputWarehouseRequired(false)
-        } 
+        }
         if (!streetAddress) {
             setInputAddressRequired(false)
-        } 
+        }
         if (!city) {
             setInputCityRequired(false)
-        } 
+        }
         if (!country) {
             setInputCountryRequired(false)
-        }  
+        }
         if (!contactName) {
             setInputNameRequired(false)
-        }  
+        }
         if (!position) {
             setInputPositionRequired(false)
-        }  
+        }
         if (!phoneNumber) {
             setPhoneInvalid(false)
-        }  
+        }
         if (!email) {
             setInputEmailRequired(false)
-        }  
+        }
     }
 
 
     return (
         <div className="form">
             <div className="form__header-div">
-                <img src={backArrow} alt="arrow pointing left" className="form__back-arrow"></img>
+                <Link>
+                    <img src={backArrow} alt="arrow pointing left" className="form__back-arrow"></img>
+                </Link>
                 <h1 className="form__header"> Edit Warehouse</h1>
             </div>
             <form className="form__form" onSubmit={submitHandler}>
