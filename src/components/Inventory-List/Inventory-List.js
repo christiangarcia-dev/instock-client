@@ -4,7 +4,7 @@ import deleteIcon from '../../assets/icons/delete_outline-24px.svg'
 import chevronRight from '../../assets/icons/chevron_right-24px.svg';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
-import '../DeleteInventory/DeleteInventory'
+import DeleteInventory from '../DeleteInventory/DeleteInventory';
 
 const API = 'http://localhost:8080/api/inventories'
 function InventoryList() {
