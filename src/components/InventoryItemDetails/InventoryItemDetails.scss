@@ -10,6 +10,7 @@
     width: 91%;
     box-shadow: 0 4px 8px rgba(19, 24, 44, 0.1);
     margin: 0 auto;
+    
 
     &__header-div {
         display: flex;
@@ -73,7 +74,18 @@
         font-size: .6875rem;
         font-weight: 600;
         line-height: 1rem;
+        color:  $color-slate;
     }
 
+    &__category-description {
+        font-size: .8125rem;
+        font-weight: 400;
+        line-height: 1.25rem;
+        color:  $color-isblack;
+    }
+
+    &__quant-div {
+        margin: 0 2rem;
+    }
 
 }
