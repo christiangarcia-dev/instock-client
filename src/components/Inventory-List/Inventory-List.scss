@@ -2,6 +2,9 @@
 @use '../../styles/partials/mixins' as*;
 @use '../../styles/partials/variables' as*;
 
+a{
+    text-decoration: none;
+}
 
 .inventory__list {
     position: relative;
