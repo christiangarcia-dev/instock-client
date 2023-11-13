@@ -6,7 +6,6 @@ import HomePage from './pages/HomePage/HomePage';
 import InventoryListPage from './pages/InventoryListPage/InventoryListPage';
 import EditWarehouse from './components/EditWarehouse/EditWarehouse';
 import InventoryItemDetails from './components/InventoryItemDetails/InventoryItemDetails';
-import EditWarehouse from "./pages/EditWarehouse/EditWarehouse"
 
 function App() {
   return (
