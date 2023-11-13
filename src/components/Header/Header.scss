@@ -11,12 +11,12 @@
         display: flex;
         justify-content: space-between;
         padding: 1rem $tablet-main-padding;
-        padding-bottom: 8rem;
-        padding-top: 2.5rem;
+        padding-bottom: 5rem;
     }
 
     @include desktop {
-        padding-inline: $desktop-main-padding;
+        padding: 1rem $desktop-main-padding;
+        padding-bottom: 5rem;
     }
 
     &__logo {
@@ -29,9 +29,7 @@
         @include tablet {
             display: flex;
             padding: 0;
-
-            justify-content: flex-start;
-            width: 8rem;
+            justify-content: start;
         }
     }
 
@@ -43,36 +41,21 @@
             width: 20rem;
         }
 
-        &-link {
-            
-        }
 
         &-all {
-            min-width: 45%;
-            max-width: 70%;
-            min-height: 2.25rem;
-            max-height: 3rem;
-            border-radius: 40px;
-            font-weight: 600;
+            width: 45%;
+            height: 2.25rem;
+            border-radius: 1.25rem;
             background-color: $color-graphite;
-            border: 1px solid transparent;
-            color: $color-white;
+            border: none;
+            color: $color-cloud;
             cursor: pointer;
-            text-align: center;
-            padding: 0.5rem 1rem;
 
             display: flex;
             justify-content: center;
             align-items: center;
 
-
-            &:nth-of-type(2) {
-                color: $color-cloud;
-                
-                @include tablet {
-                    margin-left: 0.3rem;
-                }
-            }
+            
         }
     }
 }
@@ -88,5 +71,3 @@
     font-weight: 600;
     color: $color-white;
 }
-
-
