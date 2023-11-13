@@ -2,10 +2,46 @@
 @use '../../styles/partials/mixins' as*;
 @use '../../styles/partials/variables' as*;
 
+
+.title-x {
+    display: flex;
+}
 .delete__inventory{
-    margin: $mobile-main-margin;
+    background-color: $color-white;
+    padding: $mobile-main-padding;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+
+    @include tablet {
+        position: fixed;
+        top: 25%;
+        background-color: $color-white;
+        padding: $tablet-main-padding;
+        height: 40vh;
+    }
+    @include desktop {
+        left: 25%;
+        width: 80vh;
+    }
+    &-overlay{
+        @include tablet {
+            background: rgba(49, 49, 49, 0.8);
+            width: 100vw;
+            height: 100vh;
+            position: fixed;
+            top: 0;
+            left: 0;
+
+        }
+    
+        }
     &-title {
         margin-top: 10vh;
+        @include tablet {
+            margin-top: 5vh;
+        }
     }
     &-explanation {
         margin-top: 2vh;
