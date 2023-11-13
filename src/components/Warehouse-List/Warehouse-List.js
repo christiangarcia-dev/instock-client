@@ -123,11 +123,13 @@ function WarehouseList() {
               src={deleteIcon}
               alt="delete icon"
             />
-            <img
-              className="warehouse__allWarehouses-edit"
-              src={editIcon}
-              alt="edit icon"
-            />
+            <Link to={`edit-warehouse-form/${warehouse.id}`}>
+              <img
+                className="warehouse__allWarehouses-edit"
+                src={editIcon}
+                alt="edit icon"
+              />
+            </Link>
           </div>
         </section>
       ))}
