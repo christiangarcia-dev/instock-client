@@ -5,49 +5,20 @@ import chevronRight from '../../assets/icons/chevron_right-24px.svg';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 import DeleteInventory from '../DeleteInventory/DeleteInventory';
+import{ Link }from "react-router-dom";
 
-const API = 'http://localhost:8080/api/inventories'
 function InventoryList() {
 
     const [inventories, setInventories] = useState([]);
-    const [modalDelete, setModalDelete] = useState(false);
-    const [selectedinventoryId, setSelectedInventoryId ]= useState(null);
-    const [inventoryName, setinventoryName] = useState('');
+    const [openModal, setOpenModal] =  useState(false);
+    const [selectedInventory, setSelecetedInventory]= useState(null);
 
-
-
-    const openModal = (inventoryId, inventoryName) => {
-        setSelectedInventoryId(inventoryId)
-        setModalDelete(true)
-        setinventoryName(inventoryName)
-    } 
-
-    const closeModal = () => {
-        setModalDelete(false)
-    }
-
-    const confirmDelete = async () => {
-        if (selectedinventoryId) {
-          await handleDeleteInventory(selectedinventoryId);
+        const handleOpenPop = (selectedInventory) => {
+            setSelecetedInventory(selectedInventory)
+            setOpenModal(true)
         }
-      };
-    
-      const handleDeleteInventory = async (inventoryId) => {
-        try {
-          await axios.delete(
-            `${"http://localhost:8080/api/inventories"}/${inventoryId}`
-          );
-          setInventories(
-            inventories.filter((inventory) => inventory.id !== inventoryId)
-          );
-          closeModal();
-        } catch (error) {
-          console.error("Error deleting inventory:", error);
-        }
-      };
 
-
-    useEffect( () => {
+        useEffect( () => {
         async function getInventories(){
             const response = await axios.get('http://localhost:8080/api/inventories')
             setInventories(response.data)
@@ -55,7 +26,7 @@ function InventoryList() {
         getInventories();
     }, [])
 
-  
+   
     return (
         <section className='inventory__list' >
             <section className='inventorylist__containerOne'>
@@ -97,28 +68,20 @@ function InventoryList() {
                             </div>
                         </div>
                         <div className='inventory__allInventories-buttons'>
-                         <button onClick={() => openModal(inventory.id)} >
-                            <img className='inventory__allInventories-delete' src={deleteIcon}/>
-                        </button>   
-                            <img className='inventory__allInventories-edit' src={editIcon}/>
+                            <img onClick={() => handleOpenPop(inventory)}className='inventory__allInventories-delete' src={deleteIcon} />
+                            {/* <Link to={`/edit-warehouse-form`}> */}
+                                <img className='inventory__allInventories-edit' src={editIcon}/>
+                            {/* </Link> */}
                         </div>
                     </section>
                 ))
             }
-        </section>
         
-                    
-            
-              {modalDelete && (
-                <DeleteInventory
-                    onCancel={closeModal}
-                    onConfirm={confirmDelete}
-                    inventoryName={inventoryName}
-                />
-            )}
-    </section>
-
-    // I HAVE TO ADD ALT FOR THR ICONS-IMAGES
+            {
+                openModal && <DeleteInventory openDelete={setOpenModal} inventory={selectedInventory} />
+            }
+           
+            </section>
     )
 
 }
