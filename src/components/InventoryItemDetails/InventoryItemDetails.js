@@ -15,7 +15,8 @@ function InventoryItemDetails() {
                 <img src={backButton} alt="blue arrow pointing left" className="item__image"></img>
                 <h1 className="item__page-header">ITEM NAME</h1>
                 <button type="button" className="item__edit-button">
-                    <img src={editIcon} alt="pencil icon"></img>
+                    <img src={editIcon} alt="pencil icon" className="item__edit-icon"></img>
+                    <p className="item__button-text"> Edit</p>
                 </button>
             </div>
             <div className="item__description-div">
