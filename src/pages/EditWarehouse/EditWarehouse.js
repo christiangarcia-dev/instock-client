@@ -207,7 +207,7 @@ function EditWarehouse() {
               <label
                 htmlFor="phoneNumber"
                 className="form__label"
-                onInput={validatePhoneNumber}
+                onChange={validatePhoneNumber}
               >
                 Phone Number
                 <input
@@ -238,7 +238,7 @@ function EditWarehouse() {
                   id="email"
                   className="form__field"
                   placeholder="glyon@instock.com"
-                  onInput={validateEmail}
+                  onChange={validateEmail}
                 ></input>
                 <div
                   className={
