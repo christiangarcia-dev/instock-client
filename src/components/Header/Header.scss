@@ -11,12 +11,12 @@
         display: flex;
         justify-content: space-between;
         padding: 1rem $tablet-main-padding;
-        padding-bottom: 5rem;
+        padding-bottom: 8rem;
+        padding-top: 2.5rem;
     }
 
     @include desktop {
-        padding: 1rem $desktop-main-padding;
-        padding-bottom: 5rem;
+        padding-inline: $desktop-main-padding;
     }
 
     &__logo {
@@ -29,6 +29,8 @@
         @include tablet {
             display: flex;
             padding: 0;
+            justify-content: flex-start;
+            width: 8rem;
         }
     }
 
@@ -41,14 +43,18 @@
         }
 
         &-all {
-            width: 45%;
-            height: 2.25rem;
+            min-width: 45%;
+            max-width: 70%;
+            min-height: 2.25rem;
+            max-height: 3rem;
             border-radius: 40px;
             font-weight: 600;
             background-color: $color-graphite;
-            border: none;
+            border: 1px solid transparent;
             color: $color-white;
             cursor: pointer;
+            text-align: center;
+            padding: 0.5rem 1rem;
 
             // hard coded styles --> change to styles being applied dynamically
             &:nth-of-type(1) {
@@ -57,6 +63,10 @@
 
             &:nth-of-type(2) {
                 color: $color-cloud;
+                
+                @include tablet {
+                    margin-left: 0.3rem;
+                }
             }
         }
     }

@@ -2,6 +2,10 @@
 @use '../../styles/partials/mixins' as*;
 @use '../../styles/partials/variables' as*;
 
+p {
+    color: $color-isblack;
+}
+
 .warehouse__list {
     top: -10vh;
     background-color: $color-white;
@@ -9,11 +13,11 @@
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     @include tablet {
         margin:$tablet-main-margin;
-        top: -13vh;
+        top: -17.4vh;
     }
     @include desktop {
         margin: $desktop-main-margin;
-        top: -17vh;
+        top: -24vh;
     }
 }
 .warehouselist__titles {
@@ -39,6 +43,7 @@
     @include tablet {
         flex-direction: row;
         justify-content: space-between;
+        align-items: center;
         padding: 3vh;
     }
     &-search {
@@ -46,24 +51,34 @@
         height:30px;
         background-repeat: no-repeat;
         background-position: right 10px center;
-       padding: 2vh;
-       border: 1px solid $color-cloud;
-       border-radius: 20px;
-       margin-bottom: 2vh;
-       margin-top: 1vh;
-       @include tablet{
-        margin-right: 2vh;
-       }
+        padding: 2vh;
+        border: 1px solid $color-cloud;
+        border-radius: 20px;
+        margin-bottom: 2vh;
+        margin-top: 1vh;
+
+        @include tablet{
+            margin-right: 2vh;
+            padding-block: 1.2rem;
+            width: 13rem;
+            margin-block: 0;
+        }
     }
     &-add {
         background-color: $color-isindigo;
         border: none;
         color: $color-white;
         border-radius: 20px;
-        padding: 1vh;
-        margin-bottom: 1vh;
+        height: min-content;
+        padding: 0.65rem 1rem;
+        cursor: pointer;
     }
     &-title {
+
+        @include tablet {
+            font-size: 1.9rem;
+            padding-left: 1rem;
+        }
         @include desktop {
             margin: 1vh 5vh;
         }
@@ -73,8 +88,11 @@
 .warehouse__nav {
     display: flex;
     flex-direction: column;
+
     @include tablet {
-        flex-direction: row    }
+        flex-direction: row;
+        align-items: center;
+    }
 }
 .warehouselist__containerTwo {
     padding:$mobile-main-padding;
@@ -184,6 +202,12 @@ a {
     @include desktop {
         &-address {
             margin-right: 1vh;
+        }
+    }
+
+    &-edit {
+        @include tablet {
+            padding-left: 0.7rem;
         }
     }
 }
