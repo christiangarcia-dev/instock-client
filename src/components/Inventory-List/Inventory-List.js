@@ -9,6 +9,39 @@ const API = 'http://localhost:8080/api/inventories'
 function InventoryList() {
 
     const [inventories, setInventories] = useState([]);
+    const [modalDelete, setModalDelete] = useState(false);
+    const [selectedinventoryId, setSelectedInventoryId ]= useState(null);
+
+
+    const openModal = (inventoryId) => {
+        setSelectedInventoryId(inventoryId)
+        setModalDelete(true)
+    } 
+
+    const closeModal = () => {
+        setModalDelete(false)
+    }
+
+    const confirmDelete = async () => {
+        if (selectedinventoryId) {
+          await handleDeleteInventory(selectedinventoryId);
+        }
+      };
+    
+      const handleDeleteInventory = async (inventoryId) => {
+        try {
+          await axios.delete(
+            `${"http://localhost:8080/api/inventories"}/${inventoryId}`
+          );
+          setInventories(
+            inventories.filter((inventory) => inventory.id !== inventoryId)
+          );
+          closeModal();
+        } catch (error) {
+          console.error("Error deleting inventory:", error);
+        }
+      };
+
 
     useEffect( () => {
         async function getInventories(){
@@ -61,7 +94,9 @@ function InventoryList() {
                             </div>
                         </div>
                         <div className='warehouse__allWarehouses-buttons'>
+                         <button >
                             <img className='warehouse__allWarehouses-delete' src={deleteIcon}/>
+                        </button>   
                             <img className='warehouse__allWarehouses-edit' src={editIcon}/>
                         </div>
                     </section>
