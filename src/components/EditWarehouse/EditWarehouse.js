@@ -17,7 +17,6 @@ function EditWarehouse() {
 
     function validatePhoneNumber(event) {
         const phoneNumberInput = event.target.value;
-        console.log(typeof phoneNumberInput);
 
         const phoneValidation =/^\+\d{1,3}\s?\(\d{1,4}\)\s?\d{1,10}-?\d{1,10}$/;
 
@@ -228,7 +227,6 @@ function EditWarehouse() {
                     <button type="button" className="form__button"> Cancel </button>
                     <button type="submit" className="form__button form__button--save"> Save </button>
                 </div>
-
             </form>
         </div>
 
