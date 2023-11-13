@@ -39,10 +39,10 @@
 
     &-search {
         background-image: url('../../assets/icons/search-24px.svg');
-        height: 30px;
+        height: 2.375rem;
         background-repeat: no-repeat;
         background-position: right 10px center;
-        padding: 2vh;
+        padding: 1vh;
         border: 1px solid $color-cloud;
         border-radius: 20px;
         margin-bottom: 2vh;
@@ -50,6 +50,7 @@
 
         @include tablet {
             margin-right: 2vh;
+            margin-top: 0;
         }
     }
 
@@ -180,4 +181,16 @@
         justify-content: space-between;
         margin-top: 2vh;
     }
+}
+
+.inventory__sections {
+    padding-bottom: 1rem;
+}
+
+button:hover {
+    background-color: $color-isblack;
+}
+
+button {
+    height: 2.375rem;
 }
