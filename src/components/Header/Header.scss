@@ -1,0 +1,68 @@
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/mixins" as *;
+@use '../../styles/partials/global' as *;
+
+.header {
+    padding: $mobile-main-padding;
+    background-color: $color-graphite;
+    padding-bottom: 5rem;
+
+    @include tablet {
+        display: flex;
+        justify-content: space-between;
+        padding: 1rem $tablet-main-padding;
+        padding-bottom: 5rem;
+    }
+
+    @include desktop {
+        padding: 1rem $desktop-main-padding;
+        padding-bottom: 5rem;
+    }
+
+    &__logo {
+        padding-top: 1rem;
+        padding-bottom: 2rem;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+
+        @include tablet {
+            display: flex;
+            padding: 0;
+        }
+    }
+
+    &__buttons {
+        display: flex;
+        justify-content: space-between;
+        
+        @include tablet {
+            width: 12rem;
+        }
+
+        &-all {
+            width: 45%;
+            height: 2.25rem;
+            border-radius: 40px;
+            font-weight: 600;
+            background-color: $color-graphite;
+            border: none;
+            color: $color-white;
+            cursor: pointer;
+
+            // hard coded styles --> change to styles being applied dynamically
+            &:nth-of-type(1) {
+                background-color: $color-isblack;
+            }
+
+            &:nth-of-type(2) {
+                color: $color-cloud;
+            }
+        }
+    }
+
+    .header__buttons-all:hover {
+        // 
+    }
+
+}

@@ -1,0 +1,13 @@
+@use '../../styles/partials/mixins' as *;
+@use '../../styles/partials/variables' as *;
+@use '../../styles/partials/global' as *;
+
+.footer {
+    position: static;
+    background-color: $color-lightgrey;
+    color: $color-slate;
+    font-size: .6875rem;
+    padding: 3rem $mobile-main-padding;
+    text-align: center;
+    z-index: -10;
+}

@@ -1,0 +1,88 @@
+@use '../../styles/partials/global' as*;
+@use '../../styles/partials/mixins' as*;
+@use '../../styles/partials/variables' as*;
+
+
+.details {
+
+    padding: 0 $mobile-main-padding;
+
+    @include tablet {
+        padding: 0 $tablet-main-padding;
+    }
+
+    @include desktop {
+        padding: 0 $desktop-main-padding;
+    }
+
+    &__upper {
+        display: flex;
+        justify-content: space-between;
+        padding: 1rem 0;
+
+        &-left {
+            display: flex;
+        }
+
+        &-title {
+            padding-left: .5rem;
+        }
+
+    }
+
+
+    &__info {
+
+        font-size: .8125rem;
+        border-top: 1px solid $color-cloud;
+        border-bottom: 1px solid $color-cloud;
+        padding: 1rem 0;
+        
+        @include tablet {
+            display: flex;
+            justify-content: space-between;
+            font-size: .875rem;
+        }
+
+        @include desktop {
+        }
+
+        &-address {
+            padding-bottom: 2rem ;
+            @include tablet {
+                width: 19rem;
+                padding-right: 10rem;
+                border-right: 1px solid $color-cloud;
+                padding-bottom: 0;
+            }
+            @include desktop {
+                width: 30rem;
+                padding-right: 20rem;
+            }
+        }
+
+        &-lbl {
+            color: $color-slate;
+        }
+
+        &-contact {
+            display: flex;
+            justify-content: space-between;
+
+            @include tablet {
+                width: 24rem;
+                padding-right: 4rem;
+            }
+            @include desktop {
+                padding-right: 12rem;
+                width: 34rem;
+            }
+        }
+
+        &-contactinfo {
+            padding-right: 1rem;
+        }
+
+
+    }
+}

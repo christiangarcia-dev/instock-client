@@ -1,0 +1,157 @@
+@use '../../styles/partials/global' as*;
+@use '../../styles/partials/mixins' as*;
+@use '../../styles/partials/variables' as*;
+
+.warehouse__list {
+    position: relative;
+    top: -10vh;
+    background-color: $color-white;
+    width: 91% ;
+    margin: $mobile-main-margin;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+.warehouselist__titles {
+    display: none;
+@include tablet {
+        display: flex;
+        flex-direction: row;
+        padding: $mobile-main-padding;
+        background-color: $color-lightgrey;
+        display: flex;
+        justify-content: space-around;
+    }
+}
+.warehouselist__containerOne{
+    display: flex;
+    flex-direction: column;
+    border-bottom: 1px solid $color-cloud ;
+    padding: 5vh  2vh 2vh 2vh;
+    @include tablet {
+        flex-direction: row;
+        justify-content: space-between;
+        padding: 3vh;
+    }
+    &-search {
+        background-image: url('../../assets/icons/search-24px.svg');
+        height:30px;
+        background-repeat: no-repeat;
+        background-position: right 10px center;
+       padding: 2vh;
+       border: 1px solid $color-cloud;
+       border-radius: 20px;
+       margin-bottom: 2vh;
+       margin-top: 1vh;
+       @include tablet{
+        margin-right: 2vh;
+       }
+    }
+    &-add {
+        background-color: $color-isindigo;
+        border: none;
+        color: $color-white;
+        border-radius: 20px;
+        padding: 1vh;
+        margin-bottom: 1vh;
+    }
+}
+
+.warehouse__nav {
+    display: flex;
+    flex-direction: column;
+    @include tablet {
+        flex-direction: row    }
+}
+.warehouselist__containerTwo {
+    padding:$mobile-main-padding;
+    border-bottom: 1px solid $color-cloud;
+    @include tablet {
+        display: flex;
+    }
+
+}
+
+
+.warehouse__allWarehouses{
+    display: flex;
+    justify-content: space-between;
+    // @include tablet {
+    //     justify-content: space-around;
+    // }
+  
+    &-titleWare{
+        color: $color-slate;
+        @include tablet{
+            display: none;
+        }
+    }
+    &--titleWare{
+        display: none;
+        @include tablet {
+            display:flex;
+        }
+    }
+    &-titleAddress {
+        color: $color-slate;
+        @include tablet{
+            display: none;
+        }
+    }
+    &--titleAddress{
+        display: none;
+        @include tablet {
+            display:flex;
+        }
+    }
+    &-titleContact{
+        color: $color-slate;
+        @include tablet{
+            display: none;
+        }
+    }
+    &--titleContact{
+        display: none;
+        @include tablet {
+            display:flex;
+        }
+    }
+    &-titleInfo {
+        color: $color-slate;
+        @include tablet{
+            display: none;
+        }
+    }
+    &-stock{
+        border: 5px;
+    }
+    &-typeItem {
+        color: $color-isindigo;
+        font-weight: 600;
+        display: flex;
+    }
+    &-one {
+        @include tablet {
+            display:  flex;
+            flex-direction: row;
+        }  
+    }
+    &-two {
+        @include tablet {
+            display: flex;
+            flex-direction: row;
+        }
+    }
+}
+
+.warehouse__allWarehouses{
+    &-title {
+        display: none;
+        @include tablet {
+            display: flex;
+        }
+    }
+&-buttons{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 2vh;
+}
+}
