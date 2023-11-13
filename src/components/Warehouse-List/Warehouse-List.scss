@@ -27,11 +27,17 @@ p {
         padding: $mobile-main-padding;
         background-color: $color-lightgrey;
         justify-content: space-around;
+        text-transform: uppercase;
+        color: $color-slate;
+        align-items: center;
         @include desktop {
             &-titleAct {
                 width: 10vh;
             }
 
+        }
+        &-titleAct {
+            font-size: 0.75rem;
         }
 }
 }
@@ -60,7 +66,7 @@ p {
         @include tablet{
             margin-right: 2vh;
             padding-block: 1.2rem;
-            width: 13rem;
+            width: 18rem;
             margin-block: 0;
         }
     }
@@ -72,6 +78,7 @@ p {
         height: min-content;
         padding: 0.65rem 1rem;
         cursor: pointer;
+        font-weight: 600;
     }
     &-title {
 
@@ -92,6 +99,7 @@ p {
     @include tablet {
         flex-direction: row;
         align-items: center;
+        margin-right: 4rem;
     }
 }
 .warehouselist__containerTwo {
@@ -122,6 +130,8 @@ a {
         @include tablet {
             display:flex;
             width: 20vh;
+            align-items: center;
+            font-size: 0.75rem;
         }
     }
     &-titleAddress {
@@ -136,6 +146,8 @@ a {
         @include tablet {
             display:flex;
             width: 18vh;
+            align-items: center;
+            font-size: 0.75rem;
         }
         @include desktop {
             width: 40vh;
@@ -152,6 +164,8 @@ a {
         @include tablet {
             display:flex;
             width: 18vh;
+            align-items: center;
+            font-size: 0.75rem;
         }
     }
     &-titleInfo {
@@ -166,10 +180,17 @@ a {
         @include tablet {
             display: flex;
             width: 25vh;
+            align-items: center;
+            font-size: 0.75rem;
         }
         @include desktop {
             width: 20vh;
         }
+    }
+
+    &--sort {
+        width: 1rem;
+        margin-left: 0.5rem;
     }
 
     &-name{
@@ -184,6 +205,10 @@ a {
         display: flex;
         @include tablet {
             width: 20vh;
+            
+            &:hover {
+                text-decoration: underline;
+            }
         }
      
     }
@@ -208,6 +233,12 @@ a {
     &-edit {
         @include tablet {
             padding-left: 0.7rem;
+        }
+    }
+
+    &-delete {
+        @include tablet {
+            cursor: pointer;
         }
     }
 }
@@ -235,6 +266,10 @@ a {
         justify-content: space-evenly;
         height: 12vh;
 
+        &:hover {
+            background: $blue-opacity;
+            cursor: pointer;
+        }
     }
 }
 
