@@ -3,6 +3,7 @@ import { Link, useParams } from "react-router-dom";
 import axios from "axios";
 import backIcon from "../../assets/icons/arrow_back-24px.svg";
 import editIcon from "../../assets/icons/edit-24px.svg";
+import './Warehouse-Details.scss'
 
 function WarehouseDetails() {
   const { id } = useParams(); // Get the warehouse ID from the URL params

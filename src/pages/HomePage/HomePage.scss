@@ -1,0 +1,42 @@
+@use '../../styles/partials/global' as *;
+@use '../../styles/partials/mixins' as *;
+@use '../../styles/partials/variables' as *;
+
+.page-container {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    
+    .content {
+      flex: 1; 
+      height: min-content;
+      background-color: $color-lightgrey;
+      margin-bottom: -6vh;
+    }
+  
+    // Header does not need changes specific to the layout problem, but for clarity, 
+    // I'll include it in the nesting for structural purposes
+    .header {
+      // Your existing header styles go here
+    }
+  
+    // Footer also does not need changes specific to the layout problem,
+    // included for structural completeness
+    .footer {
+      position: relative; // Changed from static to relative for consistency in this context
+      bottom: 0; // Explicitly state it's at the bottom for clarity
+      width: 100%; // Ensure footer is full width
+      // Other existing footer styles remain the same
+    }
+  
+    // Warehouse list adjustment for contextual positioning within the main content
+    .warehouse__list {
+      position: relative; // Changed from absolute to relative
+      // Now it will flow naturally in the document, so no 'top' property needed
+      // Other existing warehouse list styles remain the same
+    }
+  }
+  
+  // Assuming you have other styles that are specific to these components outside the '.page-container'
+  // You would keep them outside of the '.page-container' block to avoid repetition and keep the SASS tidy.
+  
