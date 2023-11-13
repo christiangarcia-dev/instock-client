@@ -4,11 +4,48 @@ import deleteIcon from '../../assets/icons/delete_outline-24px.svg'
 import chevronRight from '../../assets/icons/chevron_right-24px.svg';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
+import DeleteInventory from '../DeleteInventory/DeleteInventory';
 
 const API = 'http://localhost:8080/api/inventories'
 function InventoryList() {
 
     const [inventories, setInventories] = useState([]);
+    const [modalDelete, setModalDelete] = useState(false);
+    const [selectedinventoryId, setSelectedInventoryId ]= useState(null);
+    const [inventoryName, setinventoryName] = useState('');
+
+
+
+    const openModal = (inventoryId, inventoryName) => {
+        setSelectedInventoryId(inventoryId)
+        setModalDelete(true)
+        setinventoryName(inventoryName)
+    } 
+
+    const closeModal = () => {
+        setModalDelete(false)
+    }
+
+    const confirmDelete = async () => {
+        if (selectedinventoryId) {
+          await handleDeleteInventory(selectedinventoryId);
+        }
+      };
+    
+      const handleDeleteInventory = async (inventoryId) => {
+        try {
+          await axios.delete(
+            `${"http://localhost:8080/api/inventories"}/${inventoryId}`
+          );
+          setInventories(
+            inventories.filter((inventory) => inventory.id !== inventoryId)
+          );
+          closeModal();
+        } catch (error) {
+          console.error("Error deleting inventory:", error);
+        }
+      };
+
 
     useEffect( () => {
         async function getInventories(){
@@ -60,14 +97,26 @@ function InventoryList() {
                             </div>
                         </div>
                         <div className='inventory__allInventories-buttons'>
-                            <img className='inventory__allInventories-delete' src={deleteIcon} />
-                            <img className='inventory__allInventories-edit' src={editIcon} />
+                         <button onClick={() => openModal(inventory.id)} >
+                            <img className='inventory__allInventories-delete' src={deleteIcon}/>
+                        </button>   
+                            <img className='inventory__allInventories-edit' src={editIcon}/>
                         </div>
                     </section>
                 ))
             }
         </section>
         
+                    
+            
+              {modalDelete && (
+                <DeleteInventory
+                    onCancel={closeModal}
+                    onConfirm={confirmDelete}
+                    inventoryName={inventoryName}
+                />
+            )}
+    </section>
 
     // I HAVE TO ADD ALT FOR THR ICONS-IMAGES
     )
