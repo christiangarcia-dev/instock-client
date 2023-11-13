@@ -22,11 +22,9 @@ function WarehouseList() {
     }, []);
 
     const openModal = (warehouseId) => {
-        // Find the warehouse by ID
         const warehouseToDelete = warehouses.find(warehouse => warehouse.id === warehouseId);
-        // If warehouse exists, set the state
         if (warehouseToDelete) {
-            setSelectedWarehouse(warehouseToDelete); // Change this line to store the whole warehouse object
+            setSelectedWarehouse(warehouseToDelete);
             setModalIsOpen(true);
         }
     };
@@ -205,7 +203,7 @@ function WarehouseList() {
             showModal={modalIsOpen}
             closeModal={closeModal}
             confirmDelete={confirmDelete}
-            warehouse={selectedWarehouse} // pass the selected warehouse object instead
+            warehouse={selectedWarehouse} 
         />
     </section>
     );
