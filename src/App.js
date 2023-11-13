@@ -15,7 +15,7 @@ function App() {
           <Route path='/' element={<HomePage />}/>
           <Route path='/warehouse-details/:id' element={<WarehouseDetailsPage />} />
           <Route path='/inventory'element={<InventoryListPage/>} />
-          <Route path= '/edit-warehouse-form' element ={<EditWarehouse />} />
+          <Route path= '/edit-warehouse-form/:id' element ={<EditWarehouse />} />
           <Route path='/add-warehouse-form' element = {<AddNewWarehouse />} />
         </Routes>
       </BrowserRouter>

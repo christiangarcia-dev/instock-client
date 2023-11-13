@@ -9,7 +9,9 @@ function InventoryListPage() {
     return (
         <>
             <Header />
+            <div className='inventoryPage'>
             <InventoryList/>
+            </div>
             <Footer />
         </>
     )

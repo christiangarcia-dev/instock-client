@@ -123,12 +123,14 @@ function WarehouseList() {
                 alt="delete icon"
                 onClick={() => openModal(warehouse.id)}
             />
-            <img
+            <Link to={`edit-warehouse-form/${warehouse.id}`}>
+              <img
                 className="warehouse__allWarehouses-edit"
                 src={editIcon}
                 alt="edit icon"
-            />
-            </div>
+              />
+            </Link>
+          </div>
         </section>
         ))}
 
