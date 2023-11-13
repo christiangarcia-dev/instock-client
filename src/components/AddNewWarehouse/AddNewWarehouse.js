@@ -1,6 +1,79 @@
 import "../AddNewWarehouse/AddNewWarehouse.scss";
+import errorImg from "../../assets/icons/error-24px.svg";
+import { useState } from "react";
 
 function AddNewWarehouse () {
+    const [phoneInvaild, setPhoneInvalid] = useState(true);
+    const [inputWarehouseRequired, setInputWarehouseRequired] = useState(true);
+    const [inputAddressRequired, setInputAddressRequired] = useState(true);
+    const [inputCityRequired, setInputCityRequired] = useState(true);
+    const [inputCountryRequired, setInputCountryRequired] = useState(true);
+    const [inputNameRequired, setInputNameRequired] = useState(true);
+    const [inputPositionRequired, setInputPositionRequired] = useState(true);
+    const [inputEmailRequired, setInputEmailRequired] = useState(true);
+    
+
+    function validatePhoneNumber(event) {
+        const phoneNumberInput = event.target.value;
+        console.log(typeof phoneNumberInput);
+
+        const phoneValidation =/^\+\d{1,3}\s?\(\d{1,4}\)\s?\d{1,10}-?\d{1,10}$/;
+
+        console.log(!phoneNumberInput.match(phoneValidation));
+
+        if (!phoneNumberInput.match(phoneValidation)) {
+            setPhoneInvalid(false);
+        }
+
+    }
+
+    function validateEmail(event) {
+        const email = event.target.email.value;
+        const emailValidation = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+
+        if(!email.match(emailValidation)){
+            setInputEmailRequired(false)
+        } 
+    }
+
+
+    function submitHandler(event) {
+        event.preventDefault();
+
+        const warehouseName = event.target.warehouseName.value;
+        const streetAddress = event.target.streetAddress.value;
+        const city = event.target.city.value;
+        const country = event.target.country.value;
+        const contactName = event.target.contactName.value;
+        const position = event.target.position.value;
+        const phoneNumber = event.target.phoneNumber.value;
+        const email = event.target.email.value;
+
+        if (!warehouseName) {
+            setInputWarehouseRequired(false)
+        } 
+        if (!streetAddress) {
+            setInputAddressRequired(false)
+        } 
+        if (!city) {
+            setInputCityRequired(false)
+        } 
+        if (!country) {
+            setInputCountryRequired(false)
+        }  
+        if (!contactName) {
+            setInputNameRequired(false)
+        }  
+        if (!position) {
+            setInputPositionRequired(false)
+        }  
+        if (!phoneNumber) {
+            setPhoneInvalid(false)
+        }  
+        if (!email) {
+            setInputEmailRequired(false)
+        }  
+    }
 
     return (
         <div className="add-form">
