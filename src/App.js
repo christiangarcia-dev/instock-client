@@ -5,7 +5,7 @@ import WarehouseDetailsPage from './pages/WarehouseDetailsPage/WarehouseDetailsP
 import HomePage from './pages/HomePage/HomePage';
 import InventoryListPage from './pages/InventoryListPage/InventoryListPage';
 import EditWarehouse from '../src/pages/EditWarehouse/EditWarehouse';
-import InventoryItemDetails from './components/InventoryItemDetails/InventoryItemDetails';
+import InventoryItemDetails from './pages/InventoryItemDetails/InventoryItemDetails';
 
 function App() {
   return (
@@ -18,6 +18,7 @@ function App() {
           <Route path='/inventory'element={<InventoryListPage/>} />
           <Route path= '/edit-warehouse-form/:id' element ={<EditWarehouse />} />
           <Route path='/add-warehouse-form' element = {<AddNewWarehouse />} />
+          <Route path='/inventory-details/:id' element= {<InventoryItemDetails />} />
         </Routes>
       </BrowserRouter>
     </div>

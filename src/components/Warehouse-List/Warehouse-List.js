@@ -68,19 +68,19 @@ function WarehouseList() {
         <div className="warehouselist__titles">
         <h6 className="warehouse__allWarehouses--titleWare">
             WAREHOUSE
-            <img src={sortIcon} alt="sort icon" />
+            <img className="warehouse__allWarehouses--sort" src={sortIcon} alt="sort icon" />
         </h6>
         <h6 className="warehouse__allWarehouses--titleAddress">
             ADDRESS
-            <img src={sortIcon} alt="sort icon" />
+            <img className="warehouse__allWarehouses--sort" src={sortIcon} alt="sort icon" />
         </h6>
         <h6 className="warehouse__allWarehouses--titleContact">
             CONTACT NAME
-            <img src={sortIcon} alt="sort icon" />
+            <img className="warehouse__allWarehouses--sort" src={sortIcon} alt="sort icon" />
         </h6>
         <h6 className="warehouse__allWarehouses--titleInfo">
             CONTACT INFORMATION
-            <img src={sortIcon} alt="sort icon" />
+            <img className="warehouse__allWarehouses--sort" src={sortIcon} alt="sort icon" />
         </h6>
         <h6 className="warehouselist__titles-titleAct">ACTIONS</h6>
         </div>

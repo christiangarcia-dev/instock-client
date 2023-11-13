@@ -56,3 +56,4 @@ function InventoryItemDetails() {
 }
 
 export default InventoryItemDetails;
+

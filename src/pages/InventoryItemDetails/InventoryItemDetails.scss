@@ -10,13 +10,19 @@
     width: 91%;
     box-shadow: 0 4px 8px rgba(19, 24, 44, 0.1);
     margin: 0 auto;
-    
 
     &__header-div {
         display: flex;
+        justify-content: space-between;
         border-bottom: 1px solid $color-cloud;
         align-items: center;
         padding: 1rem .5rem;
+    }
+
+    &__title-div {  
+        display: flex;
+        align-items: center;
+        width:50%;
     }
 
     &__edit-button {
@@ -87,5 +93,6 @@
     &__quant-div {
         margin: 0 2rem;
     }
+
 
 }
