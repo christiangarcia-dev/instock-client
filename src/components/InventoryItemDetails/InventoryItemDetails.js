@@ -25,14 +25,20 @@ function InventoryItemDetails() {
                 <h3 className="item__category-header">CATEGORY:</h3>
                 <p className="item__category-description"></p>
             </div>
-            <div className="item__status-div">
-                <div className="">
-                    <h3 className="item__category-header">STATUS:</h3>
-                    <p className="item__category-description">Decription</p>
+            <div className="item__details-div">
+                <div className="item__status-quant-div">
+                    <div className="item__status-div">
+                        <h3 className="item__category-header">STATUS:</h3>
+                        <p className="item__category-description">Decription</p>
+                    </div>
+                    <div className="item__quant-div">
+                        <h3 className="item__category-header">QUANTITY:</h3>
+                        <p className="item__category-description">000</p>
+                    </div>
                 </div>
-                <div className="">
-                    <h3 className="item__category-header">QUANTITY:</h3>
-                    <p className="item__category-description">000</p>
+                <div className="item__warehouse-div">
+                    <h3 className="item__category-header">WAREHOUSE:</h3>
+                    <p className="item__category-description">Warehouse Name</p>
                 </div>
             </div>
         </section>
