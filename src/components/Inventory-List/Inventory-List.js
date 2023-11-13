@@ -41,7 +41,7 @@ function InventoryList() {
                     <section key={inventory.id} className='inventorylist__containerTwo'>
                         <div className='inventory__allInventories'>
                             <div className='inventory__allInventories-one'>
-                                <div className='inventory__'>
+                                <div>
                                     <h6 className='inventory__allInventories-titleWare'>INVENTORY ITEM</h6>
                                     <p className='inventory__allInventories-typeItem'> {inventory.item_name}<img src={chevronRight} /></p>
                                 </div>
