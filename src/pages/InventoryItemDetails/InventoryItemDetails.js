@@ -10,8 +10,9 @@ import Footer from "../../components/Footer/Footer";
 function InventoryItemDetails() {
     const { id } = useParams();
     const [itemData, setItemData] = useState("");
-    const [warehouseId, setWarehouseId]=useState("");
-    const [warehouseName, setWarehouseName]=useState("");
+    const [warehouseId, setWarehouseId] = useState("");
+    const [warehouseName, setWarehouseName] = useState("");
+    const warehouseArry= ['dummy', 'Manhattan', 'Washington', 'Jersey' , 'SF', 'Santa Monica', 'Seattle', 'Miami', 'Boston'];
 
     useEffect(() => {
         async function getInventoryItem() {
@@ -23,22 +24,24 @@ function InventoryItemDetails() {
         getInventoryItem();
     }, [id]);
 
-    useEffect(() => {
-        async function getWarehouseName() {
-            const response = await axios.get(`http://localhost:8080/api/warehouses/${warehouseId}`);
-            setWarehouseName(response.data);
-            console.log(warehouseName);
-        }
-        getWarehouseName();
-    }, [id]);
+    // useEffect(() => {
+    //     async function getWarehouseName() {
+    //         const response = await axios.get(`http://localhost:8080/api/warehouses/${warehouseId}`);
+    //         setWarehouseName(response.data);
+    //         console.log(warehouseName);
+    //     }
+    //     getWarehouseName();
+    // }, [warehouseId]);
 
     return (
         <main>
             <Header />
             <section className="item">
                 <div className="item__header-div">
-                    <img src={backButton} alt="blue arrow pointing left" className="item__image"></img>
-                    <h1 className="item__page-header">{itemData.item_name}</h1>
+                    <div className="item__title-div"> 
+                        <img src={backButton} alt="blue arrow pointing left" className="item__image"></img>
+                        <h1 className="item__page-header">{itemData.item_name}</h1>
+                    </div>
                     <button type="button" className="item__edit-button">
                         <img src={editIcon} alt="pencil icon" className="item__edit-icon"></img>
                         <p className="item__button-text"> Edit</p>
@@ -63,7 +66,7 @@ function InventoryItemDetails() {
                     </div>
                     <div className="item__warehouse-div">
                         <h3 className="item__category-header">WAREHOUSE:</h3>
-                        <p className="item__category-description">{itemData.warehouse_id}</p>
+                        <p className="item__category-description">{warehouseArry[itemData.warehouse_id]}</p>
                     </div>
                 </div>
 
