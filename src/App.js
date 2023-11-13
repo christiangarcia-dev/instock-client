@@ -19,7 +19,6 @@ function App() {
           <Route path= '/edit-warehouse-form/:id' element ={<EditWarehouse />} />
           <Route path='/add-warehouse-form' element = {<AddNewWarehouse />} />
         </Routes>
-        <InventoryItemDetails />
       </BrowserRouter>
     </div>
   );
