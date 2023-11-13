@@ -47,12 +47,15 @@ function InventoryList() {
             {
                 inventories?.map((inventory) => (
                     <section key={inventory.id} className='inventorylist__containerTwo'>
+
                         <div className='inventory__allInventories'>
                             <div className='inventory__allInventories-one'>
+                        <Link to={`/inventory-details/${inventory.id}`}>
                                 <div>
                                     <h6 className='inventory__allInventories-titleWare'>INVENTORY ITEM</h6>
                                     <p className='inventory__allInventories-typeItem'> {inventory.item_name}<img src={chevronRight} /></p>
                                 </div>
+                        </Link>
                                 <div>
                                     <h6 className='inventory__allInventories-titleAddress'>CATEGORY</h6>
                                     <p className='inventory__allInventories-category'>{inventory.category}</p>
