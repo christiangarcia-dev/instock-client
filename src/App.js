@@ -1,5 +1,5 @@
 // import './App.scss';
-import AddNewWarehouse from './components/AddNewWarehouse/AddNewWarehouse';
+import AddNewWarehouse from './pages/AddNewWarehouse/AddNewWarehouse';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import WarehouseDetailsPage from './pages/WarehouseDetailsPage/WarehouseDetailsPage';
 import HomePage from './pages/HomePage/HomePage';
@@ -16,8 +16,8 @@ function App() {
           <Route path='/warehouse-details/:id' element={<WarehouseDetailsPage />} />
           <Route path='/inventory'element={<InventoryListPage/>} />
           <Route path= '/edit-warehouse-form' element ={<EditWarehouse />} />
+          <Route path='/add-warehouse-form' element = {<AddNewWarehouse />} />
         </Routes>
-        <AddNewWarehouse />
       </BrowserRouter>
     </div>
   );

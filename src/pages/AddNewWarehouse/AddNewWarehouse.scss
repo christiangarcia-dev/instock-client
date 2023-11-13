@@ -162,23 +162,23 @@
             padding: 0.5rem 1rem;
             width: max-content;
             margin-left: .5rem;
-
         }
 
     }
 
     &__button:hover {
         background-color: $color-graphite;
-
     }
 
     &__button--save {
         background-color: $color-isindigo;
         color: $color-white;
         border: none;
+        width: max-content;
     }
 
     &__button--save:hover {
         background-color: $color-graphite;
+        width: max-content;
     }
 }
