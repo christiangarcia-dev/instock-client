@@ -6,49 +6,38 @@ import { useState } from "react";
 function EditWarehouse() {
 
     const [phoneInvaild, setPhoneInvalid] = useState(true);
-    const [inputRequired, setInputRequired] = useState(false);
-
+    const [inputWarehouseRequired, setInputWarehouseRequired] = useState(true);
+    const [inputAddressRequired, setInputAddressRequired] = useState(true);
+    const [inputCityRequired, setInputCityRequired] = useState(true);
+    const [inputCountryRequired, setInputCountryRequired] = useState(true);
+    const [inputNameRequired, setInputNameRequired] = useState(true);
+    const [inputPositionRequired, setInputPositionRequired] = useState(true);
+    const [inputEmailRequired, setInputEmailRequired] = useState(true);
+    
 
     function validatePhoneNumber(event) {
         const phoneNumberInput = event.target.value;
+        console.log(typeof phoneNumberInput);
 
-        const inputValidation = new RegExp("^\\+[1-9]{1}[0-9]{0,2}\([0-9]{0,3}\)[2-9]{1}[0-9]{2}-[0-9]{4}$/g");
-        console.log(inputValidation.test(phoneNumberInput));
+        const phoneValidation =/^\+\d{1,3}\s?\(\d{1,4}\)\s?\d{1,10}-?\d{1,10}$/;
 
-        if (inputValidation.test(phoneNumberInput) === false) {
+        console.log(!phoneNumberInput.match(phoneValidation));
+
+        if (!phoneNumberInput.match(phoneValidation)) {
             setPhoneInvalid(false);
-        } else {
-            setPhoneInvalid (true)
         }
 
     }
 
     function validateEmail(event) {
         const email = event.target.email.value;
+        const emailValidation = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
 
+        if(!email.match(emailValidation)){
+            setInputEmailRequired(false)
+        } 
     }
 
-    function requiredFieldValidate(event) {
-        const warehouseName = event.target.warehouseName.value;
-        const streetAddress = event.target.streetAddress.value;
-        const city = event.target.city.value;
-        const country = event.target.country.value;
-        const contactName = event.target.contactName.value;
-        const position = event.target.position.value;
-        const phoneNumber = event.target.phoneNumber.value;
-        const email = event.target.email.value;
-
-        if (!warehouseName ||
-            !streetAddress ||
-            !city ||
-            !country ||
-            !contactName ||
-            !position ||
-            !phoneNumber ||
-            !email) {
-            setInputRequired(false)
-        }
-    }
 
     function submitHandler(event) {
         event.preventDefault();
@@ -62,17 +51,30 @@ function EditWarehouse() {
         const phoneNumber = event.target.phoneNumber.value;
         const email = event.target.email.value;
 
-        if (!warehouseName ||
-            !streetAddress ||
-            !city ||
-            !country ||
-            !contactName ||
-            !position ||
-            !phoneNumber ||
-            !email) {
-            alert("Please complete all fields")
-
-        }
+        if (!warehouseName) {
+            setInputWarehouseRequired(false)
+        } 
+        if (!streetAddress) {
+            setInputAddressRequired(false)
+        } 
+        if (!city) {
+            setInputCityRequired(false)
+        } 
+        if (!country) {
+            setInputCountryRequired(false)
+        }  
+        if (!contactName) {
+            setInputNameRequired(false)
+        }  
+        if (!position) {
+            setInputPositionRequired(false)
+        }  
+        if (!phoneNumber) {
+            setPhoneInvalid(false)
+        }  
+        if (!email) {
+            setInputEmailRequired(false)
+        }  
     }
 
 
@@ -95,7 +97,7 @@ function EditWarehouse() {
                                 placeholder="Washington"
                             >
                             </input>
-                            <div className={inputRequired ? "form__missing-input" : "form__missing-input--display"}>
+                            <div className={inputWarehouseRequired ? "form__missing-input" : "form__missing-input--display"}>
                                 <img src={errorImg} alt="red exclamation point"></img>
                                 <p className="form__invalid-text">
                                     This field is required.
@@ -111,6 +113,12 @@ function EditWarehouse() {
                                 placeholder="33 Pearl Street SW"
                             >
                             </input>
+                            <div className={inputAddressRequired ? "form__missing-input" : "form__missing-input--display"}>
+                                <img src={errorImg} alt="red exclamation point"></img>
+                                <p className="form__invalid-text">
+                                    This field is required.
+                                </p>
+                            </div>
                         </label>
                         <label htmlFor="city" className="form__label">
                             City
@@ -121,7 +129,7 @@ function EditWarehouse() {
                                 placeholder="Washington"
                             >
                             </input>
-                            <div className={inputRequired ? "form__missing-input" : "form__missing-input--display"}>
+                            <div className={inputCityRequired ? "form__missing-input" : "form__missing-input--display"}>
                                 <img src={errorImg} alt="red exclamation point"></img>
                                 <p className="form__invalid-text">
                                     This field is required.
@@ -137,7 +145,7 @@ function EditWarehouse() {
                                 placeholder="USA"
                             >
                             </input>
-                            <div className={inputRequired ? "form__missing-input" : "form__missing-input--display"}>
+                            <div className={inputCountryRequired ? "form__missing-input" : "form__missing-input--display"}>
                                 <img src={errorImg} alt="red exclamation point"></img>
                                 <p className="form__invalid-text">
                                     This field is required.
@@ -156,7 +164,7 @@ function EditWarehouse() {
                                 placeholder="Graeme Lyon"
                             >
                             </input>
-                            <div className={inputRequired ? "form__missing-input" : "form__missing-input--display"}>
+                            <div className={inputNameRequired ? "form__missing-input" : "form__missing-input--display"}>
                                 <img src={errorImg} alt="red exclamation point"></img>
                                 <p className="form__invalid-text">
                                     This field is required.
@@ -172,7 +180,7 @@ function EditWarehouse() {
                                 placeholder="Warehouse Manager"
                             >
                             </input>
-                            <div className={inputRequired ? "form__missing-input" : "form__missing-input--display"}>
+                            <div className={inputPositionRequired ? "form__missing-input" : "form__missing-input--display"}>
                                 <img src={errorImg} alt="red exclamation point"></img>
                                 <p className="form__invalid-text">
                                     This field is required.
@@ -180,7 +188,7 @@ function EditWarehouse() {
                             </div>
                         </label>
                         <label htmlFor="phoneNumber" className="form__label"
-                            onChange={validatePhoneNumber}
+                            onInput={validatePhoneNumber}
                         >
                             Phone Number
                             <input type="text"
@@ -204,10 +212,10 @@ function EditWarehouse() {
                                 id="email"
                                 className="form__field"
                                 placeholder="glyon@instock.com"
-                                onChange={requiredFieldValidate}
+                                onInput={validateEmail}
                             >
                             </input>
-                            <div className={inputRequired ? "form__missing-input" : "form__missing-input--display"}>
+                            <div className={inputEmailRequired ? "form__missing-input" : "form__missing-input--display"}>
                                 <img src={errorImg} alt="red exclamation point"></img>
                                 <p className="form__invalid-text">
                                     A valid email is required.

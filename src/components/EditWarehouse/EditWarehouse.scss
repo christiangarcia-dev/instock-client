@@ -67,15 +67,6 @@
         font-weight: 600;
         line-height: 1.75rem;
         padding: 1rem 0;
-        padding-left: 2rem;
-
-        @include tablet {
-            padding-left: 0;
-        }
-
-        @include desktop {
-            padding-left: 0;
-        }
 
     }
 
@@ -176,10 +167,19 @@
 
     }
 
+    &__button:hover {
+        background-color: $color-graphite;
+
+    }
+
     &__button--save {
         background-color: $color-isindigo;
         color: $color-white;
         border: none;
+    }
+
+    &__button--save:hover {
+        background-color: $color-graphite;
 
     }
 }
