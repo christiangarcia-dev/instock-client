@@ -34,23 +34,19 @@ function WarehouseList() {
     };
 
     const confirmDelete = async () => {
-    if (selectedWarehouse) {
-        await handleDeleteWarehouse(selectedWarehouse);
-    }
+        if (selectedWarehouse) {
+            await handleDeleteWarehouse(selectedWarehouse.id);
+        }
     };
 
     const handleDeleteWarehouse = async (warehouseId) => {
-    try {
-        await axios.delete(
-        `${"http://localhost:8080/api/warehouses"}/${warehouseId}`
-        );
-        setWarehouses(
-        warehouses.filter((warehouse) => warehouse.id !== warehouseId)
-        );
-        closeModal();
-    } catch (error) {
-        console.error("Error deleting warehouse:", error);
-    }
+        try {
+            await axios.delete(`http://localhost:8080/api/warehouses/${warehouseId}`);
+            setWarehouses(warehouses.filter((warehouse) => warehouse.id !== warehouseId));
+            closeModal();
+        } catch (error) {
+            console.error("Error deleting warehouse:", error);
+        }
     };
 
     return (
