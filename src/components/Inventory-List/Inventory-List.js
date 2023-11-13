@@ -4,6 +4,7 @@ import deleteIcon from '../../assets/icons/delete_outline-24px.svg'
 import chevronRight from '../../assets/icons/chevron_right-24px.svg';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
+import '../DeleteInventory/DeleteInventory'
 
 const API = 'http://localhost:8080/api/inventories'
 function InventoryList() {
@@ -11,11 +12,14 @@ function InventoryList() {
     const [inventories, setInventories] = useState([]);
     const [modalDelete, setModalDelete] = useState(false);
     const [selectedinventoryId, setSelectedInventoryId ]= useState(null);
+    const [inventoryName, setinventoryName] = useState('');
 
 
-    const openModal = (inventoryId) => {
+
+    const openModal = (inventoryId, inventoryName) => {
         setSelectedInventoryId(inventoryId)
         setModalDelete(true)
+        setinventoryName(inventoryName)
     } 
 
     const closeModal = () => {
@@ -94,13 +98,20 @@ function InventoryList() {
                             </div>
                         </div>
                         <div className='warehouse__allWarehouses-buttons'>
-                         <button >
+                         <button onClick={() => openModal(inventory.id)} >
                             <img className='warehouse__allWarehouses-delete' src={deleteIcon}/>
                         </button>   
                             <img className='warehouse__allWarehouses-edit' src={editIcon}/>
                         </div>
                     </section>
             ))}
+              {modalDelete && (
+                <DeleteInventory
+                    onCancel={closeModal}
+                    onConfirm={confirmDelete}
+                    inventoryName={inventoryName}
+                />
+            )}
     </section>
 
     // I HAVE TO ADD ALT FOR THR ICONS-IMAGES
