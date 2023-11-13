@@ -18,7 +18,7 @@
 }
 .warehouselist__titles {
     display: none;
-@include tablet {
+    @include tablet {
         display: flex;
         padding: $mobile-main-padding;
         background-color: $color-lightgrey;
