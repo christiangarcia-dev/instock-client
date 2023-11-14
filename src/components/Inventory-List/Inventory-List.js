@@ -41,8 +41,8 @@ function InventoryList() {
                 <h6 className='inventory__allInventories--titleWare'>INVENTORY ITEM <img className='' src={sort} alt='sort icon' /></h6>
                 <h6 className='inventory__allInventories--titleAddress'>CATEGORY <img className='' src={sort} alt='sort icon' /></h6>
                 <h6 className='inventory__allInventories--titleContact'>STATUS <img className='' src={sort} alt='sort icon' /></h6>
-                <h6 className='inventory__allInventories--titleQTY'>QTY </h6>
-                <h6 className='inventory__allInventories--titleInfo'>WAREHOUSE </h6>
+                <h6 className='inventory__allInventories--titleQTY'>QTY <img className='' src={sort} alt='sort icon' /></h6>
+                <h6 className='inventory__allInventories--titleInfo'>WAREHOUSE <img className='' src={sort} alt='sort icon' /></h6>
                 <h6 className='inventory__allInventory-title'>ACTIONS </h6>
             </div>
             {
@@ -52,26 +52,26 @@ function InventoryList() {
                         <div className='inventory__allInventories'>
                             <div className='inventory__allInventories-one'>
                         <Link to={`/inventory-details/${inventory.id}`}>
-                                <div className='inventory__details'>
+                                <div className='inventory__ctg'>
                                     <h6 className='inventory__allInventories-titleWare'>INVENTORY ITEM</h6>
                                     <p className='inventory__allInventories-typeItem'> {inventory.item_name}<img src={chevronRight} /></p>
                                 </div>
                         </Link>
-                                <div className='inventory__details'>
+                                <div className='inventory__details1'>
                                     <h6 className='inventory__allInventories-titleAddress'>CATEGORY</h6>
                                     <p className='inventory__allInventories-category'>{inventory.category}</p>
                                 </div>
                             </div>
                             <div className='inventory__allInventories-two'>
-                                <div className='inventory__details'>
+                                <div className='inventory__details2 inventory__ctg'>
                                 <h6 className='inventory__allInventories-titleContact'>STATUS</h6>
                                 <p className='inventory__allInventories-stock'>{inventory.status}</p>
                                 </div>
-                                <div className='inventory__details'>
+                                <div className='inventory__details3 inventory__ctg'>
                                 <h6 className='inventory__allInventories-titleInfo'>QTY</h6>
                                 <p className='inventory__allInventoriescontact_phone'>{inventory.quantity}</p>
                                 </div>
-                                <div className='inventory__details'>
+                                <div className='inventory__details4'>
                                 <h6 className='inventory__allInventories-titleAddress'>WAREHOUSE</h6>
                                 <p className='inventory__allInventories-category'>{inventory.warehouse_name}</p>
                                 </div>

@@ -14,6 +14,46 @@ a {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
+.inventory__details1 {
+    @include tablet {
+    margin-left: 2rem;
+    }
+    @include desktop {
+        margin-left: 10rem;
+    }
+}
+
+.inventory__details2 {
+    @include tablet {
+    margin-left: 5rem;
+    }
+    @include desktop {
+        margin-left: 10rem;
+    }
+}
+
+.inventory__details3 {
+    @include tablet {
+    margin-left: 4rem;
+    }
+    @include desktop {
+        margin-left: 12rem;
+    }
+}
+
+.inventory__details4 {
+    @include tablet {
+    margin-left: 6rem;
+    }
+    @include desktop {
+        margin-left: 12rem;
+    }
+}
+
+.inventory__ctg {
+    padding-bottom: 1rem;
+}
+
 
 .inventorylist__titles {
     display: none;
