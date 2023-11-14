@@ -55,14 +55,12 @@
       margin: 1rem;
       padding: 0;
     }
-
-    @include desktop {
-      border-bottom: none;
-      margin: 1rem;
-      padding: 0;
+  }
+  &__warehouse-div:nth-of-type(1){
+    @include tablet {
+      border-right: 1px solid $color-cloud;
     }
   }
-
   &__subheader {
     font-size: 1.25rem;
     font-weight: 600;

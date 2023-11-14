@@ -98,26 +98,26 @@ const EditInventory = () => {
   return (
     <section>
       <Header />
-      <div className="form">
-        <div className="form__header-div">
+      <div className="xform">
+        <div className="xform__header-div">
           <img
             src={backArrow}
             alt="arrow pointing left"
-            className="form__back-arrow"
+            className="xform__back-arrow"
           ></img>
-          <h1 className="form__header"> Edit Inventory Item</h1>
+          <h1 className="xform__header"> Edit Inventory Item</h1>
         </div>
-        <form className="form__form" onSubmit={handleSubmit}>
-          <div className="form__content-div">
-            <div className="form__warehouse-div">
-              <h2 className="form__subheader">Item Details</h2>
-              <label htmlFor="item_name" className="form__label">
+        <form className="xform__form" onSubmit={handleSubmit}>
+          <div className="xform__content-div">
+            <div className="xform__warehouse-div">
+              <h2 className="xform__subheader">Item Details</h2>
+              <label htmlFor="item_name" className="xform__label">
                 Item Name
                 <input
                   type="text"
                   name="item_name"
                   id="item_name"
-                  className="form__field"
+                  className="xform__field"
                   placeholder="Item Name"
                   value={item.item_name}
                   onChange={handleInputChange}
@@ -126,20 +126,20 @@ const EditInventory = () => {
                 <div
                   className={
                     inputItemNameRequired
-                      ? "form__missing-input"
-                      : "form__missing-input--display"
+                      ? "xform__missing-input"
+                      : "xform__missing-input--display"
                   }
                 >
                   <img src={errorImg} alt="red exclamation point"></img>
-                  <p className="form__invalid-text">This field is required.</p>
+                  <p className="xform__invalid-text">This field is required.</p>
                 </div>
               </label>
-              <label htmlFor="description" className="form__label">
+              <label htmlFor="description" className="xform__label">
                 Description
                 <textarea
                   name="description"
                   id="description"
-                  className="form__field"
+                  className="xform__field"
                   placeholder="Description"
                   value={item.description}
                   onChange={handleInputChange}
@@ -147,20 +147,20 @@ const EditInventory = () => {
                 <div
                   className={
                     inputDescriptionRequired
-                      ? "form__missing-input"
-                      : "form__missing-input--display"
+                      ? "xform__missing-input"
+                      : "xform__missing-input--display"
                   }
                 >
                   <img src={errorImg} alt="red exclamation point"></img>
-                  <p className="form__invalid-text">This field is required.</p>
+                  <p className="xform__invalid-text">This field is required.</p>
                 </div>
               </label>
-              <label htmlFor="category" className="form__label">
+              <label htmlFor="category" className="xform__label">
                 Category
                 <select
                   name="category"
                   id="category"
-                  className="form__field"
+                  className="xform__field"
                   placeholder="Description"
                   value={item.category}
                   onChange={handleInputChange}
@@ -175,18 +175,18 @@ const EditInventory = () => {
                 <div
                   className={
                     inputCategoryRequired
-                      ? "form__missing-input"
-                      : "form__missing-input--display"
+                      ? "xform__missing-input"
+                      : "xform__missing-input--display"
                   }
                 >
                   <img src={errorImg} alt="red exclamation point"></img>
-                  <p className="form__invalid-text">This field is required.</p>
+                  <p className="xform__invalid-text">This field is required.</p>
                 </div>
               </label>
             </div>
-            <div className="form__warehouse-div">
-              <h2 className="form__subheader">Item Availability</h2>
-              <div className="edit-inventory__status">
+            <div className="xform__warehouse-div">
+              <h2 className="xform__subheader">Item Availability</h2>
+              <div className="xedit-inventory__status">
                 <label htmlFor="statusInStock">
                   <input
                     type="radio"
@@ -212,7 +212,7 @@ const EditInventory = () => {
               </div>
 
               {isInStock && (
-                <div className="edit-inventory__quantity">
+                <div className="xedit-inventory__quantity">
                   <label htmlFor="quantity">Quantity</label>
                   <input
                     type="number"
@@ -225,12 +225,12 @@ const EditInventory = () => {
                   />
                 </div>
               )}
-              <label htmlFor="warehouse" className="form__label">
+              <label htmlFor="warehouse" className="xform__label">
                 Warehouse
                 <select
                   name="warehouse"
                   id="warehouse"
-                  className="form__field"
+                  className="xform__field"
                   value={item.warehouse}
                   onChange={handleInputChange}
                 >
@@ -246,22 +246,22 @@ const EditInventory = () => {
                 <div
                   className={
                     inputWarehouseRequired
-                      ? "form__missing-input"
-                      : "form__missing-input--display"
+                      ? "xform__missing-input"
+                      : "xform__missing-input--display"
                   }
                 >
                   <img src={errorImg} alt="red exclamation point"></img>
-                  <p className="form__invalid-text">This field is required.</p>
+                  <p className="xform__invalid-text">This field is required.</p>
                 </div>
               </label>
             </div>
           </div>
-          <div className="form__buttons-div">
-            <button type="button" className="form__button">
+          <div className="xform__buttons-div">
+            <button type="button" className="xform__button">
               {" "}
               Cancel{" "}
             </button>
-            <button type="submit" className="form__button form__button--save">
+            <button type="submit" className="xform__button form__button--save">
               {" "}
               Save{" "}
             </button>
