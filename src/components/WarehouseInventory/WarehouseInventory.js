@@ -7,12 +7,41 @@ import deleteIcon from '../../assets/icons/delete_outline-24px.svg';
 import editIcon from '../../assets/icons/edit-24px.svg';
 import rightArrowIcon from '../../assets/icons/chevron_right-24px.svg';
 import sortIcon from '../../assets/icons/sort-24px.svg';
+import DeleteInventoryModal from '../DeleteInventoryModal/DeleteInventoryModal';
 
 function WarehouseInventory() {
 
     const { id } = useParams();
     const [isMobileView, setIsMobileView] = useState(window.innerWidth < 768);
     const [inventoryItems, setInventoryItems] = useState([]);
+    const [modalIsOpen, setModalIsOpen] = useState(false);
+    const [selectedItem, setSelectedItem] = useState(null);
+
+    const openModal = (itemId) => {
+        const itemToDelete = inventoryItems.find(item => item.id === itemId);
+        if (itemToDelete) {
+            setSelectedItem(itemToDelete);
+            setModalIsOpen(true);
+        }
+    };
+
+    const closeModal = () => {
+        setModalIsOpen(false);
+    };
+
+    const confirmDelete = async () => {
+        if (selectedItem) {
+            await handleDelete(selectedItem.id);
+        }
+    };
+
+    const openDeleteModal = (itemId) => {
+        const itemToDelete = inventoryItems.find(item => item.id === itemId);
+        if (itemToDelete) {
+            setSelectedItem(itemToDelete);
+            setModalIsOpen(true);
+        }
+    };
 
     useEffect(() => {
         const handleResize = () => {
@@ -24,8 +53,10 @@ function WarehouseInventory() {
 
     useEffect(() => {
         const fetchInventory = async () => {
+            const url = `http://localhost:8080/api/warehouses/${id}/inventories`;
+            console.log("Requesting URL:", url); // Log the URL
             try {
-                const response = await axios.get(`http://localhost:8080/api/inventories?${id}`);
+                const response = await axios.get(url);
                 setInventoryItems(response.data);
             } catch (error) {
                 console.error('Error fetching inventory data:', error);
@@ -85,7 +116,7 @@ function WarehouseInventory() {
                             className='warehouse-inventoryMB__action warehouse-inventoryMB__action--delete'
                             src={deleteIcon}
                             alt="Delete"
-                            onClick={() => handleDelete(item.id)}
+                            onClick={() => openModal(item.id)}
                         />
                         <img
                             className='warehouse-inventoryMB__action warehouse-inventoryMB__action--edit'
@@ -125,11 +156,17 @@ function WarehouseInventory() {
                         <div className="warehouse-inventory__row-item">{item.quantity}</div>
                         <div className="warehouse-inventory__row-item warehouse-inventory__row-item--actions">
                             <img src={editIcon} alt="Edit" onClick={() => alert('Edit item id ' + item.id)}/>
-                            <img src={deleteIcon} alt="Delete" onClick={() => alert('Delete item id ' + item.id)}/>
+                            <img src={deleteIcon} alt="Delete" onClick={() => openModal(item.id)}/>
                         </div>
                     </div>
                     ))}
                 </div>
+                <DeleteInventoryModal
+                showModal={modalIsOpen}
+                closeModal={closeModal}
+                confirmDelete={confirmDelete}
+                warehouse={selectedItem} // Make sure to pass the correct item information here
+                />
             </div>
         );
     }

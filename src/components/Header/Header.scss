@@ -37,6 +37,11 @@
         &-src {
             width: 10rem;
         }
+
+        &-link {
+            display: flex;
+            align-items: center;
+        }
     }
 
     &__buttons {
@@ -72,9 +77,3 @@
         text-decoration: underline;
     }
 
-
-.active {
-    background-color: $color-isblack;
-    font-weight: 600;
-    color: $color-white;
-}
