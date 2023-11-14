@@ -20,7 +20,7 @@ function App() {
           <Route path="/inventory" element={<InventoryListPage />} />
           <Route path="/edit-warehouse-form/:id" element={<EditWarehouse />} />
           <Route path="/add-warehouse-form" element={<AddNewWarehouse />} />
-          <Route path="/edit-inventory-form" element={<EditInventory />} />
+          <Route path="/edit-inventory-form/:id" element={<EditInventory />} />
         </Routes>
       </BrowserRouter>
     </div>
