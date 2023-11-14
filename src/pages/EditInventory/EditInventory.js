@@ -261,7 +261,7 @@ const EditInventory = () => {
               {" "}
               Cancel{" "}
             </button>
-            <button type="submit" className="xform__button form__button--save">
+            <button type="submit" className="xform__button xform__button--save">
               {" "}
               Save{" "}
             </button>
