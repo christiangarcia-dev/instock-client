@@ -34,15 +34,6 @@ function InventoryItemDetails() {
     }
     
 
-    // useEffect(() => {
-    //     async function getWarehouseName() {
-    //         const response = await axios.get(`http://localhost:8080/api/warehouses/${warehouseId}`);
-    //         setWarehouseName(response.data);
-    //         console.log(warehouseName);
-    //     }
-    //     getWarehouseName();
-    // }, [warehouseId]);
-
     return (
         <main>
             <Header />
