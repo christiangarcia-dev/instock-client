@@ -2,7 +2,7 @@ import "./InventoryItemDetails.scss";
 import backButton from "../../assets/icons/arrow_back-24px.svg";
 import editIcon from "../../assets/icons/edit-24px.svg";
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import axios from "axios";
 import Header from "../../components/Header/Header";
 import Footer from "../../components/Footer/Footer";
@@ -24,15 +24,15 @@ function InventoryItemDetails() {
         getInventoryItem();
     }, [id]);
 
-    function styleStockStat () {
-        let  stockStat = itemData.status;
+    function styleStockStat() {
+        let stockStat = itemData.status;
         if (stockStat === "Out of Stock") {
             return stockStat = false;
         } else {
-            return stockStat =true;
+            return stockStat = true;
         };
     }
-    
+
 
     return (
         <main>
@@ -49,28 +49,31 @@ function InventoryItemDetails() {
                     </button>
                 </div>
                 <div className="item__description-div">
-                    <h3 className="item__category-header">ITEM DESCRIPTION:</h3>
-                    <p className="item__category-description">{itemData.description}</p>
-                    <h3 className="item__category-header">CATEGORY:</h3>
-                    <p className="item__category-description">{itemData.category}</p>
-                </div>
-                <div className="item__details-div">
-                    <div className="item__status-quant-div">
-                        <div className="item__status-div">
-                            <h3 className="item__category-header">STATUS:</h3>
-                            <p className={ styleStockStat() ? "item__category-stock": "item__category-stock--out"}>{itemData.status}</p>
+                    <div className="item__left-div">
+                        <h3 className="item__category-header">ITEM DESCRIPTION:</h3>
+                        <p className="item__category-description">{itemData.description}</p>
+                        <h3 className="item__category-header">CATEGORY:</h3>
+                        <p className="item__category-description">{itemData.category}</p>
+                    </div>
+                    <div className="item__right-div">
+                        <div className="item__details-div">
+                            <div className="item__status-quant-div">
+                                <div className="item__status-div">
+                                    <h3 className="item__category-header">STATUS:</h3>
+                                    <p className={styleStockStat() ? "item__category-stock" : "item__category-stock--out"}>{itemData.status}</p>
+                                </div>
+                                <div className="item__quant-div">
+                                    <h3 className="item__category-header">QUANTITY:</h3>
+                                    <p className="item__category-description">{itemData.quantity}</p>
+                                </div>
+                            </div>
                         </div>
-                        <div className="item__quant-div">
-                            <h3 className="item__category-header">QUANTITY:</h3>
-                            <p className="item__category-description">{itemData.quantity}</p>
+                        <div className="item__warehouse-div">
+                            <h3 className="item__category-header">WAREHOUSE:</h3>
+                            <p className="item__category-description">{warehouseArry[itemData.warehouse_id]}</p>
                         </div>
                     </div>
-                    <div className="item__warehouse-div">
-                        <h3 className="item__category-header">WAREHOUSE:</h3>
-                        <p className="item__category-description">{warehouseArry[itemData.warehouse_id]}</p>
-                    </div>
                 </div>
-
             </section>
             <Footer />
         </main>

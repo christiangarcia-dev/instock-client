@@ -18,6 +18,13 @@
         border-bottom: 1px solid $color-cloud;
         align-items: center;
         padding: 1rem .5rem;
+
+        @include tablet {
+            padding: 2rem 1rem;
+        }
+        @include desktop {
+            padding: 4rem 2rem;
+        }
     }
 
     &__title-div {  
@@ -66,10 +73,57 @@
 
         @include tablet {
             display: block;
+            color: $color-white;
         }
 
         @include desktop {
             display: block;
+            color: $color-white;
+        }
+    }
+
+    &__description-div {
+        
+        @include tablet {
+            padding: 2rem 1rem;
+            display: flex;
+            margin: 0 auto;
+        }
+
+        @include desktop {
+            padding: 4rem 2rem;
+            display: flex;
+            margin: 0 auto;
+        }
+    }
+
+    &__right-div{
+        margin: 1rem 0;
+
+        @include tablet {
+            width: 40%;
+            border-left: 1px solid $color-cloud;
+            padding-left: 2rem;
+
+        }
+
+        @include desktop {
+            width: 40%;
+            border-left: 1px solid $color-cloud;
+            padding-left: 4rem;
+        }
+
+    }
+
+    &__left-div {
+        padding: 0 1rem;
+        margin: 1rem 0;
+
+        @include tablet {
+            width: 40%;
+        }
+        @include desktop {
+            width: 40%;
         }
     }
 
@@ -78,10 +132,6 @@
         margin: 1rem 0;
     }
 
-    &__description-div {
-        padding: 0 1rem;
-        margin: 1rem 0;
-    }
 
     &__status-quant-div {
         display: flex;
@@ -93,6 +143,7 @@
         font-weight: 600;
         line-height: 1rem;
         color:  $color-slate;
+        margin-bottom: .5rem 0;
     }
 
     &__category-description {
@@ -100,6 +151,14 @@
         font-weight: 400;
         line-height: 1.25rem;
         color:  $color-isblack;
+        margin-bottom: .5rem;
+
+        @include tablet {
+            margin-bottom: 1.5rem;
+        }
+        @include desktop {
+            margin-bottom: 3rem;
+        }
     }
 
     &__category-stock {
@@ -121,6 +180,7 @@
         width: max-content;
         padding: 0 .5rem;
         border-radius: 1.25rem;
+        margin: .5rem 0;
     }
 
     &__quant-div {
@@ -128,7 +188,7 @@
     }
 
     &__warehouse-div {
-        margin: 1rem 0;
+        margin: 1rem;
 
     }
 
