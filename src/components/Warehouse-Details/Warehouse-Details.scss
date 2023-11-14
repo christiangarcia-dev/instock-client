@@ -30,6 +30,35 @@
         &-title {
             padding-left: .5rem;
         }
+        
+        &-btn {
+            display: block;
+            border-radius: 50%;
+            border: none;
+            width: 2.5rem;
+
+            @include tablet {
+                display: flex;
+                width: 5rem;
+                justify-content: center;
+                align-items: center;
+                border-radius: 1.25rem;
+            }
+        }
+
+        &-text {
+            display: none;
+
+            @include tablet {
+                display: flex;
+                padding-left: .5rem;
+                color: $color-isindigo;
+            }
+        }
+
+        &-editIcon {
+            fill: $color-white;
+        }
 
         &-back {
             display: flex;
