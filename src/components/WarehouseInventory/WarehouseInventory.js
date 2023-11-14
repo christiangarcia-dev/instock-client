@@ -156,7 +156,3 @@ function WarehouseInventory() {
 }
 
 export default WarehouseInventory;
-
-// STILL NEEDED: 
-// useParams() to display inventory for specific warehouse 
-// navigation for edit item, delete item, and item itself 
