@@ -5,7 +5,7 @@ import WarehouseDetailsPage from './pages/WarehouseDetailsPage/WarehouseDetailsP
 import HomePage from './pages/HomePage/HomePage';
 import InventoryListPage from './pages/InventoryListPage/InventoryListPage';
 import EditWarehouse from '../src/pages/EditWarehouse/EditWarehouse';
-import InventoryItemDetails from './components/InventoryItemDetails/InventoryItemDetails';
+import InventoryItemDetails from './pages/InventoryItemDetails/InventoryItemDetails';
 
 function App() {
   return (
