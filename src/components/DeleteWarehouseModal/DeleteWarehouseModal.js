@@ -18,7 +18,7 @@ function DeleteWarehouseModal({ showModal, closeModal, confirmDelete, warehouse 
                     <div className="delete-warehouse-modal__content">
                         <img onClick={closeModal} className="delete-warehouse-modal__close-icon" src={closeIcon} alt="Close" />
                         <div className="delete-warehouse-modal__text-container">
-                            <h2 className="delete-warehouse-modal__header">Delete {warehouse?.warehouse_name} inventory item?</h2>
+                            <h2 className="delete-warehouse-modal__header">Delete {warehouse?.warehouse_name} warehouse?</h2>
                             <p className="delete-warehouse-modal__confirmation">Please confirm that you’d like to delete Television from the inventory list. You won’t be able to undo this action.</p>
                         </div>
                         <div className="delete-warehouse-modal__buttons">

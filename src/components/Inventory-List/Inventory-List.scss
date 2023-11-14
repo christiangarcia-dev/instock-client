@@ -8,10 +8,17 @@ a {
 
 .inventory__list {
     position: relative;
-    top: -6vh;
+    top: -5rem;
     background-color: $color-white;
     margin: 0 $mobile-main-margin;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    @include tablet{
+        top: -5.5rem;
+    }
+    @include desktop {
+        top: -9.7rem;
+        margin: $desktop-main-margin;
+        }
 }
 
 .inventory__details1 {
@@ -80,6 +87,13 @@ a {
         justify-content: space-between;
         padding: 3vh;
     }
+   
+    &-title {
+        @include tablet {
+            font-size: 1.9rem;
+            padding-left: 1rem;
+        }
+    }
 
     &-search {
         background-image: url('../../assets/icons/search-24px.svg');
@@ -105,6 +119,7 @@ a {
         border-radius: 20px;
         padding: 1vh;
         margin-bottom: 1vh;
+        width: 100%;
     }
 }
 
