@@ -53,7 +53,10 @@ function WarehouseDetails() {
         </div>
         <div className="details__upper-right">
           <Link to="" className="details__upper-edit">
+            <button className="details__upper-btn">
             <img className="details__upper-editIcon" src={editIcon} alt="Edit icon" />
+            <p className="details__upper-text"> Edit</p>
+            </button>
           </Link>
         </div>
       </div>
