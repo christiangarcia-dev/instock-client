@@ -2,18 +2,18 @@
 @use '../../styles/partials/mixins' as*;
 @use '../../styles/partials/variables' as*;
 
-a{
+a {
     text-decoration: none;
 }
 
 .inventory__list {
     position: relative;
-    top: -10vh;
+    top: -6vh;
     background-color: $color-white;
-    width: 91%;
-    margin: $mobile-main-margin;
+    margin: 0 $mobile-main-margin;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
+
 
 .inventorylist__titles {
     display: none;
@@ -24,7 +24,8 @@ a{
         padding: $mobile-main-padding;
         background-color: $color-lightgrey;
         display: flex;
-        justify-content: space-around;
+        justify-content: space-between;
+        align-items: center;
     }
 }
 
@@ -82,6 +83,7 @@ a{
 
     @include tablet {
         display: flex;
+        justify-content: space-between;
     }
 }
 
@@ -145,9 +147,7 @@ a{
         }
     }
 
-    &-stock {
-        border: 5px;
-    }
+
 
     &-typeItem {
         color: $color-isindigo;
