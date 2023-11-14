@@ -1,8 +1,8 @@
-import "../DeleteModal/DeleteWarehouseModal.scss";
+import "../DeleteInventoryModal/DeleteInventoryModal.scss";
 import { useState } from "react";
 import closeIcon from "../../assets/icons/close-24px.svg";;
 
-function DeleteWarehouseModal({ showModal, closeModal, confirmDelete, warehouse }) {
+function DeleteInventoryModal({ showModal, closeModal, confirmDelete, warehouse }) {
 
     if(showModal) {
         document.body.classList.add('active-modal');
@@ -32,4 +32,4 @@ function DeleteWarehouseModal({ showModal, closeModal, confirmDelete, warehouse 
     );
 }
 
-export default DeleteWarehouseModal;
+export default DeleteInventoryModal;

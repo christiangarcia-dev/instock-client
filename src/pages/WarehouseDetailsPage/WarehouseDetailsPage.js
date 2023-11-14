@@ -9,8 +9,12 @@ function WarehouseDetailsPage() {
     return (
         <>
             <Header />
-            <WarehouseDetails />
-            <WarehouseInventory />
+            <section className='content-background'>
+                <section className='content-container'>
+                    <WarehouseDetails />
+                    <WarehouseInventory />
+                </section>
+            </section>
             <Footer />
         </>
     )

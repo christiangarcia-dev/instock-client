@@ -44,17 +44,19 @@ function WarehouseDetails() {
 
   return (
     <section className="details">
-      <div className="details__upper">
-        <div className="details__upper-left">
-          <Link to="/" className="details__upper-back">
-            <img className="details__upper-backIcon" src={backIcon} alt="Back" />
-          </Link>
-          <h2 className="details__upper-title">{warehouseData.warehouse_name}</h2>
-        </div>
-        <div className="details__upper-right">
-          <Link to="" className="details__upper-edit">
-            <img className="details__upper-editIcon" src={editIcon} alt="Edit" />
-          </Link>
+      <div className="details__upper-container">
+        <div className="details__upper">
+          <div className="details__upper-left">
+            <Link to="/" className="details__upper-back">
+              <img className="details__upper-backIcon" src={backIcon} alt="Back" />
+            </Link>
+            <h2 className="details__upper-title">{warehouseData.warehouse_name}</h2>
+          </div>
+          <div className="details__upper-right">
+            <Link to="" className="details__upper-edit">
+              <img className="details__upper-editIcon" src={editIcon} alt="Edit" />
+            </Link>
+          </div>
         </div>
       </div>
       <section className="details__info">
