@@ -44,6 +44,7 @@ function WarehouseDetails() {
 
   return (
     <section className="details">
+
       <div className="details__upper">
         <div className="details__upper-left">
           <Link to="/" className="details__upper-back">

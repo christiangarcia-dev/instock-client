@@ -6,8 +6,10 @@
     padding: $mobile-main-padding;
     background-color: $color-graphite;
     padding-bottom: 5rem;
+    height: 15rem;
 
     @include tablet {
+        height: 12rem;
         display: flex;
         justify-content: space-between;
         padding: 1rem $tablet-main-padding;
@@ -31,6 +33,15 @@
             padding: 0;
             justify-content: start;
         }
+
+        &-src {
+            width: 10rem;
+        }
+
+        &-link {
+            display: flex;
+            align-items: center;
+        }
     }
 
     &__buttons {
@@ -39,6 +50,7 @@
         
         @include tablet {
             width: 20rem;
+            align-items: center;
         }
 
 
@@ -65,9 +77,3 @@
         text-decoration: underline;
     }
 
-
-.active {
-    background-color: $color-isblack;
-    font-weight: 600;
-    color: $color-white;
-}

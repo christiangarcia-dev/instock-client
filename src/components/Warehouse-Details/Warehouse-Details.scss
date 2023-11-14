@@ -5,23 +5,26 @@
 
 .details {
 
-    padding: 0 $mobile-main-padding;
-
-    @include tablet {
-        padding: 0 $tablet-main-padding;
-    }
-
-    @include desktop {
-        padding: 0 $desktop-main-padding;
-    }
+    border-bottom: 1px solid $color-cloud;
+    background-color: $color-white;
+    border-top: 0.1px solid transparent;
+    border-radius: 3px 3px 0 0;
 
     &__upper {
         display: flex;
         justify-content: space-between;
-        padding: 1rem 0;
+        align-items: center;
+        padding: 1rem 2rem;
+
+        &-container {
+            border-bottom: 1px solid $color-cloud;
+            border-top: 0px solid none;
+
+        }
 
         &-left {
             display: flex;
+            align-items: center;
         }
 
         &-title {
@@ -57,15 +60,18 @@
             fill: $color-white;
         }
 
+        &-back {
+            display: flex;
+            align-items: center;
+        }
+
     }
 
 
     &__info {
 
         font-size: .8125rem;
-        border-top: 1px solid $color-cloud;
-        border-bottom: 1px solid $color-cloud;
-        padding: 1rem 0;
+        padding: 1rem 2rem;
         
         @include tablet {
             display: flex;
@@ -90,8 +96,16 @@
             }
         }
 
+        &-location,
+        &-content,
+        &-number,
+        &-email {
+            font-size: 0.9rem;
+        }
+
         &-lbl {
             color: $color-slate;
+            font-size: 0.8rem;
         }
 
         &-contact {

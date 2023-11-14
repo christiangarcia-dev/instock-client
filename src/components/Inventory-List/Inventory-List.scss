@@ -2,18 +2,58 @@
 @use '../../styles/partials/mixins' as*;
 @use '../../styles/partials/variables' as*;
 
-a{
+a {
     text-decoration: none;
 }
 
 .inventory__list {
     position: relative;
-    top: -10vh;
+    top: -6vh;
     background-color: $color-white;
-    width: 91%;
-    margin: $mobile-main-margin;
+    margin: 0 $mobile-main-margin;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
+
+.inventory__details1 {
+    @include tablet {
+    margin-left: 2rem;
+    }
+    @include desktop {
+        margin-left: 10rem;
+    }
+}
+
+.inventory__details2 {
+    @include tablet {
+    margin-left: 5rem;
+    }
+    @include desktop {
+        margin-left: 10rem;
+    }
+}
+
+.inventory__details3 {
+    @include tablet {
+    margin-left: 4rem;
+    }
+    @include desktop {
+        margin-left: 12rem;
+    }
+}
+
+.inventory__details4 {
+    @include tablet {
+    margin-left: 6rem;
+    }
+    @include desktop {
+        margin-left: 12rem;
+    }
+}
+
+.inventory__ctg {
+    padding-bottom: 1rem;
+}
+
 
 .inventorylist__titles {
     display: none;
@@ -24,7 +64,8 @@ a{
         padding: $mobile-main-padding;
         background-color: $color-lightgrey;
         display: flex;
-        justify-content: space-around;
+        justify-content: space-between;
+        align-items: center;
     }
 }
 
@@ -82,6 +123,7 @@ a{
 
     @include tablet {
         display: flex;
+        justify-content: space-between;
     }
 }
 
@@ -145,9 +187,7 @@ a{
         }
     }
 
-    &-stock {
-        border: 5px;
-    }
+
 
     &-typeItem {
         color: $color-isindigo;
