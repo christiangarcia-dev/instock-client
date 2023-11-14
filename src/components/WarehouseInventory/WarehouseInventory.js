@@ -10,40 +10,33 @@ import sortIcon from '../../assets/icons/sort-24px.svg';
 
 function WarehouseInventory() {
 
-    const { warehouseId } = useParams();
+    const { id } = useParams();
     const [isMobileView, setIsMobileView] = useState(window.innerWidth < 768);
     const [inventoryItems, setInventoryItems] = useState([]);
 
-    // Get inventory items for specific specific warehouse 
     useEffect(() => {
-        const fetchInventory = async () => {
-            try {
-            // make warehouse id dynamic with useParams once warehouse list is up 
-            const response = await axios.get(`http://localhost:8080/api/warehouses/${warehouseId}/inventories`);
-            setInventoryItems(response.data);
-            } catch (error) {
-            console.error('Error fetching inventory data:', error);
-            }
-        };
         const handleResize = () => {
             setIsMobileView(window.innerWidth < 768);
         };
-
-        fetchInventory();
-
-        // Set up event listener for window resize
         window.addEventListener('resize', handleResize);
-
-        // Clean up event listener
         return () => window.removeEventListener('resize', handleResize);
-    }, [warehouseId]);
+    }, []);
 
-        
+    useEffect(() => {
+        const fetchInventory = async () => {
+            try {
+                const response = await axios.get(`http://localhost:8080/api/inventories?${id}`);
+                setInventoryItems(response.data);
+            } catch (error) {
+                console.error('Error fetching inventory data:', error);
+            }
+        };
+        fetchInventory();
+    }, [id]);
 
-    // Delete specific inventory item for specific warehouse 
     const handleDelete = async (itemId) => {
         try {
-            await axios.delete(`http://localhost:8080/api/warehouses/${warehouseId}/inventories/${itemId}`);
+            await axios.delete(`http://localhost:8080/api/warehouses/${id}/inventories/${itemId}`);
             setInventoryItems(inventoryItems.filter(item => item.id !== itemId));
         }   catch (error) {
                 console.error('Error deleting inventory item:', error);
@@ -51,8 +44,7 @@ function WarehouseInventory() {
     };
 
     const handleEdit = (itemId) => {
-        // Edit item 
-        // Navigate to edit page (route has not been created yet)
+        // TODO
     };
 
     if (isMobileView) {
@@ -63,34 +55,24 @@ function WarehouseInventory() {
                 {inventoryItems.map((item) => (
                 <article key={item.id} className="warehouse-inventoryMB__item">
                     <div>
-
                         <div className='warehouse-inventoryMB__flex--group'>
-                            {/* item group*/}
                             <div className='warehouse-inventoryMB__title--group'>
                                 <h2 className="warehouse-inventoryMB__title warehouse-inventoryMB__label">Inventory Item:</h2>
                                 <div className='warehouse-inventoryMB__title--text-icon'>
                                     <p className='warehouse-inventoryMB__title--value'>{item.item_name}<img className='warehouse-inventoryMB__detail-icon' src={rightArrowIcon} alt="Details"/></p>
                                 </div>
                             </div>
-
-                            {/* status group */}
                             <div className='warehouse-inventoryMB__status--group'>
                                 <h2 className="warehouse-inventoryMB__status warehouse-inventoryMB__label">Status:</h2>
-                                {/* <p className='warehouse-inventoryMB__status--value'>{item.status}</p> */}
                                 <p className={`warehouse-inventoryMB__status--value ${item.status === 'In Stock' ? 
                                 'warehouse-inventoryMB__status--value-instock' : 'warehouse-inventoryMB__status--value-outofstock'}`}>{item.status}</p>
                             </div>
                         </div>
-
-
                         <div className='warehouse-inventoryMB__flex--group'>
-                            {/* category group */}
                             <div className='warehouse-inventoryMB__category--group'>
                                 <h2 className="warehouse-inventoryMB__category warehouse-inventoryMB__label">Category:</h2>
                                 <p className='warehouse-inventoryMB__category--value'>{item.category}</p>
                             </div>
-
-                            {/* quantitiy group */}
                             <div className='warehouse-inventoryMB__quantity--group'>
                                 <h2 className="warehouse-inventoryMB__quantity warehouse-inventoryMB__label">Qty:</h2>
                                 <p className='warehouse-inventoryMB__quantity--value'>{item.quantity}</p>
@@ -98,8 +80,6 @@ function WarehouseInventory() {
                         </div>
                     </div>
                         
-
-                    {/* action buttons group */}
                     <div className="warehouse-inventoryMB__actions">
                         <img
                             className='warehouse-inventoryMB__action warehouse-inventoryMB__action--delete'
