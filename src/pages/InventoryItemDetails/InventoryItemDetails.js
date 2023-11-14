@@ -12,7 +12,7 @@ function InventoryItemDetails() {
     const [itemData, setItemData] = useState("");
     const [warehouseId, setWarehouseId] = useState("");
     const [warehouseName, setWarehouseName] = useState("");
-    const warehouseArry= ['dummy', 'Manhattan', 'Washington', 'Jersey' , 'SF', 'Santa Monica', 'Seattle', 'Miami', 'Boston'];
+    const warehouseArry = ['dummy', 'Manhattan', 'Washington', 'Jersey', 'SF', 'Santa Monica', 'Seattle', 'Miami', 'Boston'];
 
     useEffect(() => {
         async function getInventoryItem() {
@@ -23,6 +23,16 @@ function InventoryItemDetails() {
         }
         getInventoryItem();
     }, [id]);
+
+    function styleStockStat () {
+        let  stockStat = itemData.status;
+        if (stockStat === "Out of Stock") {
+            return stockStat = false;
+        } else {
+            return stockStat =true;
+        };
+    }
+    
 
     // useEffect(() => {
     //     async function getWarehouseName() {
@@ -38,7 +48,7 @@ function InventoryItemDetails() {
             <Header />
             <section className="item">
                 <div className="item__header-div">
-                    <div className="item__title-div"> 
+                    <div className="item__title-div">
                         <img src={backButton} alt="blue arrow pointing left" className="item__image"></img>
                         <h1 className="item__page-header">{itemData.item_name}</h1>
                     </div>
@@ -57,11 +67,11 @@ function InventoryItemDetails() {
                     <div className="item__status-quant-div">
                         <div className="item__status-div">
                             <h3 className="item__category-header">STATUS:</h3>
-                            <p className="item__category-description">{itemData.status}</p>
+                            <p className={ styleStockStat() ? "item__category-stock": "item__category-stock--out"}>{itemData.status}</p>
                         </div>
                         <div className="item__quant-div">
                             <h3 className="item__category-header">QUANTITY:</h3>
-                            <p className="item__category-description"></p>
+                            <p className="item__category-description">{itemData.quantity}</p>
                         </div>
                     </div>
                     <div className="item__warehouse-div">

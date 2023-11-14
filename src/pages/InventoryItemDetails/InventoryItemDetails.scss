@@ -72,8 +72,19 @@
         }
     }
 
+    &__details-div {
+        padding: 0 1rem;
+        margin: 1rem 0;
+    }
+
+    &__description-div {
+        padding: 0 1rem;
+        margin: 1rem 0;
+    }
+
     &__status-quant-div {
         display: flex;
+        margin: 1rem 0;
     }
 
     &__category-header {
@@ -88,6 +99,27 @@
         font-weight: 400;
         line-height: 1.25rem;
         color:  $color-isblack;
+    }
+
+    &__category-stock {
+        font-size: .8125rem;
+        font-weight: 400;
+        line-height: 1.25rem;
+        color:  $color-green;
+        background-color: rgba(21, 132, 99, 0.07);
+        width: max-content;
+        padding: 0 .5rem;
+        border-radius: 1.25rem;
+    }
+    &__category-stock--out {
+        font-size: .8125rem;
+        font-weight: 400;
+        line-height: 1.25rem;
+        color:  $color-red;
+        background-color: rgba(201, 69, 21, 0.07);
+        width: max-content;
+        padding: 0 .5rem;
+        border-radius: 1.25rem;
     }
 
     &__quant-div {
