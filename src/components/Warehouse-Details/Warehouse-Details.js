@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Link, useParams } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import backIcon from "../../assets/icons/arrow_back-24px.svg";
 import editIcon from "../../assets/icons/edit-24px.svg";
@@ -9,6 +10,8 @@ function WarehouseDetails() {
   const { id } = useParams(); // Get the warehouse ID from the URL params
   const [warehouseData, setWarehouseData] = useState(null);
   const [loading, setLoading] = useState(true);
+
+  const navigate = useNavigate();
 
   useEffect(() => {
     console.log("Fetching warehouse data for ID:", id);
@@ -42,6 +45,10 @@ function WarehouseDetails() {
     return <p>Warehouse not found</p>;
   }
 
+  const handleEdit = () => {
+    navigate('/');
+  };
+
   return (
     <section className="details">
 
@@ -55,7 +62,7 @@ function WarehouseDetails() {
         <div className="details__upper-right">
           <Link to="" className="details__upper-edit">
             <button className="details__upper-btn">
-            <img className="details__upper-editIcon" src={editIcon} alt="Edit icon" />
+            <img className="details__upper-editIcon" src={editIcon} alt="Edit icon" onClick={handleEdit} />
             <p className="details__upper-text"> Edit</p>
             </button>
           </Link>

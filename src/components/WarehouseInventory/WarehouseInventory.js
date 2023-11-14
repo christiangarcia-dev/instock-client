@@ -17,6 +17,8 @@ function WarehouseInventory() {
     const [modalIsOpen, setModalIsOpen] = useState(false);
     const [selectedItem, setSelectedItem] = useState(null);
 
+    const navigate = useNavigate();
+
     const openModal = (itemId) => {
         const itemToDelete = inventoryItems.find(item => item.id === itemId);
         if (itemToDelete) {
@@ -75,7 +77,7 @@ function WarehouseInventory() {
     };
 
     const handleEdit = (itemId) => {
-        // TODO
+        // navigate('/');
     };
 
     if (isMobileView) {

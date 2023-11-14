@@ -41,6 +41,7 @@
         &-link {
             display: flex;
             align-items: center;
+            background-color: transparent !important;
         }
     }
 
@@ -77,3 +78,8 @@
         text-decoration: underline;
     }
 
+    .active {
+        background-color: $color-isblack;
+        font-weight: 600;
+        color: $color-white;
+    }
