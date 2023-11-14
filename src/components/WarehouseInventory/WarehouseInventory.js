@@ -6,11 +6,14 @@ import deleteIcon from "../../assets/icons/delete_outline-24px.svg";
 import editIcon from "../../assets/icons/edit-24px.svg";
 import rightArrowIcon from "../../assets/icons/chevron_right-24px.svg";
 import sortIcon from "../../assets/icons/sort-24px.svg";
+import { useNavigate } from "react-router-dom";
 
 function WarehouseInventory() {
   const { id: warehouseId } = useParams();
   const [isMobileView, setIsMobileView] = useState(window.innerWidth < 768);
   const [inventoryItems, setInventoryItems] = useState([]);
+
+  const navigate = useNavigate();
 
   // Get inventory items for specific specific warehouse
   useEffect(() => {
@@ -55,8 +58,7 @@ function WarehouseInventory() {
   };
 
   const handleEdit = (itemId) => {
-    // Edit item
-    // Navigate to edit page (route has not been created yet)
+    navigate(`/edit-inventory-form/${itemId}`);
   };
 
   if (isMobileView) {
