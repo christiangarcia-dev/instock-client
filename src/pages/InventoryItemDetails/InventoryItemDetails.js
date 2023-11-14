@@ -8,6 +8,8 @@ import Header from "../../components/Header/Header";
 import Footer from "../../components/Footer/Footer";
 
 function InventoryItemDetails() {
+    const navigate = useNavigate();
+
     const { id } = useParams();
     const [itemData, setItemData] = useState("");
     const [warehouseId, setWarehouseId] = useState("");
@@ -40,7 +42,7 @@ function InventoryItemDetails() {
             <section className="item">
                 <div className="item__header-div">
                     <div className="item__title-div">
-                        <img src={backButton} alt="blue arrow pointing left" className="item__image"></img>
+                        <img src={backButton} alt="blue arrow pointing left" className="item__image" onClick={()=>navigate("/inventory-details")}></img>
                         <h1 className="item__page-header">{itemData.item_name}</h1>
                     </div>
                     <button type="button" className="item__edit-button">
