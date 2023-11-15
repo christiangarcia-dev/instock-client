@@ -2,9 +2,9 @@
 @use "../../styles/partials/mixins" as *;
 @use "../../styles/partials/variables" as *;
 
-.form {
+.xform {
   position: relative;
-  top: -10vh;
+  top: -5vh;
   background-color: $color-white;
   width: 91%;
   box-shadow: 0 4px 8px rgba(19, 24, 44, 0.1);
@@ -15,6 +15,7 @@
     border-bottom: 1px solid $color-cloud;
     align-items: center;
     padding: 1rem 0.5rem;
+    padding-left: 2rem;
   }
 
   &__back-arrow {
@@ -55,14 +56,14 @@
       margin: 1rem;
       padding: 0;
     }
+  }
+  &__warehouse-div:nth-of-type(1){
+    @include tablet {
+      border-right: 1px solid $color-cloud;
+      padding-right: 1rem;
 
-    @include desktop {
-      border-bottom: none;
-      margin: 1rem;
-      padding: 0;
     }
   }
-
   &__subheader {
     font-size: 1.25rem;
     font-weight: 600;

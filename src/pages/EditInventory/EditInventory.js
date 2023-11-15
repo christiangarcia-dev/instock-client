@@ -2,15 +2,22 @@ import "./EditInventory.scss";
 import backArrow from "../../assets/icons/arrow_back-24px.svg";
 import errorImg from "../../assets/icons/error-24px.svg";
 import { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import Header from "../../components/Header/Header";
 import Footer from "../../components/Footer/Footer";
 import axios from "axios";
 
 const EditInventory = () => {
   const { id } = useParams();
+  const navigate = useNavigate()
 
   const [item, setItem] = useState({});
+  const [requiredStatus, setRequiredStatus] = useState({
+    item_name: true,
+    description: true,
+    category: true,
+    warehouse_id: true
+  })
   const [warehouses, setWarehouses] = useState([]);
   const [isInStock, setIsInStock] = useState(false);
 
@@ -33,23 +40,22 @@ const EditInventory = () => {
     getWarehouses();
   }, [id]);
 
+  const goBack = () => {
+    navigate(-1)
+  };
+
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setItem({
       ...item,
       [name]: value,
     });
+    setRequiredStatus({...requiredStatus, [name]: true})
   };
 
   const handleRadioChange = (e) => {
     setIsInStock(e.target.value === "In Stock");
   };
-
-  const [inputItemNameRequired, setInputItemNameRequired] = useState(true);
-  const [inputDescriptionRequired, setInputDescriptionRequired] =
-    useState(true);
-  const [inputCategoryRequired, setInputCategoryRequired] = useState(true);
-  const [inputWarehouseRequired, setInputWarehouseRequired] = useState(true);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -59,19 +65,23 @@ const EditInventory = () => {
     const category = e.target.category.value;
     const status = e.target.status.value;
     let quantity = e.target.quantity.value;
-    const warehouse_id = e.target.warehouse.value;
+    const warehouse_id = e.target.warehouse_id.value;
 
     if (!item_name) {
-      setInputItemNameRequired(false);
+      setRequiredStatus({...requiredStatus, item_name: false})
+      return
     }
     if (!description) {
-      setInputDescriptionRequired(false);
+      setRequiredStatus({...requiredStatus, description: false})
+      return
     }
     if (!category) {
-      setInputCategoryRequired(false);
+      setRequiredStatus({...requiredStatus, category: false})
+      return
     }
     if (!warehouse_id) {
-      setInputWarehouseRequired(false);
+      setRequiredStatus({...requiredStatus, warehouse_id: false})
+      return
     }
 
     if (!status) {
@@ -87,37 +97,43 @@ const EditInventory = () => {
       quantity,
     };
 
-    const response = await axios.put(
-      `http://localhost:8080/api/inventories/${id}`,
-      JSON.stringify(body)
-    );
+    try {
+      await axios.put(
+        `http://localhost:8080/api/inventories/${id}`,
+        JSON.stringify(body)
+      );
+    } catch (e) {
+      console.error(e)
+      return
+    }
 
-    // add routing
+    goBack()
   };
 
   return (
     <section>
       <Header />
-      <div className="form">
-        <div className="form__header-div">
+      <div className="xform">
+        <div className="xform__header-div">
           <img
             src={backArrow}
             alt="arrow pointing left"
-            className="form__back-arrow"
-          ></img>
-          <h1 className="form__header"> Edit Inventory Item</h1>
+            className="xform__back-arrow"
+            onClick={goBack}
+          />
+          <h1 className="xform__header"> Edit Inventory Item</h1>
         </div>
-        <form className="form__form" onSubmit={handleSubmit}>
-          <div className="form__content-div">
-            <div className="form__warehouse-div">
-              <h2 className="form__subheader">Item Details</h2>
-              <label htmlFor="item_name" className="form__label">
+        <form className="xform__form" onSubmit={handleSubmit}>
+          <div className="xform__content-div">
+            <div className="xform__warehouse-div">
+              <h2 className="xform__subheader">Item Details</h2>
+              <label htmlFor="item_name" className="xform__label">
                 Item Name
                 <input
                   type="text"
                   name="item_name"
                   id="item_name"
-                  className="form__field"
+                  className="xform__field"
                   placeholder="Item Name"
                   value={item.item_name}
                   onChange={handleInputChange}
@@ -125,42 +141,42 @@ const EditInventory = () => {
                 ></input>
                 <div
                   className={
-                    inputItemNameRequired
-                      ? "form__missing-input"
-                      : "form__missing-input--display"
+                    requiredStatus.item_name
+                      ? "xform__missing-input"
+                      : "xform__missing-input--display"
                   }
                 >
                   <img src={errorImg} alt="red exclamation point"></img>
-                  <p className="form__invalid-text">This field is required.</p>
+                  <p className="xform__invalid-text">This field is required.</p>
                 </div>
               </label>
-              <label htmlFor="description" className="form__label">
+              <label htmlFor="description" className="xform__label">
                 Description
                 <textarea
                   name="description"
                   id="description"
-                  className="form__field"
+                  className="xform__field"
                   placeholder="Description"
                   value={item.description}
                   onChange={handleInputChange}
                 ></textarea>
                 <div
                   className={
-                    inputDescriptionRequired
-                      ? "form__missing-input"
-                      : "form__missing-input--display"
+                    requiredStatus.description
+                      ? "xform__missing-input"
+                      : "xform__missing-input--display"
                   }
                 >
                   <img src={errorImg} alt="red exclamation point"></img>
-                  <p className="form__invalid-text">This field is required.</p>
+                  <p className="xform__invalid-text">This field is required.</p>
                 </div>
               </label>
-              <label htmlFor="category" className="form__label">
+              <label htmlFor="category" className="xform__label">
                 Category
                 <select
                   name="category"
                   id="category"
-                  className="form__field"
+                  className="xform__field"
                   placeholder="Description"
                   value={item.category}
                   onChange={handleInputChange}
@@ -174,19 +190,19 @@ const EditInventory = () => {
                 </select>
                 <div
                   className={
-                    inputCategoryRequired
-                      ? "form__missing-input"
-                      : "form__missing-input--display"
+                    requiredStatus.category
+                      ? "xform__missing-input"
+                      : "xform__missing-input--display"
                   }
                 >
                   <img src={errorImg} alt="red exclamation point"></img>
-                  <p className="form__invalid-text">This field is required.</p>
+                  <p className="xform__invalid-text">This field is required.</p>
                 </div>
               </label>
             </div>
-            <div className="form__warehouse-div">
-              <h2 className="form__subheader">Item Availability</h2>
-              <div className="edit-inventory__status">
+            <div className="xform__warehouse-div">
+              <h2 className="xform__subheader">Item Availability</h2>
+              <div className="xedit-inventory__status">
                 <label htmlFor="statusInStock">
                   <input
                     type="radio"
@@ -212,7 +228,7 @@ const EditInventory = () => {
               </div>
 
               {isInStock && (
-                <div className="edit-inventory__quantity">
+                <div className="xedit-inventory__quantity">
                   <label htmlFor="quantity">Quantity</label>
                   <input
                     type="number"
@@ -225,13 +241,13 @@ const EditInventory = () => {
                   />
                 </div>
               )}
-              <label htmlFor="warehouse" className="form__label">
+              <label htmlFor="warehouse_id" className="xform__label">
                 Warehouse
                 <select
-                  name="warehouse"
-                  id="warehouse"
-                  className="form__field"
-                  value={item.warehouse}
+                  name="warehouse_id"
+                  id="warehouse_id"
+                  className="xform__field"
+                  value={item.warehouse_id}
                   onChange={handleInputChange}
                 >
                   <option value="">Please select</option>
@@ -245,23 +261,23 @@ const EditInventory = () => {
                 </select>
                 <div
                   className={
-                    inputWarehouseRequired
-                      ? "form__missing-input"
-                      : "form__missing-input--display"
+                    requiredStatus.warehouse_id
+                      ? "xform__missing-input"
+                      : "xform__missing-input--display"
                   }
                 >
                   <img src={errorImg} alt="red exclamation point"></img>
-                  <p className="form__invalid-text">This field is required.</p>
+                  <p className="xform__invalid-text">This field is required.</p>
                 </div>
               </label>
             </div>
           </div>
-          <div className="form__buttons-div">
-            <button type="button" className="form__button">
+          <div className="xform__buttons-div">
+            <button type="button" className="xform__button" onClick={goBack}>
               {" "}
               Cancel{" "}
             </button>
-            <button type="submit" className="form__button form__button--save">
+            <button type="submit" className="xform__button xform__button--save">
               {" "}
               Save{" "}
             </button>
