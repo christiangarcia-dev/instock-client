@@ -12,6 +12,12 @@ const EditInventory = () => {
   const navigate = useNavigate()
 
   const [item, setItem] = useState({});
+  const [requiredStatus, setRequiredStatus] = useState({
+    item_name: true,
+    description: true,
+    category: true,
+    warehouse_id: true
+  })
   const [warehouses, setWarehouses] = useState([]);
   const [isInStock, setIsInStock] = useState(false);
 
@@ -44,17 +50,12 @@ const EditInventory = () => {
       ...item,
       [name]: value,
     });
+    setRequiredStatus({...requiredStatus, [name]: true})
   };
 
   const handleRadioChange = (e) => {
     setIsInStock(e.target.value === "In Stock");
   };
-
-  const [inputItemNameRequired, setInputItemNameRequired] = useState(true);
-  const [inputDescriptionRequired, setInputDescriptionRequired] =
-    useState(true);
-  const [inputCategoryRequired, setInputCategoryRequired] = useState(true);
-  const [inputWarehouseRequired, setInputWarehouseRequired] = useState(true);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -64,22 +65,22 @@ const EditInventory = () => {
     const category = e.target.category.value;
     const status = e.target.status.value;
     let quantity = e.target.quantity.value;
-    const warehouse_id = e.target.warehouse.value;
+    const warehouse_id = e.target.warehouse_id.value;
 
     if (!item_name) {
-      setInputItemNameRequired(false);
+      setRequiredStatus({...requiredStatus, item_name: false})
       return
     }
     if (!description) {
-      setInputDescriptionRequired(false);
+      setRequiredStatus({...requiredStatus, description: false})
       return
     }
     if (!category) {
-      setInputCategoryRequired(false);
+      setRequiredStatus({...requiredStatus, category: false})
       return
     }
     if (!warehouse_id) {
-      setInputWarehouseRequired(false);
+      setRequiredStatus({...requiredStatus, warehouse_id: false})
       return
     }
 
@@ -140,7 +141,7 @@ const EditInventory = () => {
                 ></input>
                 <div
                   className={
-                    inputItemNameRequired
+                    requiredStatus.item_name
                       ? "xform__missing-input"
                       : "xform__missing-input--display"
                   }
@@ -161,7 +162,7 @@ const EditInventory = () => {
                 ></textarea>
                 <div
                   className={
-                    inputDescriptionRequired
+                    requiredStatus.description
                       ? "xform__missing-input"
                       : "xform__missing-input--display"
                   }
@@ -189,7 +190,7 @@ const EditInventory = () => {
                 </select>
                 <div
                   className={
-                    inputCategoryRequired
+                    requiredStatus.category
                       ? "xform__missing-input"
                       : "xform__missing-input--display"
                   }
@@ -240,13 +241,13 @@ const EditInventory = () => {
                   />
                 </div>
               )}
-              <label htmlFor="warehouse" className="xform__label">
+              <label htmlFor="warehouse_id" className="xform__label">
                 Warehouse
                 <select
-                  name="warehouse"
-                  id="warehouse"
+                  name="warehouse_id"
+                  id="warehouse_id"
                   className="xform__field"
-                  value={item.warehouse}
+                  value={item.warehouse_id}
                   onChange={handleInputChange}
                 >
                   <option value="">Please select</option>
@@ -260,7 +261,7 @@ const EditInventory = () => {
                 </select>
                 <div
                   className={
-                    inputWarehouseRequired
+                    requiredStatus.warehouse_id
                       ? "xform__missing-input"
                       : "xform__missing-input--display"
                   }
