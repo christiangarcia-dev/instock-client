@@ -68,15 +68,19 @@ const EditInventory = () => {
 
     if (!item_name) {
       setInputItemNameRequired(false);
+      return
     }
     if (!description) {
       setInputDescriptionRequired(false);
+      return
     }
     if (!category) {
       setInputCategoryRequired(false);
+      return
     }
     if (!warehouse_id) {
       setInputWarehouseRequired(false);
+      return
     }
 
     if (!status) {
@@ -92,12 +96,17 @@ const EditInventory = () => {
       quantity,
     };
 
-    const response = await axios.put(
-      `http://localhost:8080/api/inventories/${id}`,
-      JSON.stringify(body)
-    );
+    try {
+      await axios.put(
+        `http://localhost:8080/api/inventories/${id}`,
+        JSON.stringify(body)
+      );
+    } catch (e) {
+      console.error(e)
+      return
+    }
 
-    // add routing
+    goBack()
   };
 
   return (
@@ -263,7 +272,7 @@ const EditInventory = () => {
             </div>
           </div>
           <div className="xform__buttons-div">
-            <button type="button" className="xform__button">
+            <button type="button" className="xform__button" onClick={goBack}>
               {" "}
               Cancel{" "}
             </button>
