@@ -1,262 +1,254 @@
-@use '../../styles/partials/global' as*;
-@use '../../styles/partials/mixins' as*;
-@use '../../styles/partials/variables' as*;
+@use '../../styles/partials/global' as *;
+@use '../../styles/partials/mixins' as *;
+@use '../../styles/partials/variables' as *;
 
-a {
-    text-decoration: none;
+
+p {
+    color: $color-isblack;
 }
 
 .inventory__list {
-    position: relative;
     top: -5rem;
     background-color: $color-white;
     margin: 0 $mobile-main-margin;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    @include tablet{
-        top: -5.5rem;
+    @include tablet {
+        margin: 0 $tablet-main-margin;
+        top: -7.3rem;
     }
     @include desktop {
-        top: -9.7rem;
         margin: $desktop-main-margin;
-        }
-}
-
-.inventory__details1 {
-    @include tablet {
-    margin-left: 2rem;
-    }
-    @include desktop {
-        margin-left: 10rem;
+        top: -10.2rem;
     }
 }
-
-.inventory__details2 {
-    @include tablet {
-    margin-left: 5rem;
-    }
-    @include desktop {
-        margin-left: 10rem;
-    }
-}
-
-.inventory__details3 {
-    @include tablet {
-    margin-left: 4rem;
-    }
-    @include desktop {
-        margin-left: 12rem;
-    }
-}
-
-.inventory__details4 {
-    @include tablet {
-    margin-left: 6rem;
-    }
-    @include desktop {
-        margin-left: 12rem;
-    }
-}
-
-.inventory__ctg {
-    padding-bottom: 1rem;
-}
-
-
 .inventorylist__titles {
     display: none;
-
     @include tablet {
         display: flex;
-        flex-direction: row;
         padding: $mobile-main-padding;
         background-color: $color-lightgrey;
-        display: flex;
-        justify-content: space-between;
+        justify-content: space-around;
+        text-transform: uppercase;
+        color: $color-slate;
         align-items: center;
+        @include desktop {
+            &-titleAct {
+                width: 10vh;
+            }
+        }
+        &-titleAct {
+            font-size: 0.75rem;
+        }
     }
 }
-
 .inventorylist__containerOne {
     display: flex;
     flex-direction: column;
     border-bottom: 1px solid $color-cloud;
     padding: 5vh 2vh 2vh 2vh;
-
     @include tablet {
         flex-direction: row;
         justify-content: space-between;
+        align-items: center;
         padding: 3vh;
     }
-   
-    &-title {
-        @include tablet {
-            font-size: 1.9rem;
-            padding-left: 1rem;
-        }
-    }
-
     &-search {
         background-image: url('../../assets/icons/search-24px.svg');
-        height: 2.375rem;
+        height: 30px;
         background-repeat: no-repeat;
         background-position: right 10px center;
-        padding: 1vh;
+        padding: 2vh;
         border: 1px solid $color-cloud;
         border-radius: 20px;
         margin-bottom: 2vh;
         margin-top: 1vh;
-
         @include tablet {
             margin-right: 2vh;
-            margin-top: 0;
+            padding-block: 1.2rem;
+            width: 12rem;
+            margin-block: 0;
         }
     }
-
     &-add {
         background-color: $color-isindigo;
         border: none;
         color: $color-white;
         border-radius: 20px;
-        padding: 1vh;
-        margin-bottom: 1vh;
+        height: min-content;
+        padding: 0.65rem 1rem;
+        cursor: pointer;
+        font-weight: 600;
         width: 100%;
+        @include tablet {
+            width: max-content;
+        }
+    }
+    &-title {
+        @include tablet {
+            font-size: 1.9rem;
+            padding-left: 1rem;
+        }
+        @include desktop {
+            margin: 1vh 5vh;
+        }
     }
 }
 
 .inventory__nav {
     display: flex;
     flex-direction: column;
-
     @include tablet {
         flex-direction: row;
+        align-items: center;
+        margin-right: 4rem;
     }
 }
-
 .inventorylist__containerTwo {
     padding: $mobile-main-padding;
     border-bottom: 1px solid $color-cloud;
-
     @include tablet {
-        display: flex;
-        justify-content: space-between;
+        display: none;
     }
+}
+
+a {
+    text-decoration: none;
 }
 
 .inventory__allInventories {
     display: flex;
     justify-content: space-between;
-
     &-titleWare {
         color: $color-slate;
-
         @include tablet {
             display: none;
         }
     }
-
     &--titleWare {
         display: none;
-
+        padding-bottom: 1rem;
         @include tablet {
             display: flex;
+            width: 20vh;
+            align-items: center;
+            font-size: 0.75rem;
         }
     }
-
     &-titleAddress {
         color: $color-slate;
-
+        margin-top: 2vh;
         @include tablet {
             display: none;
         }
     }
-
     &--titleAddress {
         display: none;
-
         @include tablet {
             display: flex;
+            width: 18vh;
+            align-items: center;
+            font-size: 0.75rem;
+        }
+        @include desktop {
+            width: 40vh;
         }
     }
-
     &-titleContact {
         color: $color-slate;
-
         @include tablet {
             display: none;
         }
     }
-
     &--titleContact {
         display: none;
-
         @include tablet {
             display: flex;
+            width: 18vh;
+            align-items: center;
+            font-size: 0.75rem;
         }
     }
-
     &-titleInfo {
         color: $color-slate;
-
+        margin-top: 2vh;
         @include tablet {
             display: none;
         }
     }
-
-
-
+    &--titleInfo {
+        display: none;
+        @include tablet {
+            display: flex;
+            width: 25vh;
+            align-items: center;
+            font-size: 0.75rem;
+        }
+        @include desktop {
+            width: 20vh;
+        }
+    }
+    &--sort {
+        width: 1rem;
+        margin-left: 0.5rem;
+    }
+    &-name {
+        border: 5px;
+        padding-bottom: 1rem;
+        @include tablet {
+            width: 18vh;
+            padding-bottom: 0;
+        }
+    }
     &-typeItem {
         color: $color-isindigo;
         font-weight: 600;
         display: flex;
+        @include tablet {
+            width: 8rem;
+            &:hover {
+                text-decoration: underline;
+            }
+        }
+        @include desktop {
+            width: 11rem;
+        }
     }
-
     &-one {
         @include tablet {
             display: flex;
             flex-direction: row;
         }
     }
-
     &-two {
         @include tablet {
             display: flex;
             flex-direction: row;
         }
     }
-
-    &-stock {
-        font-weight: 600;
-            font-size: 0.8rem;
-            text-transform: uppercase;
-            border-radius: 20px;
-            padding: 0.5rem;
-            margin-right: 1rem;
-
-            @include tablet {
-                margin-right: 0;
-            }
-
-            &--green {
-                background: $green-opacity;
-                color: $color-green;
-            }
-
-            &--red {
-                background: $red-opacity;
-                color: $color-red;    
-            }
+    @include desktop {
+        &-address {
+            margin-right: 1vh;
+        }
+    }
+    &-edit {
+        @include tablet {
+            padding-left: 0.7rem;
+        }
+    }
+    &-delete {
+        @include tablet {
+            cursor: pointer;
+        }
     }
 }
 
 .inventory__allInventories {
     &-title {
         display: none;
-
         @include tablet {
             display: flex;
         }
     }
-
     &-buttons {
         display: flex;
         justify-content: space-between;
@@ -264,14 +256,48 @@ a {
     }
 }
 
-.inventory__sections {
-    padding-bottom: 1rem;
+.inventorylist__containerTwo--tablet {
+    display: none;
+    padding: $mobile-main-padding;
+    @include tablet {
+        display: flex;
+        border-bottom: 1px solid $color-cloud;
+        align-items: center;
+        justify-content: space-evenly;
+        height: 12vh;
+        &:hover {
+            background: $blue-opacity;
+            cursor: pointer;
+        }
+    }
 }
 
-button:hover {
-    background-color: $color-isblack;
+.contact-info {
+    width: 25vh;
+}
+.address-info-tablet {
+    width: 20vh;
+    @include desktop {
+        width: 41vh;
+        display: flex;
+    }
 }
 
-button {
-    height: 2.375rem;
+.inventory__allInventories-name1 {
+    font-weight: 600;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    border-radius: 20px;
+    padding: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.inventory__allInventories-name--green {
+    background: $green-opacity;
+    color: $color-green;
+}
+
+.inventory__allInventories-name--red {
+    background: $red-opacity;
+    color: $color-red;
 }
