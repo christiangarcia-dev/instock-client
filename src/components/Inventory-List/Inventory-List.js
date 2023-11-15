@@ -34,7 +34,7 @@ function InventoryList() {
                 <h2 className='inventorylist__containerOne-title'>Inventory</h2>
                 <div className='inventory__nav'>
                     <input className='inventorylist__containerOne-search' type='text' placeholder='Search...'></input>
-                    <Link to={`add-inventory/`}>
+                    <Link to={`/add-inventory-form`}>
                         <button className='inventorylist__containerOne-add'>+ Add New Item</button>
 
                     </Link>
