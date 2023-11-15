@@ -62,7 +62,9 @@ function WarehouseDetails() {
         <div className="details__upper-right">
           <Link to={`edit-warehouse-form/${warehouseData.id}`} className="details__upper-edit">
             <button className="details__upper-btn">
-            <img className="details__upper-editIcon" src={editIcon} alt="Edit icon" onClick={handleEdit} />
+            <Link to={"/edit-warehouse-form/:id"}>
+            <img className="details__upper-editIcon" src={editIcon} alt="Edit icon" />
+            </Link>
             <p className="details__upper-text"> Edit</p>
             </button>
           </Link>

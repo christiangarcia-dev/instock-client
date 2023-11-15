@@ -114,6 +114,14 @@
         color: $color-red;
         margin-left: .25rem;
      }
+     
+     &__button-cancelLink {
+         color: $color-isblack;
+
+         &:hover {
+            color: $color-white;
+         }
+     }
 
     &__contact-div {
         padding: 1rem;
