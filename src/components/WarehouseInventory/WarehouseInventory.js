@@ -65,16 +65,18 @@ function WarehouseInventory() {
         // Mobile JSX
         return (
             <section className="warehouse-inventoryMB">
-                {inventoryItems.map((item) => (
-                <article key={item.id} className="warehouse-inventoryMB__item">
+                {inventoryItems.map((item, index) => (
+                <article key={index} className="warehouse-inventoryMB__item">
                     <div>
                         <div className='warehouse-inventoryMB__flex--group'>
-                            <div className='warehouse-inventoryMB__title--group'>
-                                <h2 className="warehouse-inventoryMB__title warehouse-inventoryMB__label">Inventory Item:</h2>
-                                <div className='warehouse-inventoryMB__title--text-icon'>
-                                    <p className='warehouse-inventoryMB__title--value'>{item.item_name}<img className='warehouse-inventoryMB__detail-icon' src={rightArrowIcon} alt="Details"/></p>
+                                <div className='warehouse-inventoryMB__title--group'>
+                                    <h2 className="warehouse-inventoryMB__title warehouse-inventoryMB__label">Inventory Item:</h2>
+                                    <div className='warehouse-inventoryMB__title--text-icon' onClick={() => navigate(`/edit-inventory-form/${item.id}`)}>
+                                        <p className='warehouse-inventoryMB__title--value'>{item.item_name}
+                                            <img className='warehouse-inventoryMB__detail-icon' src={rightArrowIcon} alt="Details"/>
+                                        </p>
+                                    </div>
                                 </div>
-                            </div>
                             <div className='warehouse-inventoryMB__status--group'>
                                 <h2 className="warehouse-inventoryMB__status warehouse-inventoryMB__label">Status:</h2>
                                 <p className={`warehouse-inventoryMB__status--value ${item.status === 'In Stock' ? 
@@ -141,7 +143,7 @@ function WarehouseInventory() {
                             </p></div>
                         <div className="warehouse-inventory__row-item">{item.quantity}</div>
                         <div className="warehouse-inventory__row-item warehouse-inventory__row-item--actions">
-                            <img src={editIcon} alt="Edit" onClick={() => alert('Edit item id ' + item.id)}/>
+                            <img src={editIcon} alt="Edit" onClick={() => navigate(`/edit-inventory-form/${item.id}`)}/>
                             {/* <img src={deleteIcon} alt="Delete" onClick={() => openModal(item.id)}/> */}
                             <img src={deleteIcon} alt="Delete" onClick={() => handleOpenPop(item.id)}/>
                         </div>
