@@ -65,7 +65,9 @@ function InventoryList() {
                             <div className='inventory__allInventories-two'>
                                 <div className='inventory__details2 inventory__ctg'>
                                 <h6 className='inventory__allInventories-titleContact'>STATUS</h6>
-                                <p className='inventory__allInventories-stock'>{inventory.status}</p>
+                                {/* <p className='inventory__allInventories-stock'>{inventory.status}</p> */}
+                                <p className={`inventory__allInventories-stock ${inventory.status === 'In Stock' ?
+                                    'inventory__allInventories-stock--green' : 'inventory__allInventories-stock--red'}`}>{inventory.status}</p>
                                 </div>
                                 <div className='inventory__details3 inventory__ctg'>
                                 <h6 className='inventory__allInventories-titleInfo'>QTY</h6>

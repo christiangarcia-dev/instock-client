@@ -208,6 +208,29 @@ a {
             flex-direction: row;
         }
     }
+
+    &-stock {
+        font-weight: 600;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            border-radius: 20px;
+            padding: 0.5rem;
+            margin-right: 1rem;
+
+            @include tablet {
+                margin-right: 0;
+            }
+
+            &--green {
+                background: $green-opacity;
+                color: $color-green;
+            }
+
+            &--red {
+                background: $red-opacity;
+                color: $color-red;    
+            }
+    }
 }
 
 .inventory__allInventories {
