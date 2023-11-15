@@ -4,6 +4,7 @@ import backArrow from "../../assets/icons/arrow_back-24px.svg";
 import { useState } from "react";
 import Header from "../../components/Header/Header";
 import Footer from "../../components/Footer/Footer";
+import { Link } from "react-router-dom";
 
 function AddNewWarehouse() {
     const [phoneInvaild, setPhoneInvalid] = useState(true);
@@ -83,7 +84,10 @@ function AddNewWarehouse() {
             <Header />
             <div className="form">
                 <div className="form__header-div">
-                    <img src={backArrow} alt="arrow pointing left" className="form__back-arrow"></img>
+                    <Link to={'/'}>
+                        <img src={backArrow} alt="arrow pointing left" className="form__back-arrow"></img>
+
+                    </Link>
                     <h1 className="form__header"> Add Warehouse</h1>
                 </div>
                 <form className="form__form" onSubmit={submitHandler}>
@@ -227,7 +231,13 @@ function AddNewWarehouse() {
                         </div>
                     </div>
                     <div className="form__buttons-div">
-                        <button type="button" className="form__button"> Cancel </button>
+
+                            <button type="button" className="form__button">
+                        <Link to={'/'}>
+                                 Cancel 
+
+                        </Link>
+                                 </button>
                         <button type="submit" className="form__button form__button--save"> +Add Warehouse </button>
                     </div>
                 </form>

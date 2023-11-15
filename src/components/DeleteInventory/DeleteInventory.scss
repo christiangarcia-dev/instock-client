@@ -5,6 +5,7 @@
 
 .title-x {
     display: flex;
+    justify-content: space-between;
 }
 .delete__inventory{
     background-color: $color-white;
@@ -20,6 +21,7 @@
         background-color: $color-white;
         padding: $tablet-main-padding;
         height: 40vh;
+        left: 3%;
     }
     @include desktop {
         left: 25%;
@@ -62,6 +64,8 @@
         border: none;
         background-color: $color-red;
         width: 50%;
+        color: $color-white;
+
         @include  tablet {
             width: 10vh;
         }

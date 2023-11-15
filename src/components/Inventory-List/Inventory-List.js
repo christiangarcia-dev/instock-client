@@ -34,7 +34,10 @@ function InventoryList() {
                 <h2 className='inventorylist__containerOne-title'>Inventory</h2>
                 <div className='inventory__nav'>
                     <input className='inventorylist__containerOne-search' type='text' placeholder='Search...'></input>
-                    <button className='inventorylist__containerOne-add'>+ Add New Item</button>
+                    <Link to={`add-inventory/`}>
+                        <button className='inventorylist__containerOne-add'>+ Add New Item</button>
+
+                    </Link>
                 </div>
             </section>
             <div className='inventorylist__titles'>
@@ -78,10 +81,10 @@ function InventoryList() {
                             </div>
                         </div>
                         <div className='inventory__allInventories-buttons'>
-                            <img onClick={() => handleOpenPop(inventory)}className='inventory__allInventories-delete' src={deleteIcon} />
-                            {/* <Link to={`/edit-warehouse-form`}> */}
+                            <img onClick={() => handleOpenPop(inventory.id)}className='inventory__allInventories-delete' src={deleteIcon} />
+                            <Link to={`/edit-inventory-form/${inventory.id}`}>
                                 <img className='inventory__allInventories-edit' src={editIcon}/>
-                            {/* </Link> */}
+                            </Link>
                         </div>
                     </section>
                 ))
