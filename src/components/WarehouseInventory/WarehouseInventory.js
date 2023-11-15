@@ -33,11 +33,15 @@ function WarehouseInventory() {
 
     useEffect(() => {
         const fetchInventory = async () => {
-            const url = `http://localhost:8080/api/warehouses/${id}/inventories`;
+            const url = `http://localhost:8080/api/inventories`;
             console.log("Requesting URL:", url); // Log the URL
             try {
                 const response = await axios.get(url);
-                setInventoryItems(response.data);
+                const data = response.data.filter(
+                    (item) => item.warehouse_id === Number(id)
+                )
+                setInventoryItems(data);
+                console.log(inventoryItems.length)
             } catch (error) {
                 console.error('Error fetching inventory data:', error);
             }
