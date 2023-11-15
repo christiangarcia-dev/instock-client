@@ -16,7 +16,7 @@ const AddInventory = () => {
     category: "",
     warehouse_id: "",
     status: false, 
-    quantity: 0
+    quantity: "0"
   });
   const [requiredStatus, setRequiredStatus] = useState({
     item_name: true,
@@ -95,7 +95,7 @@ const AddInventory = () => {
     try {
       await axios.post(
         `http://localhost:8080/api/inventories`,
-        JSON.stringify(body)
+        JSON.stringify(body), { headers: {'Content-Type': "application/json"}}
       );
     } catch (e) {
       console.error(e)
