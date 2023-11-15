@@ -5,12 +5,12 @@ import X from '../../assets/icons/close-24px.svg';
 
 
 
-function DeleteInventory ({openDelete, inventory, }) {
+function DeleteInventory ({openDelete, inventory, inventoryID }) {
     const navigate = useNavigate();
 
     const deleteResponse  = async() => {
         try {
-            await axios.delete(`http://localhost:8080/api/inventories/${inventory.id}`)
+            await axios.delete(`http://localhost:8080/api/inventories/${inventory}`)
             openDelete(false);
             window.location.reload();
         }
@@ -22,6 +22,19 @@ function DeleteInventory ({openDelete, inventory, }) {
     const handleCancel = () => {
         openDelete(false); 
     };
+   
+
+    const deleteWarehouseItem  = async() => {
+        try {
+            await axios.delete(`http://localhost:8080/api/inventories/${inventoryID}`)
+            openDelete(false);
+            window.location.reload();
+        }
+        catch (error) {
+            console.error('Dont have any inventory', error);
+        }
+
+    }
 
 
     return (
@@ -37,7 +50,7 @@ function DeleteInventory ({openDelete, inventory, }) {
             <button className='delete__inventory-cancel-button' onClick={handleCancel}>
                     Cancel
                 </button>
-                <button className='delete__inventory-delete-button' onClick={deleteResponse}>
+                <button className='delete__inventory-delete-button' onClick={deleteResponse} >
                     Delete
                 </button>
             </div>

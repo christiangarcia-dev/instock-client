@@ -1,49 +1,27 @@
 import './WarehouseInventory.scss';
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import { useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
 import deleteIcon from '../../assets/icons/delete_outline-24px.svg';
 import editIcon from '../../assets/icons/edit-24px.svg';
 import rightArrowIcon from '../../assets/icons/chevron_right-24px.svg';
 import sortIcon from '../../assets/icons/sort-24px.svg';
-import DeleteInventoryModal from '../DeleteInventoryModal/DeleteInventoryModal';
+// import DeleteInventoryModal from '../DeleteInventoryModal/DeleteInventoryModal';
+import DeleteInventory from '../DeleteInventory/DeleteInventory';
 
 function WarehouseInventory() {
 
     const { id } = useParams();
     const [isMobileView, setIsMobileView] = useState(window.innerWidth < 768);
     const [inventoryItems, setInventoryItems] = useState([]);
-    const [modalIsOpen, setModalIsOpen] = useState(false);
-    const [selectedItem, setSelectedItem] = useState(null);
+    const [openModal, setOpenModal] =  useState(false);
+    const [selectedInventory, setSelecetedInventory]= useState(null);
+  
 
     const navigate = useNavigate();
 
-    const openModal = (itemId) => {
-        const itemToDelete = inventoryItems.find(item => item.id === itemId);
-        if (itemToDelete) {
-            setSelectedItem(itemToDelete);
-            setModalIsOpen(true);
-        }
-    };
 
-    const closeModal = () => {
-        setModalIsOpen(false);
-    };
-
-    const confirmDelete = async () => {
-        if (selectedItem) {
-            await handleDelete(selectedItem.id);
-        }
-    };
-
-    const openDeleteModal = (itemId) => {
-        const itemToDelete = inventoryItems.find(item => item.id === itemId);
-        if (itemToDelete) {
-            setSelectedItem(itemToDelete);
-            setModalIsOpen(true);
-        }
-    };
 
     useEffect(() => {
         const handleResize = () => {
@@ -67,18 +45,16 @@ function WarehouseInventory() {
         fetchInventory();
     }, [id]);
 
-    const handleDelete = async (itemId) => {
-        try {
-            await axios.delete(`http://localhost:8080/api/warehouses/${id}/inventories/${itemId}`);
-            setInventoryItems(inventoryItems.filter(item => item.id !== itemId));
-        }   catch (error) {
-                console.error('Error deleting inventory item:', error);
-            }
-    };
 
-    const handleEdit = (itemId) => {
-        // navigate('/');
-    };
+    const handleOpenPop = (selectedInventoryId) => {
+        
+        console.log(selectedInventoryId);
+        setSelecetedInventory(selectedInventoryId)
+        setOpenModal(true)
+    }
+
+    console.log(openModal)
+  
 
     if (isMobileView) {
         
@@ -118,17 +94,21 @@ function WarehouseInventory() {
                             className='warehouse-inventoryMB__action warehouse-inventoryMB__action--delete'
                             src={deleteIcon}
                             alt="Delete"
-                            onClick={() => openModal(item.id)}
+                            onClick={() => handleOpenPop(item.id)}
                         />
+                        <Link to={`/edit-inventory-form/${item.id}`}>
                         <img
                             className='warehouse-inventoryMB__action warehouse-inventoryMB__action--edit'
                             src={editIcon}
                             alt="Edit"
-                            onClick={() => handleEdit(item.id)}
                         />
+                        </Link>
                     </div>
                 </article>
             ))}
+            {
+                openModal && <DeleteInventory openDelete={setOpenModal} inventory={selectedInventory} />
+                }
             </section>
         );
 
@@ -158,17 +138,15 @@ function WarehouseInventory() {
                         <div className="warehouse-inventory__row-item">{item.quantity}</div>
                         <div className="warehouse-inventory__row-item warehouse-inventory__row-item--actions">
                             <img src={editIcon} alt="Edit" onClick={() => alert('Edit item id ' + item.id)}/>
-                            <img src={deleteIcon} alt="Delete" onClick={() => openModal(item.id)}/>
+                            {/* <img src={deleteIcon} alt="Delete" onClick={() => openModal(item.id)}/> */}
+                            <img src={deleteIcon} alt="Delete" onClick={() => handleOpenPop(item.id)}/>
                         </div>
                     </div>
                     ))}
                 </div>
-                <DeleteInventoryModal
-                showModal={modalIsOpen}
-                closeModal={closeModal}
-                confirmDelete={confirmDelete}
-                warehouse={selectedItem} // Make sure to pass the correct item information here
-                />
+                {
+                openModal && <DeleteInventory openDelete={setOpenModal} inventory={selectedInventory} />
+                }
             </div>
         );
     }

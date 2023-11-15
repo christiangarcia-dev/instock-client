@@ -59,9 +59,11 @@ function WarehouseList() {
             type="text"
             placeholder="Search..."
             ></input>
-            <button className="warehouselist__containerOne-add">
-            + Add New Warehouse
-            </button>
+            <Link className="warehouselist__container-link" to={`/add-warehouse-form`}>
+                <button className="warehouselist__containerOne-add">
+                + Add New Warehouse
+                </button>
+            </Link>
         </div>
         </section>
 

@@ -4,6 +4,7 @@ import errorImg from "../../assets/icons/error-24px.svg";
 import { useState } from "react";
 import Header from "../../components/Header/Header";
 import Footer from "../../components/Footer/Footer";
+import { Link } from "react-router-dom";
 
 function EditWarehouse() {
   const [phoneInvaild, setPhoneInvalid] = useState(true);
@@ -70,11 +71,13 @@ function EditWarehouse() {
       <Header />
       <div className="form">
         <div className="form__header-div">
-          <img
-            src={backArrow}
-            alt="arrow pointing left"
-            className="form__back-arrow"
-          ></img>
+          <Link to={'/'}>
+            <img
+              src={backArrow}
+              alt="arrow pointing left"
+              className="form__back-arrow"
+            ></img>
+          </Link>
           <h1 className="form__header"> Edit Warehouse</h1>
         </div>
         <form className="form__form" onSubmit={submitHandler}>
@@ -256,10 +259,12 @@ function EditWarehouse() {
             </div>
           </div>
           <div className="form__buttons-div">
-            <button type="button" className="form__button">
-              {" "}
-              Cancel{" "}
-            </button>
+              <button type="button" className="form__button">
+            <Link className='form__button-cancelLink'to={'/'}>
+                {" "}
+                Cancel{" "}
+            </Link>
+              </button>
             <button type="submit" className="form__button form__button--save">
               {" "}
               Save{" "}
