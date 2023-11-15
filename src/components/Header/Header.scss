@@ -1,0 +1,87 @@
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/mixins" as *;
+@use '../../styles/partials/global' as *;
+
+.header {
+    padding: $mobile-main-padding;
+    background-color: $color-graphite;
+    padding-bottom: 5rem;
+    height: 15rem;
+
+    @include tablet {
+        height: 12rem;
+        display: flex;
+        justify-content: space-between;
+        padding: 1rem $tablet-main-padding;
+        padding-bottom: 5rem;
+        height: 14rem;
+
+    }
+
+    @include desktop {
+        padding: 1rem $desktop-main-padding;
+        padding-bottom: 5rem;
+    }
+
+    &__logo {
+        padding-top: 1rem;
+        padding-bottom: 2rem;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+
+        @include tablet {
+            display: flex;
+            padding: 0;
+            justify-content: start;
+        }
+
+        &-src {
+            width: 10rem;
+        }
+
+        &-link {
+            display: flex;
+            align-items: center;
+            background-color: transparent !important;
+        }
+    }
+
+    &__buttons {
+        display: flex;
+        justify-content: space-between;
+        
+        @include tablet {
+            width: 20rem;
+            align-items: center;
+        }
+
+
+        &-all {
+            width: 45%;
+            height: 2.25rem;
+            border-radius: 1.25rem;
+            background-color: $color-graphite;
+            border: none;
+            color: $color-cloud;
+            cursor: pointer;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            
+        }
+    }
+}
+
+    .header__buttons-all:hover {
+        color: $color-white;
+        text-decoration: underline;
+    }
+
+    .active {
+        background-color: $color-isblack;
+        font-weight: 600;
+        color: $color-white;
+    }

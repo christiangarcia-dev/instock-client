@@ -1,0 +1,132 @@
+@use '../../styles/partials/global' as*;
+@use '../../styles/partials/mixins' as*;
+@use '../../styles/partials/variables' as*;
+
+
+.details {
+
+    border-bottom: 1px solid $color-cloud;
+    background-color: $color-white;
+    border-top: 0.1px solid transparent;
+    border-radius: 3px 3px 0 0;
+
+    &__upper {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1rem 2rem;
+        border-bottom: 1px solid $color-cloud;
+
+        &-container {
+            border-bottom: 1px solid $color-cloud;
+            border-top: 0px solid none;
+
+        }
+
+        &-left {
+            display: flex;
+            align-items: center;
+        }
+
+        &-title {
+            padding-left: .5rem;
+        }
+        
+        &-btn {
+            display: block;
+            border-radius: 50%;
+            border: none;
+            width: 2.5rem;
+
+            @include tablet {
+                display: flex;
+                width: 5rem;
+                justify-content: center;
+                align-items: center;
+                border-radius: 1.25rem;
+            }
+        }
+
+        &-text {
+            display: none;
+
+            @include tablet {
+                display: flex;
+                padding-left: .5rem;
+                color: $color-isindigo;
+            }
+        }
+
+        &-editIcon {
+            fill: $color-white;
+        }
+
+        &-back {
+            display: flex;
+            align-items: center;
+        }
+
+    }
+
+
+    &__info {
+
+        font-size: .8125rem;
+        padding: 1rem 2rem;
+        
+        @include tablet {
+            display: flex;
+            justify-content: space-between;
+            font-size: .875rem;
+        }
+
+        @include desktop {
+        }
+
+        &-address {
+            padding-bottom: 2rem ;
+            @include tablet {
+                width: 19rem;
+                padding-right: 10rem;
+                border-right: 1px solid $color-cloud;
+                padding-bottom: 0;
+            }
+            @include desktop {
+                width: 30rem;
+                padding-right: 20rem;
+            }
+        }
+
+        &-location,
+        &-content,
+        &-number,
+        &-email {
+            font-size: 0.9rem;
+        }
+
+        &-lbl {
+            color: $color-slate;
+            font-size: 0.8rem;
+        }
+
+        &-contact {
+            display: flex;
+            justify-content: space-between;
+
+            @include tablet {
+                width: 24rem;
+                padding-right: 4rem;
+            }
+            @include desktop {
+                padding-right: 12rem;
+                width: 34rem;
+            }
+        }
+
+        &-contactinfo {
+            padding-right: 1rem;
+        }
+
+
+    }
+}

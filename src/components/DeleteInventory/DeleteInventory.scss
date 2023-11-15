@@ -1,0 +1,82 @@
+@use '../../styles/partials/global' as*;
+@use '../../styles/partials/mixins' as*;
+@use '../../styles/partials/variables' as*;
+
+
+.title-x {
+    display: flex;
+    justify-content: space-between;
+}
+.delete__inventory{
+    background-color: $color-white;
+    padding: $mobile-main-padding;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+
+    @include tablet {
+        position: fixed;
+        top: 25%;
+        background-color: $color-white;
+        padding: $tablet-main-padding;
+        height: 40vh;
+        left: 3%;
+    }
+    @include desktop {
+        left: 25%;
+        width: 80vh;
+    }
+    &-overlay{
+        @include tablet {
+            background: rgba(49, 49, 49, 0.8);
+            width: 100vw;
+            height: 100vh;
+            position: fixed;
+            top: 0;
+            left: 0;
+
+        }
+    
+        }
+    &-title {
+        margin-top: 10vh;
+        @include tablet {
+            margin-top: 5vh;
+        }
+    }
+    &-explanation {
+        margin-top: 2vh;
+    }
+    &-cancel-button {
+        border: 1px solid $color-cloud;
+        border-radius: 20px;
+        background-color: $color-white;
+        width: 50%;
+        height: 5vh;
+        margin-right: 1vh;
+        @include  tablet {
+            width: 10vh;
+        }
+    }
+    &-delete-button{
+        border-radius: 20px;
+        border: none;
+        background-color: $color-red;
+        width: 50%;
+        color: $color-white;
+
+        @include  tablet {
+            width: 10vh;
+        }
+    }
+}
+
+.buttons {
+    margin-top: 55vh;
+    display: flex;
+    @include tablet {
+        justify-content: flex-end;
+        margin-top: 4vh;
+    }
+}

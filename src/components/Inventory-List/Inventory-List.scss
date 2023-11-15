@@ -1,0 +1,254 @@
+@use '../../styles/partials/global' as*;
+@use '../../styles/partials/mixins' as*;
+@use '../../styles/partials/variables' as*;
+
+a {
+    text-decoration: none;
+}
+
+.inventory__list {
+    position: relative;
+    top: -5rem;
+    background-color: $color-white;
+    margin: 0 $mobile-main-margin;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    @include tablet{
+        top: -5.5rem;
+    }
+    @include desktop {
+        top: -9.7rem;
+        margin: $desktop-main-margin;
+        }
+}
+
+.inventory__details1 {
+    @include tablet {
+    margin-left: 2rem;
+    }
+    @include desktop {
+        margin-left: 10rem;
+    }
+}
+
+.inventory__details2 {
+    @include tablet {
+    margin-left: 5rem;
+    }
+    @include desktop {
+        margin-left: 10rem;
+    }
+}
+
+.inventory__details3 {
+    @include tablet {
+    margin-left: 4rem;
+    }
+    @include desktop {
+        margin-left: 12rem;
+    }
+}
+
+.inventory__details4 {
+    @include tablet {
+    margin-left: 6rem;
+    }
+    @include desktop {
+        margin-left: 12rem;
+    }
+}
+
+.inventory__ctg {
+    padding-bottom: 1rem;
+}
+
+
+.inventorylist__titles {
+    display: none;
+
+    @include tablet {
+        display: flex;
+        flex-direction: row;
+        padding: $mobile-main-padding;
+        background-color: $color-lightgrey;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+}
+
+.inventorylist__containerOne {
+    display: flex;
+    flex-direction: column;
+    border-bottom: 1px solid $color-cloud;
+    padding: 5vh 2vh 2vh 2vh;
+
+    @include tablet {
+        flex-direction: row;
+        justify-content: space-between;
+        padding: 3vh;
+    }
+   
+    &-title {
+        @include tablet {
+            font-size: 1.9rem;
+            padding-left: 1rem;
+        }
+    }
+
+    &-search {
+        background-image: url('../../assets/icons/search-24px.svg');
+        height: 2.375rem;
+        background-repeat: no-repeat;
+        background-position: right 10px center;
+        padding: 1vh;
+        border: 1px solid $color-cloud;
+        border-radius: 20px;
+        margin-bottom: 2vh;
+        margin-top: 1vh;
+
+        @include tablet {
+            margin-right: 2vh;
+            margin-top: 0;
+        }
+    }
+
+    &-add {
+        background-color: $color-isindigo;
+        border: none;
+        color: $color-white;
+        border-radius: 20px;
+        padding: 1vh;
+        margin-bottom: 1vh;
+        width: 100%;
+    }
+}
+
+.inventory__nav {
+    display: flex;
+    flex-direction: column;
+
+    @include tablet {
+        flex-direction: row;
+    }
+}
+
+.inventorylist__containerTwo {
+    padding: $mobile-main-padding;
+    border-bottom: 1px solid $color-cloud;
+
+    @include tablet {
+        display: flex;
+        justify-content: space-between;
+    }
+}
+
+.inventory__allInventories {
+    display: flex;
+    justify-content: space-between;
+
+    &-titleWare {
+        color: $color-slate;
+
+        @include tablet {
+            display: none;
+        }
+    }
+
+    &--titleWare {
+        display: none;
+
+        @include tablet {
+            display: flex;
+        }
+    }
+
+    &-titleAddress {
+        color: $color-slate;
+
+        @include tablet {
+            display: none;
+        }
+    }
+
+    &--titleAddress {
+        display: none;
+
+        @include tablet {
+            display: flex;
+        }
+    }
+
+    &-titleContact {
+        color: $color-slate;
+
+        @include tablet {
+            display: none;
+        }
+    }
+
+    &--titleContact {
+        display: none;
+
+        @include tablet {
+            display: flex;
+        }
+    }
+
+    &-titleInfo {
+        color: $color-slate;
+
+        @include tablet {
+            display: none;
+        }
+    }
+
+
+
+    &-typeItem {
+        color: $color-isindigo;
+        font-weight: 600;
+        display: flex;
+    }
+
+    &-one {
+        @include tablet {
+            display: flex;
+            flex-direction: row;
+        }
+    }
+
+    &-two {
+        @include tablet {
+            display: flex;
+            flex-direction: row;
+        }
+    }
+}
+
+.inventory__allInventories {
+    &-title {
+        display: none;
+
+        @include tablet {
+            display: flex;
+        }
+    }
+
+    &-buttons {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 2vh;
+    }
+}
+
+.inventory__sections {
+    padding-bottom: 1rem;
+}
+
+button:hover {
+    background-color: $color-isblack;
+}
+
+button {
+    height: 2.375rem;
+}

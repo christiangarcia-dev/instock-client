@@ -1,0 +1,290 @@
+@use '../../styles/partials/global' as *;
+@use '../../styles/partials/mixins' as *;
+@use '../../styles/partials/variables' as *;
+
+p {
+    color: $color-isblack;
+}
+
+.warehouse__list {
+    top: -5rem;
+    background-color: $color-white;
+    margin: $mobile-main-margin;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    @include tablet {
+        margin:$tablet-main-margin;
+        top: -7.3rem;
+    }
+    @include desktop {
+        margin: $desktop-main-margin;
+        top: -10.2rem;
+    }
+}
+.warehouselist__titles {
+    display: none;
+    @include tablet {
+        display: flex;
+        padding: $mobile-main-padding;
+        background-color: $color-lightgrey;
+        justify-content: space-around;
+        text-transform: uppercase;
+        color: $color-slate;
+        align-items: center;
+        @include desktop {
+            &-titleAct {
+                width: 10vh;
+            }
+
+        }
+        &-titleAct {
+            font-size: 0.75rem;
+        }
+}
+}
+.warehouselist__containerOne{
+    display: flex;
+    flex-direction: column;
+    border-bottom: 1px solid $color-cloud ;
+    padding: 5vh  2vh 2vh 2vh;
+    @include tablet {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        padding: 3vh;
+    }
+    &-search {
+        background-image: url('../../assets/icons/search-24px.svg');
+        height:30px;
+        background-repeat: no-repeat;
+        background-position: right 10px center;
+        padding: 2vh;
+        border: 1px solid $color-cloud;
+        border-radius: 20px;
+        margin-bottom: 2vh;
+        margin-top: 1vh;
+
+        @include tablet{
+            margin-right: 2vh;
+            padding-block: 1.2rem;
+            width: 12rem;
+            margin-block: 0;
+        }
+    }
+    &-add {
+        background-color: $color-isindigo;
+        border: none;
+        color: $color-white;
+        border-radius: 20px;
+        height: min-content;
+        padding: 0.65rem 1rem;
+        cursor: pointer;
+        font-weight: 600;
+        width: 100%;
+        @include tablet {
+            width: max-content;
+        }
+    }
+    &-title {
+
+        @include tablet {
+            font-size: 1.9rem;
+            padding-left: 1rem;
+        }
+        @include desktop {
+            margin: 1vh 5vh;
+        }
+    }
+}
+
+
+.warehouse__nav {
+    display: flex;
+    flex-direction: column;
+
+    @include tablet {
+        flex-direction: row;
+        align-items: center;
+        margin-right: 4rem;
+    }
+}
+.warehouselist__containerTwo {
+    padding:$mobile-main-padding;
+    border-bottom: 1px solid $color-cloud;
+    @include tablet {
+        display: none;
+    }
+
+}
+
+a {
+    text-decoration: none;
+}
+
+.warehouse__allWarehouses{
+    display: flex;
+    justify-content: space-between;
+ 
+    &-titleWare{
+        color: $color-slate;
+        @include tablet{
+            display: none;
+        }
+    }
+    &--titleWare{
+        display: none;
+        @include tablet {
+            display:flex;
+            width: 20vh;
+            align-items: center;
+            font-size: 0.75rem;
+        }
+    }
+    &-titleAddress {
+        color: $color-slate;
+        margin-top: 2vh;
+        @include tablet{
+            display: none;
+        }
+    }
+    &--titleAddress{
+        display: none;
+        @include tablet {
+            display:flex;
+            width: 18vh;
+            align-items: center;
+            font-size: 0.75rem;
+        }
+        @include desktop {
+            width: 40vh;
+        }
+    }
+    &-titleContact{
+        color: $color-slate;
+        @include tablet{
+            display: none;
+        }
+    }
+    &--titleContact{
+        display: none;
+        @include tablet {
+            display:flex;
+            width: 18vh;
+            align-items: center;
+            font-size: 0.75rem;
+        }
+    }
+    &-titleInfo {
+        color: $color-slate;
+        margin-top: 2vh;
+        @include tablet{
+            display: none;
+        }
+    }
+    &--titleInfo {
+        display: none;
+        @include tablet {
+            display: flex;
+            width: 25vh;
+            align-items: center;
+            font-size: 0.75rem;
+        }
+        @include desktop {
+            width: 20vh;
+        }
+    }
+
+    &--sort {
+        width: 1rem;
+        margin-left: 0.5rem;
+    }
+
+    &-name{
+        border: 5px;
+        @include tablet {
+            width: 18vh
+        }
+    }
+    &-typeItem {
+        color: $color-isindigo;
+        font-weight: 600;
+        display: flex;
+        @include tablet {
+            width: 20vh;
+            
+            &:hover {
+                text-decoration: underline;
+            }
+        }
+     
+    }
+    &-one {
+        @include tablet {
+            display:  flex;
+            flex-direction: row;
+        }  
+    }
+    &-two {
+        @include tablet {
+            display: flex;
+            flex-direction: row;
+        }
+    }
+    @include desktop {
+        &-address {
+            margin-right: 1vh;
+        }
+    }
+
+    &-edit {
+        @include tablet {
+            padding-left: 0.7rem;
+        }
+    }
+
+    &-delete {
+        @include tablet {
+            cursor: pointer;
+        }
+    }
+}
+
+.warehouse__allWarehouses{
+    &-title {
+        display: none;
+        @include tablet {
+            display: flex;
+        }
+    }
+&-buttons{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 2vh;
+}
+}
+
+.warehouselist__containerTwo--tablet {
+    display: none;
+    @include tablet {
+        display: flex;
+        border-bottom: 1px solid $color-cloud;
+        align-items: center;
+        justify-content: space-evenly;
+        height: 12vh;
+
+        &:hover {
+            background: $blue-opacity;
+            cursor: pointer;
+        }
+    }
+}
+
+.contact-info {
+    width: 25vh;
+}
+.address-info-tablet {
+    width: 20vh;
+    @include desktop {
+        width: 41vh;
+        display: flex;
+    }
+}

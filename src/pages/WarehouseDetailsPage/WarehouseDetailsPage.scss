@@ -1,0 +1,25 @@
+@use '../../styles/partials/global' as*;
+@use '../../styles/partials/mixins' as*;
+@use '../../styles/partials/variables' as*;
+
+.content-container {
+    margin-inline: $mobile-main-margin;
+    border-radius: 3px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    position: relative;
+    top: -5rem;
+    z-index: 30;
+
+    @include tablet {
+        top: -4.5rem;
+        margin-inline: $tablet-main-margin;
+    }
+
+    @include desktop {
+        margin-inline: $desktop-main-margin;
+    }
+}
+
+.content-background {
+    background-color: $color-lightgrey;
+}

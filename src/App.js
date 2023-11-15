@@ -1,23 +1,30 @@
-import logo from './logo.svg';
-import './App.css';
+// import './App.scss';
+import AddNewWarehouse from './pages/AddNewWarehouse/AddNewWarehouse';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import WarehouseDetailsPage from './pages/WarehouseDetailsPage/WarehouseDetailsPage';
+import HomePage from './pages/HomePage/HomePage';
+import InventoryListPage from './pages/InventoryListPage/InventoryListPage';
+import EditWarehouse from '../src/pages/EditWarehouse/EditWarehouse';
+import InventoryItemDetails from './pages/InventoryItemDetails/InventoryItemDetails';
+import EditInventory from "./pages/EditInventory/EditInventory";
+import AddInventory from './pages/AddInventory/AddInventory';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+
+      <BrowserRouter>
+        <Routes>
+          <Route path='/' element={<HomePage />}/>
+          <Route path='/warehouse-details/:id' element={<WarehouseDetailsPage />} />
+          <Route path='/inventory'element={<InventoryListPage/>} />
+          <Route path= '/edit-warehouse-form/:id' element ={<EditWarehouse />} />
+          <Route path='/add-warehouse-form' element = {<AddNewWarehouse />} />
+          <Route path='/inventory-details/:id' element= {<InventoryItemDetails />} />
+          <Route path='/add-inventory-form' element={<AddInventory/>}/>
+          <Route path="/edit-inventory-form/:id" element={<EditInventory />} />
+        </Routes>
+      </BrowserRouter>
     </div>
   );
 }
