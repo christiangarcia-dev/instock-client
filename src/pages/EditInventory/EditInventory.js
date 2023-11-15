@@ -2,13 +2,14 @@ import "./EditInventory.scss";
 import backArrow from "../../assets/icons/arrow_back-24px.svg";
 import errorImg from "../../assets/icons/error-24px.svg";
 import { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import Header from "../../components/Header/Header";
 import Footer from "../../components/Footer/Footer";
 import axios from "axios";
 
 const EditInventory = () => {
   const { id } = useParams();
+  const navigate = useNavigate()
 
   const [item, setItem] = useState({});
   const [warehouses, setWarehouses] = useState([]);
@@ -32,6 +33,10 @@ const EditInventory = () => {
     getItemDetails();
     getWarehouses();
   }, [id]);
+
+  const goBack = () => {
+    navigate(-1)
+  };
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -104,7 +109,8 @@ const EditInventory = () => {
             src={backArrow}
             alt="arrow pointing left"
             className="xform__back-arrow"
-          ></img>
+            onClick={goBack}
+          />
           <h1 className="xform__header"> Edit Inventory Item</h1>
         </div>
         <form className="xform__form" onSubmit={handleSubmit}>
