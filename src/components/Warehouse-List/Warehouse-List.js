@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import DeleteWarehouseModal from "../DeleteModal/DeleteWarehouseModal"; // Adjust the path as necessary
+import DeleteWarehouseModal from "../DeleteWarehouseModal/DeleteWarehouseModal"; // Adjust the path as necessary
 import "./Warehouse-List.scss";
 import editIcon from "../../assets/icons/edit-24px.svg";
 import deleteIcon from "../../assets/icons/delete_outline-24px.svg";
@@ -59,9 +59,11 @@ function WarehouseList() {
             type="text"
             placeholder="Search..."
             ></input>
-            <button className="warehouselist__containerOne-add">
-            + Add New Warehouse
-            </button>
+            <Link className="warehouselist__container-link" to={`/add-warehouse-form`}>
+                <button className="warehouselist__containerOne-add">
+                + Add New Warehouse
+                </button>
+            </Link>
         </div>
         </section>
 

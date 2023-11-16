@@ -1,0 +1,178 @@
+@use "../../styles/partials/global" as *;
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/variables" as *;
+
+.xform {
+  position: relative;
+  top: -5vh;
+  background-color: $color-white;
+  width: 91%;
+  box-shadow: 0 4px 8px rgba(19, 24, 44, 0.1);
+  margin: 0 auto;
+
+  &__header-div {
+    display: flex;
+    border-bottom: 1px solid $color-cloud;
+    align-items: center;
+    padding: 1rem 0.5rem;
+    padding-left: 2rem;
+  }
+
+  &__back-arrow {
+    width: 1.5rem;
+    height: 1.5rem;
+  }
+
+  &__header {
+    font-size: 1.75rem;
+    line-height: 2.25rem;
+    font-weight: 600;
+    padding-left: 0.25rem;
+  }
+
+  &__form {
+  }
+
+  &__content-div {
+    @include tablet {
+      display: flex;
+      margin-bottom: 1rem;
+      justify-content: space-evenly;
+    }
+    @include desktop {
+      display: flex;
+      margin-bottom: 1rem;
+      justify-content: space-evenly;
+      padding: 0 1rem;
+    }
+  }
+
+  &__warehouse-div {
+    padding: 1rem;
+    border-bottom: 1px solid $color-cloud;
+
+    @include tablet {
+      border-bottom: none;
+      margin: 1rem;
+      padding: 0;
+    }
+  }
+  &__warehouse-div:nth-of-type(1){
+    @include tablet {
+      border-right: 1px solid $color-cloud;
+      padding-right: 1rem;
+
+    }
+  }
+  &__subheader {
+    font-size: 1.25rem;
+    font-weight: 600;
+    line-height: 1.75rem;
+    padding: 1rem 0;
+  }
+
+  &__label {
+    margin-bottom: 0.25rem;
+    font-size: 0.8125rem;
+    font-weight: 600;
+    line-height: 1.25rem;
+  }
+
+  &__field {
+    height: 2.25rem;
+    width: 100%;
+    padding: 0 1rem;
+    border-radius: 1.25rem;
+    margin-top: 0.25rem;
+    margin-bottom: 1rem;
+    border: 1px solid $color-cloud;
+  }
+
+  input:invalid {
+    outline: 1px solid $color-red;
+  }
+
+  &__missing-input {
+    display: none;
+  }
+
+  &__missing-input--display {
+    display: flex;
+    align-items: center;
+  }
+
+  &__invalid-text {
+    font-size: 0.75rem;
+    font-weight: 400;
+    line-height: 1.125rem;
+    color: $color-red;
+    margin-left: 0.25rem;
+  }
+
+  &__contact-div {
+    padding: 1rem;
+
+    @include tablet {
+      margin: 1rem 0;
+      border-left: 1px solid $color-cloud;
+      padding: 0 1rem;
+    }
+    @include desktop {
+      margin: 1rem 0;
+      border-left: 1px solid $color-cloud;
+      padding: 0 2rem;
+    }
+  }
+
+  &__buttons-div {
+    background-color: $color-lightgrey;
+    height: 4.25rem;
+    padding: 0 0.5rem;
+    display: flex;
+    justify-content: space-around;
+
+    @include tablet {
+      justify-content: flex-end;
+    }
+
+    @include desktop {
+      justify-content: flex-end;
+    }
+  }
+
+  &__button {
+    height: 2.25rem;
+    width: 40%;
+    padding: 0 1rem;
+    border-radius: 1.25rem;
+    border: 1px solid $color-cloud;
+    background-color: $color-white;
+    margin-top: 1rem;
+
+    @include tablet {
+      padding: 0.5rem 1rem;
+      width: 15%;
+      margin-left: 0.5rem;
+    }
+
+    @include desktop {
+      padding: 0.5rem 1rem;
+      width: 8%;
+      margin-left: 0.5rem;
+    }
+  }
+
+  &__button:hover {
+    background-color: $color-graphite;
+  }
+
+  &__button--save {
+    background-color: $color-isindigo;
+    color: $color-white;
+    border: none;
+  }
+
+  &__button--save:hover {
+    background-color: $color-graphite;
+  }
+}

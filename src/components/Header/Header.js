@@ -6,9 +6,11 @@ import { NavLink } from "react-router-dom";
 function Header() {
     return (
         <header className="header">
+            <NavLink className="header__logo-link" to={`/`}>
             <div className="header__logo">
                 <img src={logo} className="header__logo-src" alt="instock logo" />
             </div>
+            </NavLink>
             <div className="header__buttons">
                 <NavLink className="header__buttons-warehouses header__buttons-all" to={`/`} >
                 Warehouses

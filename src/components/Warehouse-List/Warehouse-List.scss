@@ -1,23 +1,23 @@
-@use '../../styles/partials/global' as*;
-@use '../../styles/partials/mixins' as*;
-@use '../../styles/partials/variables' as*;
+@use '../../styles/partials/global' as *;
+@use '../../styles/partials/mixins' as *;
+@use '../../styles/partials/variables' as *;
 
 p {
     color: $color-isblack;
 }
 
 .warehouse__list {
-    top: -10vh;
+    top: -5rem;
     background-color: $color-white;
     margin: $mobile-main-margin;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     @include tablet {
         margin:$tablet-main-margin;
-        top: -17.4vh;
+        top: -7.3rem;
     }
     @include desktop {
         margin: $desktop-main-margin;
-        top: -24vh;
+        top: -10.2rem;
     }
 }
 .warehouselist__titles {
@@ -66,7 +66,7 @@ p {
         @include tablet{
             margin-right: 2vh;
             padding-block: 1.2rem;
-            width: 18rem;
+            width: 12rem;
             margin-block: 0;
         }
     }
@@ -79,6 +79,10 @@ p {
         padding: 0.65rem 1rem;
         cursor: pointer;
         font-weight: 600;
+        width: 100%;
+        @include tablet {
+            width: max-content;
+        }
     }
     &-title {
 
@@ -91,6 +95,7 @@ p {
         }
     }
 }
+
 
 .warehouse__nav {
     display: flex;
